@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DAL.Singer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="index-admin" class="d-flex flex-column justify-content-center align-items-center ">
+    <h2 class="my-2 shadow p-3 pe-5 px-5">کنترل هنرمند ها</h2>
+    <button id="Create-Singer" class="btn btn-light mb-4 w-25">جدید</button>
+    <table class="table table-hover text-center" style="cursor: pointer;">
+        <tr class="" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="text-light fw-bolder">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <a class="btn btn-warning" onclick="EditSinger(@item.SingerId)">
+                        Edit<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-info" onclick="DetailSinger(@item.SingerId)">
+                        Details<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-danger" onclick="DeleteSinger(@item.SingerId)">
+                        Delete<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

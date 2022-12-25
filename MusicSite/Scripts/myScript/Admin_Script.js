@@ -27,6 +27,8 @@ $("#Create-Group").click(function () {
     });
 });
 
+
+
 function EditGroup(id) {
     console.log("Click Edit");
     $("#modal-shadow").addClass("d-block");
@@ -51,3 +53,36 @@ function DeleteGroup(id) {
         $("#modal-body").html(res);
     });
 }
+
+$("#Create-Singer").click(function () {
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Singers/Create", (res) => {
+        $("#modal-title").html("هنرمند جدید");
+        $("#modal-body").html(res);
+    });
+});
+function EditSinger(id) {
+    console.log("Click Edit");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Singers/Edit/" + id, (res) => {
+        $("#modal-title").html("ویرایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DetailSinger(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Singers/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeleteSinger(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Singers/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+

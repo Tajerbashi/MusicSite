@@ -1,0 +1,32 @@
+﻿@model DAL.Singer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>برای حذف این مورد مطمیین هستید؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name) :
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description) :
+            @Html.DisplayFor(model => model.Description)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate) :
+            @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color text-center">
+            <input type="submit" value="Delete" class="btn btn-danger w-50" />
+        </div>
+    }
+</div>

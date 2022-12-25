@@ -127,6 +127,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GrouptTypesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,6 +186,11 @@
     <Content Include="Areas\Admin\Views\GrouptTypes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\GrouptTypes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\GrouptTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Singers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Singers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Singers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Singers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Singers\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
