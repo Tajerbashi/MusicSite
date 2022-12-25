@@ -1,0 +1,49 @@
+﻿@model DAL.GrouptType
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.groupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.groupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.visit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+    </dl>
+</div>

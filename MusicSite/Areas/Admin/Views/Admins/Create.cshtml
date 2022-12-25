@@ -1,0 +1,79 @@
+﻿@model DAL.Admin
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div id="Create-Admin">
+    <h2>ایجاد ادمین</h2>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group d-flex flex-row mt-1">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row mt-1">
+                @Html.LabelFor(model => model.Family, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Family, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Family, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row mt-1">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row  mt-1">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row  mt-1">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row mt-1">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-flex flex-row mt-3 justify-content-center align-items-center">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class=" btn btn-success w-100" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="text-center">
+        @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-dark w-50 mt-1" })
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

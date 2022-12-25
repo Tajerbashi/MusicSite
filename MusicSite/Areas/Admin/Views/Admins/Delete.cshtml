@@ -1,0 +1,65 @@
+﻿@model DAL.Admin
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div>
+
+    <h2>حذف ادمین</h2>
+    <hr />
+
+    <h3 class="shadow text-white p-5">شما برای حذف ادمین ذیل <span class="bg-danger p-2 rounded-3">@Model.Name @Model.Family</span> مطمیین هستید؟</h3>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name) :
+                @Html.DisplayFor(model => model.Name)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Family) :
+                @Html.DisplayFor(model => model.Family)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email) :
+                @Html.DisplayFor(model => model.Email)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone) :
+                @Html.DisplayFor(model => model.Phone)
+
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Username) :
+                @Html.DisplayFor(model => model.Username)
+
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password) :
+                @Html.DisplayFor(model => model.Password)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateDate) :
+                @Html.DisplayFor(model => model.CreateDate)
+            </dt>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color d-flex flex-column justify-content-center align-items-center">
+                <input type="submit" value="Delete" class="btn btn-danger w-50" />
+                @Html.ActionLink("Back to List", "Index", "", new {@class="btn btn-dark w-25 mt-2"})
+            </div>
+        }
+    </div>
+
+</div>

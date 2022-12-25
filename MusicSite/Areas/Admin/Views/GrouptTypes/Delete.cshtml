@@ -1,0 +1,44 @@
+﻿@model DAL.GrouptType
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h3 class="text-danger">شما از حذف این گروه مطمیین هستید؟</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.groupName) :
+            @Html.DisplayFor(model => model.groupName)
+
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.visit) :
+            @Html.DisplayFor(model => model.visit)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.duration) :
+            @Html.DisplayFor(model => model.duration)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate) :
+            @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type) :
+            @Html.DisplayFor(model => model.Type)
+
+        </dt>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger w-100" />
+        </div>
+    }
+</div>

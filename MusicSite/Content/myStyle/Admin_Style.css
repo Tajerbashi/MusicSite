@@ -1,0 +1,74 @@
+﻿@font-face {
+    font-family: IranSans;
+    src: url("'~/Content/Fonts/IRANSansWeb Bold.ttf'");
+}
+body {
+    font-family: IranSans;
+    background: linear-gradient(270deg,#af70ff,#e58bff);
+}
+
+a {
+    text-decoration: none !important;
+}
+.aside-list-item {
+    background: linear-gradient(90deg,#ab58ff,#e58bff);
+    box-shadow: 0 0 10px 0 #000000ba;
+}
+.aside-list-item:hover {
+    background: linear-gradient(90deg,#ffffff8e,#ab58ff);
+    box-shadow: 0 0 10px 0 #000000ba;
+}
+.img-item {
+
+}
+.title-item{
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    background: linear-gradient(0deg,#ffffff56,#eeeeee00);
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 0 10px 0 #0000006d;
+    margin-top: 1rem;
+    color: #5100ff;
+}
+#aside-panel {
+    z-index: 10001 !important;
+    position: absolute;
+    overflow: hidden;
+    background: linear-gradient(90deg,#ab58ff,#8000ff);
+    box-shadow: 0 0 10px 0 #3900ff;
+}
+#aside-list {
+    list-style: none !important;
+}
+.open {
+    animation-name: openAside;
+    animation-duration: 1s;
+    height: 90vh;
+}
+.close {
+    animation-name: closeAside;
+    animation-duration: 1s;
+    height: 5%;
+}
+@keyframes closeAside{
+    0% {
+        height: 90vh;
+    }
+    100% {
+        height: 5%;
+    }
+}
+@keyframes openAside {
+    0% {
+        height: 5%;
+    }
+
+    100% {
+        height: 90vh;
+    }
+}
+.lbl{
+    font-size: 1.3rem; 
+}

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - layout</title>
+    <link href="~/Content/myStyle/Admin_Style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/myStyle/modal.css" rel="stylesheet" />
+</head>
+<body dir="rtl">
+
+    <nav id="navTop">
+        <div class="bg-dark text-light text-center p-3 w-100">
+            <h1 id="header-h1">پنل مدیریت کنترل محتوا</h1>
+        </div>
+    </nav>
+
+    <aside id="aside-panel" class="col-12 pt-5 close">
+        <ul id="aside-list" class="p-3 list-group d-flex flex-md-column flex-lg-row justify-content-center align-items-center flex-wrap">
+            <li class="list-group-item aside-list-item m-1 rounded-4 w-25">
+                <a href="@Url.Action("Index","Admins")">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-admin-settings-male-96.png" class="img-fluid img-item" style="max-width: 150px;" />
+                        <p class="title-item">ادمین</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item aside-list-item m-1 rounded-4 w-25">
+                <a href="@Url.Action("Index","GrouptTypes")">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-music-library-96.png" class="img-fluid img-item" style="max-width: 150px;" />
+                        <p class="title-item">گروه موزیک</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item aside-list-item m-1 rounded-4 w-25">
+                <a href="#">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-guitarist-96.png" class="img-fluid img-item" style="max-width: 150px;" />
+                        <p class="title-item">هنرمندان</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item aside-list-item m-1 rounded-4 w-25">
+                <a href="#">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-airpods-pro-max-96.png" class="img-fluid img-item" style="max-width: 150px;" />
+                        <p class="title-item">آهنگ ها</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item aside-list-item m-1 rounded-4 w-25">
+                <a href="#">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-music-album-96.png" class="img-fluid img-item" style="max-width: 150px;" />
+                        <p class="title-item">پلی لیست</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item aside-list-item m-1 rounded-4 w-25">
+                <a href="#">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-account-96.png" class="img-fluid img-item" style="max-width: 150px;" />
+                        <p class="title-item">کاربران</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <section id="body" class="container-fluid body-content col-12 mt-5 pt-3">
+        @RenderBody()
+    </section>
+
+    <!-- Modal content -->
+    <div id="modal-shadow">
+        <div id="modal-tab">
+
+            <div id="modal-header">
+                <p id="modal-title">Title</p>
+                <span id="close-X">&times;</span>
+            </div>
+
+            <div id="modal-body">
+                body
+            </div>
+
+            <div id="modal-footer">
+            </div>
+
+        </div>
+    </div>
+    <!-- End Modal -->
+
+
+    <script src="~/Scripts/jquery-3.6.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/myScript/modal.js"></script>
+    <script src="~/Scripts/myScript/Admin_Script.js" defer></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
