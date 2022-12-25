@@ -25,7 +25,8 @@ namespace DAL
         public DateTime CreateDate { get; set; }
 
 
-        public List<Song> Songs { get; set; }
+        public virtual List<Song> Songs { get; set; }
 
+        public Singer() { }
     }
 }

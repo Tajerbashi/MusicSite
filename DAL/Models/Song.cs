@@ -18,6 +18,14 @@ namespace DAL
         public string Name { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
+        [Display(Name = "گروه")]
+        public int GroupId { get; set; }
+
+        [Required(ErrorMessage = "You Must Fill Input")]
+        [Display(Name = "آوازخوان")]
+        public int SingerId { get; set; }
+
+        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "عنوان")]
         [MaxLength(100)]
         public string Title { get; set; }
@@ -27,17 +35,28 @@ namespace DAL
         public DateTime CreateDate { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
-        [Display(Name = "وضعیت")]
+        [Display(Name = "عضویت")]
         public bool Type { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "فایل")]
         public string AddressFile { get; set; }
 
-        public Singer Singer { get; set; }
-        public GrouptType GrouptType { get; set; }
-        public List<PlayList> PlayLists { get; set; }
+        [Display(Name = "تصویر")]
+        public string Picture { get; set; }
 
+        [Display(Name = "امتیاز")]
+        public int Score { get; set; }
+
+        
+        public virtual Singer Singer { get; set; }
+        
+        public virtual GrouptType GrouptType { get; set; }
+
+        public virtual PlayList PlayLists { get; set; }
+
+        public Song()
+        {
+        }
 
     }
 }

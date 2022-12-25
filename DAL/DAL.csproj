@@ -51,9 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202212242321342_Initial-Database.cs" />
-    <Compile Include="Migrations\202212242321342_Initial-Database.designer.cs">
-      <DependentUpon>202212242321342_Initial-Database.cs</DependentUpon>
+    <Compile Include="Migrations\202212251544598_Initial-Database.cs" />
+    <Compile Include="Migrations\202212251544598_Initial-Database.designer.cs">
+      <DependentUpon>202212251544598_Initial-Database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202212251608524_SongChange.cs" />
+    <Compile Include="Migrations\202212251608524_SongChange.designer.cs">
+      <DependentUpon>202212251608524_SongChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -71,14 +75,18 @@
     <Compile Include="Services\AdminRepository.cs" />
     <Compile Include="Services\GroupRepository.cs" />
     <Compile Include="Services\SingerRepository.cs" />
+    <Compile Include="Services\SongRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202212242321342_Initial-Database.resx">
-      <DependentUpon>202212242321342_Initial-Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202212251544598_Initial-Database.resx">
+      <DependentUpon>202212251544598_Initial-Database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202212251608524_SongChange.resx">
+      <DependentUpon>202212251608524_SongChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

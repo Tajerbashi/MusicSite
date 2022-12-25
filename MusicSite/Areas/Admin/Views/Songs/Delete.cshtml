@@ -1,0 +1,63 @@
+﻿@model DAL.Song
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="p-2 shadow text-light">آیا برای حذف این مورد مطمیین هستید؟</h3>
+<h2 class="bg-danger shadow text-center text-light py-3 "> حذف اطلاعات</h2>
+<hr /> 
+
+<div class="text-center">
+    <dl class="dl-horizontal">
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.GrouptType.groupName) :
+            @Html.DisplayFor(model => model.GrouptType.groupName)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Singer.Name) :
+            @Html.DisplayFor(model => model.Singer.Name)
+        </dt>
+
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Name) :
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Title) :
+            @Html.DisplayFor(model => model.Title)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.CreateDate) :
+            @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Type) :
+            @Html.DisplayFor(model => model.Type)
+        </dt>
+
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.AddressFile) :
+            @Html.DisplayFor(model => model.AddressFile)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Score) :
+            @Html.DisplayFor(model => model.Score)
+        </dt>
+
+        <dt class="my-1 d-flex flex-column justify-content-center align-items-center">
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow mt-2" style="max-width: 350px;" />
+        </dt>
+    </dl>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color d-flex flex-column align-items-center justify-content-center">
+        <input type="submit" value="حذف" class="btn btn-danger w-25 my-3" />
+        @Html.ActionLink("Back to List", "Index","",new {@class="btn btn-dark"})
+    </div>
+}
+</div>

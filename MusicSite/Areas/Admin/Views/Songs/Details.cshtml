@@ -1,0 +1,57 @@
+﻿@model DAL.Song
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>نمایش اطلاعات</h2>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.GrouptType.groupName) :
+            @Html.DisplayFor(model => model.GrouptType.groupName)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Singer.Name) :
+            @Html.DisplayFor(model => model.Singer.Name)
+        </dt>
+
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Name) :
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Title) :
+            @Html.DisplayFor(model => model.Title)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.CreateDate) :
+            @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Type) :
+            @Html.DisplayFor(model => model.Type)
+        </dt>
+
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.AddressFile) :
+            @Html.DisplayFor(model => model.AddressFile)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Score) :
+            @Html.DisplayFor(model => model.Score)
+        </dt>
+
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Picture) :
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow" style="max-width: 350px;" />
+        </dt>
+    </dl>
+</div>
+<p class="d-flex flex-column justify-content-center align-items-center">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.songId },new {@class="btn btn-warning w-50"})
+    @Html.ActionLink("Back to List", "Index","", new { @class = "btn btn-dark w-25 mt-3" })
+</p>

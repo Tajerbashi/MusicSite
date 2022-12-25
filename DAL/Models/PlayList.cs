@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,10 @@ namespace DAL
     {
         [Key]
         public int playListId { get; set; }
+
+        [Required(ErrorMessage = "You Must Fill Input")]
+        [Display(Name = "انتخاب گروه")]
+        public int GroupId { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام لیست")]
@@ -27,9 +32,15 @@ namespace DAL
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; }
 
-        public List<Song> Songs { get; set; }
-        public GrouptType GrouptType { get; set; }
+        [Required(ErrorMessage = "You Must Fill Input")]
+        [Display(Name = "عضویت")]
+        public bool Type { get; set; }
 
+        public virtual GrouptType GrouptType { get; set; }
+        public virtual List<Song> Songs { get; set; }
 
+        public PlayList()
+        {
+        }
     }
 }

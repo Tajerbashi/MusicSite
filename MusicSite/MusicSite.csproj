@@ -128,6 +128,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GrouptTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -191,6 +192,11 @@
     <Content Include="Areas\Admin\Views\Singers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Singers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Singers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Songs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Songs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Songs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Songs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Songs\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
@@ -222,6 +228,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Files\Musics\" />
+    <Folder Include="Files\Photos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

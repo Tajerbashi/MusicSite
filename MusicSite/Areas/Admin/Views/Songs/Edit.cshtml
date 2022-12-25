@@ -1,0 +1,94 @@
+﻿@model DAL.Song
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ویرایش اطلاعات آهنگ</h2>
+<hr />
+
+
+@using (Html.BeginForm("Edit","Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal text-center">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.songId)
+    @Html.HiddenFor(model => model.Score)
+    @Html.HiddenFor(model => model.CreateDate)
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.GroupId, new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
+            @Html.DropDownList("GroupId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.SingerId, new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
+            @Html.DropDownList("SingerId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SingerId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Type)
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.AddressFile, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
+            <input type="file" class="form-control" name="fileUp" />
+            @Html.ValidationMessageFor(model => model.AddressFile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9 d-flex flex-column justify-content-center align-items-center" >
+            <input type="file" class="form-control" name="photoUp" />
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow my-2" style="max-width:200px;" />
+            @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group d-flex flex-row justify-content-center align-items-center mt-5">
+        <div class="col-12 text-center">
+            <input type="submit" value="ثبت ویرایش" class="btn btn-warning w-50" />
+        </div>
+    </div>
+</div>
+}
+
+<div class="d-flex flex-row justify-content-center align-items-center mt-2">
+    @Html.ActionLink("Back to List", "Index","",new {@class="btn btn-dark w-25"})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

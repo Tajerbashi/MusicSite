@@ -27,11 +27,15 @@ namespace DAL
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; }
 
-        [Display(Name = "وضعیت")]
+        [Display(Name = "عضویت")]
         public bool Type { get; set; }=false;
 
-        public List<Song> Songs { get; set; }
-        public List<PlayList> PlayLists { get; set; }
+        public virtual List<Song> Songs { get; set; }
+        public virtual List<PlayList> PlayLists { get; set; }
 
+        public GrouptType()
+        {
+
+        }
     }
 }

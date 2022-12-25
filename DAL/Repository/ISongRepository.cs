@@ -11,7 +11,7 @@ namespace DAL.Repository
         bool Add(Song song);
         bool Update(Song song);
         bool Delete(Song song);
-        bool Save();
+        void Save();
         IEnumerable<Song> GetAll();
         Song GetById(int id);
         Song GetByName(string Name);
