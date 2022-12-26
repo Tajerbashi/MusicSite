@@ -70,10 +70,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IAdminRepository.cs" />
     <Compile Include="Repository\IGroupRepository.cs" />
+    <Compile Include="Repository\IPlayListRepository.cs" />
     <Compile Include="Repository\ISingerRepository.cs" />
     <Compile Include="Repository\ISongRepository.cs" />
     <Compile Include="Services\AdminRepository.cs" />
     <Compile Include="Services\GroupRepository.cs" />
+    <Compile Include="Services\PlayListRepository.cs" />
     <Compile Include="Services\SingerRepository.cs" />
     <Compile Include="Services\SongRepository.cs" />
   </ItemGroup>
