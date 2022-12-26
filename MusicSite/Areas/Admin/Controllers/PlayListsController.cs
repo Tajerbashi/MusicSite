@@ -90,6 +90,8 @@ namespace MusicSite.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                playList.CreateDate = DateTime.Now;
+                playList.PlayCount = 0;
                 db.Entry(playList).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

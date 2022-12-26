@@ -15,8 +15,13 @@ a {
     box-shadow: 0 0 10px 0 #000000ba;
 }
 .aside-list-item:hover {
-    background: linear-gradient(90deg,#ffffff8e,#ab58ff);
+    background: linear-gradient(90deg,#7943ffff,#ffffffba);
     box-shadow: 0 0 10px 0 #000000ba;
+}
+@media screen and (max-width: 576) {
+    #aside-list{
+        background: red !important;
+    }
 }
 .title-item{
     font-size: 1.4rem;
@@ -32,8 +37,8 @@ a {
 #aside-panel {
     z-index: 10001 !important;
     position: absolute;
-    overflow: auto;
-    background: linear-gradient(90deg,#c892ff,#9c90ffff);
+    overflow: hidden;
+    background: linear-gradient(90deg,#ab58ff,#9c90ffff);
     box-shadow: 0 0 50px 0 #000000;
 }
 #aside-list {

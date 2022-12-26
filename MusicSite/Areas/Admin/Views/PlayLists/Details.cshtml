@@ -4,63 +4,35 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>نمایش اطلاعات</h2>
+<hr />
 
 <div>
-    <h4>PlayList</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.GrouptType.groupName)
-        </dt>
-
-        <dd>
+            @Html.DisplayNameFor(model => model.GrouptType.groupName) :
             @Html.DisplayFor(model => model.GrouptType.groupName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name) :
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description) :
             @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PlayCount)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayCount) :
             @Html.DisplayFor(model => model.PlayCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate) :
             @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type) :
             @Html.DisplayFor(model => model.Type)
-        </dd>
-
+        </dt>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.playListId },new {@class="btn btn-info w-100 mt-3"})
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.playListId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

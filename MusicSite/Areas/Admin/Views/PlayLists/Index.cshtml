@@ -53,14 +53,14 @@
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit","Songs",new {id =item.playListId})" class="btn btn-warning">
-                        Edit
+                    <a class="btn btn-warning" onclick="EditPlayLists(@item.playListId)">
+                        Edit<i class="glyphicon glyphicon-edit"></i>
                     </a>
-                    <a href="@Url.Action("Details","Songs",new {id =item.playListId})" class="btn btn-info">
-                        Details
+                    <a class="btn btn-info" onclick="DetailPlayLists(@item.playListId)">
+                        Details<i class="glyphicon glyphicon-edit"></i>
                     </a>
-                    <a href="@Url.Action("Delete","Songs",new {id =item.playListId})" class="btn btn-danger">
-                        Delete
+                    <a class="btn btn-danger" onclick="DeletePlayLists(@item.playListId)">
+                        Delete<i class="glyphicon glyphicon-edit"></i>
                     </a>
                 </td>
             </tr>
