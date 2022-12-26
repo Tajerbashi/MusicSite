@@ -59,14 +59,15 @@
                     @Html.DisplayFor(modelItem => item.Score)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit","Songs",new {id =item.songId})" class="btn btn-warning" >
+                    <a href="@Url.Action("Edit","PlayLists",new {id =item.songId})" class="btn btn-warning" >
                         Edit<i class="glyphicon glyphicon-edit"></i>
                     </a>
-                    <a href="@Url.Action("Details","Songs",new {id =item.songId})" class="btn btn-info">
+                    <a href="@Url.Action("Details","PlayLists",new {id =item.songId})" class="btn btn-info">
                         Details<i class="glyphicon glyphicon-edit"></i>
                     </a>
-                    <a href="@Url.Action("Delete","Songs",new {id =item.songId})" class="btn btn-danger" >
+                    <a href="@Url.Action("Delete","PlayLists",new {id =item.songId})" class="btn btn-danger">
                         Delete<i class="glyphicon glyphicon-edit"></i>
+                    </a>
                 </td>
             </tr>
         }

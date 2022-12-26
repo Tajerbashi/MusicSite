@@ -21,11 +21,13 @@ namespace MusicSite.Areas.Admin.Controllers
         ISongRepository songRep;
         IGroupRepository groupRep;
         ISingerRepository singrep;
+        IPlayListRepository PlayRep;
         public SongsController()
         {
             songRep = new SongRepository(db);
             groupRep = new GroupRepository(db);
             singrep = new SingerRepository(db);
+            PlayRep = new PlayListRepository(db);
         }
         // GET: Admin/Songs
         public ActionResult Index()

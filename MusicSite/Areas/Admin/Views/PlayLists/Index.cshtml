@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DAL.PlayList>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h2>نمایش تمام پلی لیست ها</h2>
+    <button class="btn btn-light w-25 my-2" id="CreatePlayList">ایجاد پلی لیست</button>
+    <table class="table table-hover text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GrouptType.groupName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GrouptType.groupName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","Songs",new {id =item.playListId})" class="btn btn-warning">
+                        Edit
+                    </a>
+                    <a href="@Url.Action("Details","Songs",new {id =item.playListId})" class="btn btn-info">
+                        Details
+                    </a>
+                    <a href="@Url.Action("Delete","Songs",new {id =item.playListId})" class="btn btn-danger">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
