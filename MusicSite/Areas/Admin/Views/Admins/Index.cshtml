@@ -5,14 +5,11 @@
 }
 
 <div id="index-admin" class="d-flex flex-column justify-content-center align-items-center ">
-    <h2 class="my-2 shadow p-3 pe-5 px-5" >پنل مدیریت ادمین</h2>
-
-    <p class="my-3 ">
-        @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary w-100 text-light" })
-    </p>
+    <h2 class="my-2 shadow p-3 pe-5 px-5">پنل مدیریت ادمین</h2>
+    @Html.ActionLink("ایجاد ادمین جدید", "Create", "", new { @class = "btn btn-light w-25 my-2" })
 
     <table class="table table-hover text-center" style="cursor: pointer;">
-        <tr class="" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
+        <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -56,9 +53,13 @@
                     @Html.DisplayFor(modelItem => item.CreateDate)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit",new {id =item.adminId}, new { @class="btn btn-warning" })
-                    @Html.ActionLink("Details", "Details", new { id = item.adminId }, new { @class = "btn btn-info" })
-                    @Html.ActionLink("Delete", "Delete", new { id = item.adminId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("ویرایش", "Edit", new { id = item.adminId }, new { @class = "btn btn-warning" })
+                    <a class="btn btn-info" onclick="DetailAdmin(@item.adminId)">
+                        نمایش
+                    </a>
+                    <a class="btn btn-danger" onclick="DeleteAdmin(@item.adminId)">
+                        حذف
+                    </a>
                 </td>
             </tr>
         }

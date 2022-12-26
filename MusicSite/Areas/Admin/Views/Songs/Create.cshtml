@@ -12,45 +12,45 @@
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal">
+<div class="form-horizontal text-center">
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.GroupId, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.GroupId, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             @Html.DropDownList("GroupId", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.SingerId, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.SingerId, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             @Html.DropDownList("SingerId", null, htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.SingerId, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             <div class="checkbox">
                 @Html.EditorFor(model => model.Type)
                 @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
@@ -59,32 +59,30 @@
     </div>
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.AddressFile, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.AddressFile, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             <input type="file" class="form-control" name="fileUp" />
             @Html.ValidationMessageFor(model => model.AddressFile, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group d-flex flex-row mt-1">
-        @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "lbl control-label col-md-2 text-center mt-1" })
-        <div class="col-md-10">
+        @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
+        <div class="col-md-9">
             <input type="file" class="form-control" name="photoUp" />
             @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
         </div>
     </div>
-    
+
     <div class="form-group d-flex flex-row mt-3 align-items-center justify-content-center">
-        <div class="col-md-offset-2 col-md-10 text-center">
-            <input type="submit" value="ذخیره" class="btn btn-success w-50" />
-        </div>
+        <input type="submit" value="ذخیره" class="btn btn-success w-25" />
     </div>
 
 </div>
 }
 
 <div class="form-group d-flex flex-row mt-1 align-items-center justify-content-center">
-    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-dark w5-0" })
+    @Html.ActionLink("برگشت", "Index", "", new { @class = "btn btn-dark w-25 my-2" })
 </div>
 
 @section Scripts {

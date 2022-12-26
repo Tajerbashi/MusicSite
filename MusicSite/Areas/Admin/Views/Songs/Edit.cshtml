@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ویرایش اطلاعات آهنگ</h2>
@@ -78,15 +77,13 @@
         </div>
     </div>
     <div class="form-group d-flex flex-row justify-content-center align-items-center mt-5">
-        <div class="col-12 text-center">
-            <input type="submit" value="ثبت ویرایش" class="btn btn-warning w-50" />
-        </div>
+        <input type="submit" value="ثبت ویرایش" class="btn btn-warning w-25" />
     </div>
 </div>
 }
 
 <div class="d-flex flex-row justify-content-center align-items-center mt-2">
-    @Html.ActionLink("Back to List", "Index","",new {@class="btn btn-dark w-25"})
+    @Html.ActionLink("برگشت", "Index","",new {@class="btn btn-dark w-25"})
 </div>
 
 @section Scripts {

@@ -85,7 +85,6 @@ function DeleteSinger(id) {
 
 
 $("#CreatePlayList").click(function () {
-    console.log("Clicked");
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/PlayLists/Create", (res) => {
         $("#modal-title").html("پلی لیست جدید");
@@ -112,6 +111,40 @@ function DeletePlayLists(id) {
     console.log("Click Delete");
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/PlayLists/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+//ADMIN
+function DetailAdmin(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Admins/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeleteAdmin(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Admins/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+//Song
+function DetailSong(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Songs/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeleteSong(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Songs/Delete/" + id, (res) => {
         $("#modal-title").html("حذف اطلاعات");
         $("#modal-body").html(res);
     });

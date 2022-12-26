@@ -2,11 +2,9 @@
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h3 class="p-2 shadow text-light">آیا برای حذف این مورد مطمیین هستید؟</h3>
-<h2 class="bg-danger shadow text-center text-light py-3 "> حذف اطلاعات</h2>
+<h5 class="text-danger">آیا برای حذف این مورد مطمیین هستید؟</h5>
 <hr /> 
 
 <div class="text-center">
@@ -56,8 +54,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-actions no-color d-flex flex-column align-items-center justify-content-center">
-        <input type="submit" value="حذف" class="btn btn-danger w-25 my-3" />
-        @Html.ActionLink("Back to List", "Index","",new {@class="btn btn-dark"})
+        <input type="submit" value="حذف" class="btn btn-danger w-100 my-3" />
     </div>
 }
 </div>

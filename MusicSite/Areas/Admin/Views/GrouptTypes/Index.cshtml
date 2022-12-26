@@ -7,11 +7,9 @@
 
 <div id="index-admin" class="d-flex flex-column justify-content-center align-items-center ">
     <h2 class="my-2 shadow p-3 pe-5 px-5">کنترل گروه ها</h2>
-
-    <hr />
-    <button id="Create-Group" class="btn btn-light mb-4 w-25">Create</button>
+    <button id="Create-Group" class="btn btn-light w-25 my-2">ایجاد گروه جدید</button>
     <table class="table table-hover text-center" style="cursor: pointer;">
-        <tr class="" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
+        <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
             <th>
                 @Html.DisplayNameFor(model => model.groupName)
             </th>
@@ -50,13 +48,13 @@
                 </td>
                 <td>
                     <a class="btn btn-warning" onclick="EditGroup(@item.GroupId)">
-                        Edit<i class="glyphicon glyphicon-edit"></i>
+                        ویرایش<i class="glyphicon glyphicon-edit"></i>
                     </a>
                     <a class="btn btn-info" onclick="DetailsGroup(@item.GroupId)">
-                        Details<i class="glyphicon glyphicon-edit"></i>
+                        نمایش<i class="glyphicon glyphicon-edit"></i>
                     </a>
                     <a class="btn btn-danger" onclick="DeleteGroup(@item.GroupId)">
-                        Delete<i class="glyphicon glyphicon-edit"></i>
+                        حذف<i class="glyphicon glyphicon-edit"></i>
                     </a>
                 </td>
             </tr>

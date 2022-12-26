@@ -47,7 +47,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(song);
+            return PartialView(song);
         }
 
         // GET: Admin/Songs/Create
@@ -151,7 +151,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(song);
+            return PartialView(song);
         }
 
         // POST: Admin/Songs/Delete/5

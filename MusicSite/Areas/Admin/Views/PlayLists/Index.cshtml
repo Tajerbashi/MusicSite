@@ -6,10 +6,10 @@
 }
 
 <div class="d-flex flex-column justify-content-center align-items-center">
-    <h2>نمایش تمام پلی لیست ها</h2>
-    <button class="btn btn-light w-25 my-2" id="CreatePlayList">ایجاد پلی لیست</button>
+    <h2 class="my-2 shadow p-3 pe-5 px-5">نمایش تمام پلی لیست ها</h2>
+    <button class="btn btn-light w-25 my-2" id="CreatePlayList">ایجاد پلی لیست جدید</button>
     <table class="table table-hover text-center">
-        <tr>
+        <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
             <th>
                 @Html.DisplayNameFor(model => model.GrouptType.groupName)
             </th>
@@ -54,13 +54,13 @@
                 </td>
                 <td>
                     <a class="btn btn-warning" onclick="EditPlayLists(@item.playListId)">
-                        Edit<i class="glyphicon glyphicon-edit"></i>
+                        ویرایش<i class="glyphicon glyphicon-edit"></i>
                     </a>
                     <a class="btn btn-info" onclick="DetailPlayLists(@item.playListId)">
-                        Details<i class="glyphicon glyphicon-edit"></i>
+                        نمایش<i class="glyphicon glyphicon-edit"></i>
                     </a>
                     <a class="btn btn-danger" onclick="DeletePlayLists(@item.playListId)">
-                        Delete<i class="glyphicon glyphicon-edit"></i>
+                        حذف<i class="glyphicon glyphicon-edit"></i>
                     </a>
                 </td>
             </tr>
