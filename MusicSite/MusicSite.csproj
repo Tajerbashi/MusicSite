@@ -155,7 +155,10 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\myStyle\Admin_Style.css" />
     <Content Include="Content\myStyle\modal.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Photos\ICO\icons8-account-96.png" />
@@ -203,6 +206,12 @@
     <Content Include="Areas\Admin\Views\PlayLists\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayLists\CreatePlayListSongs.cshtml" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />

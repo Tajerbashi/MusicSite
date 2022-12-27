@@ -2,24 +2,38 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DAL.Context;
+using DAL.Repository;
+using DAL.Services;
+using Microsoft.Ajax.Utilities;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
     public class PlayListsController : Controller
     {
-        private DbContexts db = new DbContexts();
+        IPlayListRepository PlayList;
+        IGroupRepository Group;
+        ISongRepository Songs;
+        private DbContexts DB=new DbContexts();
+        public PlayListsController()
+        {
+            PlayList= new PlayListRepository(DB);
+            Group= new GroupRepository(DB);
+            Songs = new SongRepository(DB);
+        }
 
         // GET: Admin/PlayLists
         public ActionResult Index()
         {
-            var playLists = db.PlayLists.Include(p => p.GrouptType);
-            return View(playLists.ToList());
+            return View(PlayList.GetGroups());
         }
 
         // GET: Admin/PlayLists/Details/5
@@ -29,7 +43,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayList playList = db.PlayLists.Find(id);
+            PlayList playList = PlayList.GetById(id.Value);
             if (playList == null)
             {
                 return HttpNotFound();
@@ -40,7 +54,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/PlayLists/Create
         public ActionResult Create()
         {
-            ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName");
+            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView();
         }
 
@@ -56,12 +70,13 @@ namespace MusicSite.Areas.Admin.Controllers
                 playList.CreateDate= DateTime.Now;
                 playList.PlayCount= 0;
 
-                db.PlayLists.Add(playList);
-                db.SaveChanges();
+                PlayList.Add(playList);
+                PlayList.Save();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
+            //ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
+            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView(playList);
         }
 
@@ -72,12 +87,13 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayList playList = db.PlayLists.Find(id);
+            PlayList playList = PlayList.GetById(id.Value);
             if (playList == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
+            //ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
+            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView(playList);
         }
 
@@ -92,11 +108,12 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 playList.CreateDate = DateTime.Now;
                 playList.PlayCount = 0;
-                db.Entry(playList).State = EntityState.Modified;
-                db.SaveChanges();
+                PlayList.Update(playList);
+                PlayList.Save();
                 return RedirectToAction("Index");
             }
-            ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
+            //ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
+            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView(playList);
         }
 
@@ -107,7 +124,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayList playList = db.PlayLists.Find(id);
+            PlayList playList =PlayList.GetById(id.Value);
             if (playList == null)
             {
                 return HttpNotFound();
@@ -120,17 +137,38 @@ namespace MusicSite.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PlayList playList = db.PlayLists.Find(id);
-            db.PlayLists.Remove(playList);
-            db.SaveChanges();
+            PlayList playList = PlayList.GetById(id);
+            PlayList.Delete(playList);
+            PlayList.Save();
             return RedirectToAction("Index");
         }
+        
+        public ActionResult CreatePlayListSongs()
+        {
+            ViewBag.Groups = Group.GetAll();
+            ViewBag.Songs = Songs.GetAll();
+            ViewBag.PlayLists = PlayList.GetAll();
+            return View();
+        }
+        [HttpPost]
+        public void CreatePlayListSongs(string PlayListId, List<string> SongIdList)
+        {
+            PlayList playList = PlayList.GetById(Int32.Parse(PlayListId));
+            foreach (var i in SongIdList)
+            {
+                Song song = Songs.GetById(Convert.ToInt32(i));
+                song.PlayLists = playList;
+            }
+            Songs.Save();
+            PlayList.Save();
+        }
+
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                DB.Dispose();
             }
             base.Dispose(disposing);
         }

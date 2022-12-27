@@ -16,5 +16,6 @@ namespace DAL.Repository
         IEnumerable<PlayList> GetAll();
         PlayList GetById(int id);
         PlayList GetByName(string Name);
+        List<PlayList> GetGroups();
     }
 }

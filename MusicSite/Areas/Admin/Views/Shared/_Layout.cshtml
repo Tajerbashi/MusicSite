@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - layout</title>
-    <link href="~/Content/myStyle/Admin_Style.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
     <link href="~/Content/myStyle/modal.css" rel="stylesheet" />
+    <link href="~/Content/myStyle/Admin_Style.css" rel="stylesheet" />
 </head>
 <body dir="rtl">
 
@@ -63,6 +64,14 @@
                     <div class="d-flex flex-column justify-content-center align-items-center">
                         <img src="~/Photos/ICO/icons8-account-96.png" class="img-fluid " style="max-width: 150px;" />
                         <p class="title-item">کاربران</p>
+                    </div>
+                </a>
+            </li>
+            <li class="list-group-item aside-list-item rounded-4">
+                <a href="@Url.Action("CreatePlayListSongs","PlayLists")">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img src="~/Photos/ICO/icons8-add-album-96.png" class="img-fluid " style="max-width: 150px;" />
+                        <p class="title-item">طراحی پلی لیست</p>
                     </div>
                 </a>
             </li>

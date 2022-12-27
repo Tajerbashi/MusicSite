@@ -149,3 +149,62 @@ function DeleteSong(id) {
         $("#modal-body").html(res);
     });
 }
+
+let songs = document.querySelector(".SONGS");
+let CreateBtn = document.getElementById("Create");
+var SongIdList = [];
+let PlayListId;
+
+function Reload() {
+    songs = document.querySelectorAll(".SONGS");
+}
+
+songs.addEventListener("click", (event) => {
+    //console.log(event.target.tagName);
+    if (event.target.tagName === "SPAN" || event.target.tagName === "P" || event.target.tagName === "IMG" || event.target.tagName === "I") {
+        if (event.target.parentElement.tagName === "SPAN") {
+            if (event.target.parentElement.children[2].classList.contains("d-none")) {
+                    event.target.parentElement.children[2].classList.remove("d-none");
+                    event.target.parentElement.parentElement.classList.add("SelectedSong");
+            } else {
+                    event.target.parentElement.children[2].classList.add("d-none");
+                    event.target.parentElement.parentElement.classList.remove("SelectedSong");
+            }
+        }
+    }
+    if (event.target.tagName === "I") {
+        if (event.target.parentElement.parentElement.children[2].classList.contains("d-none")) {
+            event.target.parentElement.parentElement.children[2].classList.remove("d-none");
+            event.target.parentElement.parentElement.parentElement.classList.add("SelectedSong");
+        } else {
+            event.target.parentElement.parentElement.children[2].classList.add("d-none");
+            event.target.parentElement.parentElement.parentElement.classList.remove("SelectedSong");
+        }
+    }
+});
+
+$("#Create").click(() => {
+    console.log("Clicked Create Btn");
+    CreateArraySelectedSongs();
+});
+function CreateArraySelectedSongs() {
+    let SelectedSongs = document.querySelectorAll(".SelectedSong");
+    PlayListId = document.getElementById("groupSelected").value;
+    console.log("Selected : " + SelectedSongs);
+    SelectedSongs.forEach((item) => {
+        SongIdList.push(item.getAttribute("data-id"));
+    });
+    $.ajax({
+        type: 'POST',
+        url: '/Admin/PlayLists/CreatePlayListSongs',
+        data: { 'PlayListId': PlayListId, 'SongIdList': SongIdList },
+        datatype: "json",
+        traditional: true,
+        success: function () {
+            location.reload(true);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("jqXHR:" + jqXHR.status + " errorThrown: " + errorThrown);
+        }
+    });
+}

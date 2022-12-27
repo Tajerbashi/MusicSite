@@ -93,5 +93,10 @@ namespace DAL.Services
                 return false;
             }
         }
+        public List<PlayList> GetGroups()
+        {
+            var list = DB.PlayLists.Include(p => p.GrouptType);
+            return list.ToList();
+        }
     }
 }
