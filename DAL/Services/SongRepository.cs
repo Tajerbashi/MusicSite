@@ -57,7 +57,10 @@ namespace DAL.Services
         {
             return DB.Songs.OrderByDescending(c => c.CreateDate).ToList();
         }
-
+        public IEnumerable<Song> GetAllWitdPlayList()
+        {
+            return DB.Songs.Include(c => c.PlayListSongPKFK).ToList();
+        }
         public Song GetById(int id)
         {
             return DB.Songs.Find(id);

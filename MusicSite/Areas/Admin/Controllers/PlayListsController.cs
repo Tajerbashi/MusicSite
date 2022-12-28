@@ -138,7 +138,7 @@ namespace MusicSite.Areas.Admin.Controllers
         
         public ActionResult CreatePlayListSongs()
         {
-            ViewBag.Songs = Songs.GetAll();
+            ViewBag.Songs = Songs.GetAllWitdPlayList();
             ViewBag.PlayLists = PlayList.GetAll();
             return View();
         }

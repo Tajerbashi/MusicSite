@@ -14,6 +14,7 @@ namespace DAL.Repository
         bool Delete(int id);
         void Save();
         IEnumerable<Song> GetAll();
+        IEnumerable<Song> GetAllWitdPlayList();
         Song GetById(int id);
         Song GetByName(string Name);
     }

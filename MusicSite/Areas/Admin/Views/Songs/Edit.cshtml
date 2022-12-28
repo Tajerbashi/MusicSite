@@ -17,6 +17,8 @@
     @Html.HiddenFor(model => model.songId)
     @Html.HiddenFor(model => model.Score)
     @Html.HiddenFor(model => model.CreateDate)
+    @Html.HiddenFor(model => model.Picture)
+    @Html.HiddenFor(model => model.AddressFile)
 
     <div class="form-group d-flex flex-row mt-1">
         @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2 lbl" })
@@ -70,7 +72,7 @@
 
     <div class="form-group d-flex flex-row mt-1">
         @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "control-label col-md-2 lbl" })
-        <div class="col-md-9 d-flex flex-column justify-content-center align-items-center" >
+        <div class="col-md-9 d-flex flex-column justify-content-center align-items-center">
             <input type="file" class="form-control" name="photoUp" />
             <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow my-2" style="max-width:200px;" />
             @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })

@@ -29,12 +29,8 @@
             @foreach (var song in ViewBag.Songs)
             {
                 <div class="m-1" data-id="@song.songId">
-                    @if (song.playList)
-                {
-
-                }
                     <span class="btn btn-light m-1  h-100 ">
-                        <h5>@song.Name</h5>
+                        <p>@song.Name</p>
                         <img src="~/Files/Photos/@song.Picture" class="img-fluid" style="max-width:100px;" />
                         <p class="playIcon d-none"><i class=" fa fa-check fa-3x"></i></p>
                     </span>
