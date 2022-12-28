@@ -17,9 +17,6 @@ namespace DAL
         [MaxLength(100)]
         public string Name { get; set; }
 
-        [Display(Name = "توضیحات")]
-        public string Description { get; set; }
-
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; }

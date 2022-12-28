@@ -11,29 +11,29 @@ using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DAL.Context;
+using DAL.Models;
 using DAL.Repository;
 using DAL.Services;
 using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json.Linq;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
     public class PlayListsController : Controller
     {
         IPlayListRepository PlayList;
-        IGroupRepository Group;
         ISongRepository Songs;
         private DbContexts DB=new DbContexts();
         public PlayListsController()
         {
             PlayList= new PlayListRepository(DB);
-            Group= new GroupRepository(DB);
             Songs = new SongRepository(DB);
         }
 
         // GET: Admin/PlayLists
         public ActionResult Index()
         {
-            return View(PlayList.GetGroups());
+            return View(PlayList.GetAll());
         }
 
         // GET: Admin/PlayLists/Details/5
@@ -54,7 +54,6 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/PlayLists/Create
         public ActionResult Create()
         {
-            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView();
         }
 
@@ -63,7 +62,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "playListId,GroupId,Name,Description,PlayCount,CreateDate,Type")] PlayList playList)
+        public ActionResult Create([Bind(Include = "playListId,Name,PlayCount,CreateDate,Type")] PlayList playList)
         {
             if (ModelState.IsValid)
             {
@@ -75,8 +74,6 @@ namespace MusicSite.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
-            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView(playList);
         }
 
@@ -92,8 +89,6 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            //ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
-            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView(playList);
         }
 
@@ -102,7 +97,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "playListId,GroupId,Name,Description,PlayCount,CreateDate,Type")] PlayList playList)
+        public ActionResult Edit([Bind(Include = "playListId,Name,PlayCount,CreateDate,Type")] PlayList playList)
         {
             if (ModelState.IsValid)
             {
@@ -112,8 +107,6 @@ namespace MusicSite.Areas.Admin.Controllers
                 PlayList.Save();
                 return RedirectToAction("Index");
             }
-            //ViewBag.GroupId = new SelectList(db.GrouptTypes, "GroupId", "groupName", playList.GroupId);
-            ViewBag.GroupId = new SelectList(Group.GetAll(), "GroupId", "groupName");
             return PartialView(playList);
         }
 
@@ -145,25 +138,32 @@ namespace MusicSite.Areas.Admin.Controllers
         
         public ActionResult CreatePlayListSongs()
         {
-            ViewBag.Groups = Group.GetAll();
             ViewBag.Songs = Songs.GetAll();
             ViewBag.PlayLists = PlayList.GetAll();
             return View();
         }
+
         [HttpPost]
         public void CreatePlayListSongs(string PlayListId, List<string> SongIdList)
         {
             PlayList playList = PlayList.GetById(Int32.Parse(PlayListId));
             foreach (var i in SongIdList)
             {
+                PlayListSongPKFK PKFK= new PlayListSongPKFK();
                 Song song = Songs.GetById(Convert.ToInt32(i));
-                song.PlayLists = playList;
+
+                PKFK.PlayList = playList;
+                PKFK.Song = song;
+                playList.PlayListSongPKFK.Add(PKFK);
+                song.PlayListSongPKFK.Add(PKFK);
             }
             Songs.Save();
-            PlayList.Save();
         }
-
-
+        public IEnumerable<Song> Search(string word)
+        {
+            var list=Songs.GetAll().Where(c => c.Name.Contains(word)).ToList();
+            return list.ToList();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

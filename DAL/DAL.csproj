@@ -51,19 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202212251544598_Initial-Database.cs" />
-    <Compile Include="Migrations\202212251544598_Initial-Database.designer.cs">
-      <DependentUpon>202212251544598_Initial-Database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202212251608524_SongChange.cs" />
-    <Compile Include="Migrations\202212251608524_SongChange.designer.cs">
-      <DependentUpon>202212251608524_SongChange.cs</DependentUpon>
+    <Compile Include="Migrations\202212281141184_Initial-Database.cs" />
+    <Compile Include="Migrations\202212281141184_Initial-Database.designer.cs">
+      <DependentUpon>202212281141184_Initial-Database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Context\DbContexts.cs" />
     <Compile Include="Models\GrouptType.cs" />
     <Compile Include="Models\PlayList.cs" />
+    <Compile Include="Models\PlayListSongPKFK.cs" />
     <Compile Include="Models\Singer.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Models\User.cs" />
@@ -84,11 +81,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202212251544598_Initial-Database.resx">
-      <DependentUpon>202212251544598_Initial-Database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202212251608524_SongChange.resx">
-      <DependentUpon>202212251608524_SongChange.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202212281141184_Initial-Database.resx">
+      <DependentUpon>202212281141184_Initial-Database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

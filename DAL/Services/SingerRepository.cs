@@ -72,7 +72,7 @@ namespace DAL.Services
 
         public IEnumerable<Singer> GetAll()
         {
-            return DB.Singers.ToList();
+            return DB.Singers.OrderByDescending(c => c.CreateDate).ToList();
         }
 
         public Singer GetById(int id)

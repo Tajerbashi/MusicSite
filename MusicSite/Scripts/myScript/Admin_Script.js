@@ -20,6 +20,7 @@ $("#modal-shadow").click((event) => {
 });
 
 $("#Create-Group").click(function () {
+    console.log("CreateGroupClicked");
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/GrouptTypes/Create", (res) => {
         $("#modal-title").html("ساخت گروه");
@@ -158,7 +159,6 @@ let PlayListId;
 function Reload() {
     songs = document.querySelectorAll(".SONGS");
 }
-
 songs.addEventListener("click", (event) => {
     //console.log(event.target.tagName);
     if (event.target.tagName === "SPAN" || event.target.tagName === "P" || event.target.tagName === "IMG" || event.target.tagName === "I") {
@@ -208,3 +208,9 @@ function CreateArraySelectedSongs() {
         }
     });
 }
+
+// Search Panel
+let SearchSection = document.getElementById("SearchSection");
+let searchInput = document.getElementById("searchInput"); 
+let ResultShow = document.getElementById("ResultShow"); 
+let word;

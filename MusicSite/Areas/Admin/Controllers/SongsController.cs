@@ -53,7 +53,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/Songs/Create
         public ActionResult Create()
         {
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "groupName");
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name");
             ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name");
             return View();
         }
@@ -81,7 +81,7 @@ namespace MusicSite.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "groupName", song.GroupId);
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
             ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name", song.SingerId);
             return View(song);
         }
@@ -98,7 +98,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "groupName", song.GroupId);
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
             ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name", song.SingerId);
             return View(song);
         }

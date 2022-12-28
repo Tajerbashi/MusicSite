@@ -42,6 +42,12 @@ namespace DAL.Services
             }
         }
 
+        public bool Delete(int id)
+        {
+            Song song=this.GetById(id);
+            return Delete(song);
+        }
+
         public void Dispose()
         {
             DB.Dispose();
@@ -49,7 +55,7 @@ namespace DAL.Services
 
         public IEnumerable<Song> GetAll()
         {
-            return DB.Songs.ToList();
+            return DB.Songs.OrderByDescending(c => c.CreateDate).ToList();
         }
 
         public Song GetById(int id)

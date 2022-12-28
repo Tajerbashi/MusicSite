@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,16 +15,9 @@ namespace DAL
         public int playListId { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
-        [Display(Name = "انتخاب گروه")]
-        public int GroupId { get; set; }
-
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام لیست")]
         [MaxLength(100)]
         public string Name { get; set; }
-
-        [Display(Name = "توضیحات")]
-        public string Description { get; set; }
 
         [Display(Name = "تعداد پخش")]
         public int PlayCount { get; set; }
@@ -36,11 +30,9 @@ namespace DAL
         [Display(Name = "عضویت")]
         public bool Type { get; set; }
 
-        public virtual GrouptType GrouptType { get; set; }
-        public virtual List<Song> Songs { get; set; }
+        public virtual List<PlayListSongPKFK> PlayListSongPKFK { get; set; }
+        
 
-        public PlayList()
-        {
-        }
+
     }
 }

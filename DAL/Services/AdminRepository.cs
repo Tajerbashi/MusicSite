@@ -63,7 +63,7 @@ namespace DAL.Services
 
         public IEnumerable<Admin> GetAll()
         {
-            return DB.Admins.ToList();
+            return DB.Admins.OrderByDescending(c=>c.CreateDate).ToList();
         }
 
         public Admin GetById(int id)

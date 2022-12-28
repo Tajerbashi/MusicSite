@@ -13,14 +13,26 @@
                 }
             </select>
         </div>
-        
     </div>
+    
+    <h3 class=" text-center w-100 p-2 bg-primary bg-gradient text-light rounded-3 mt-2">آهنگ ها</h3>
+    
+    <div id="SearchSection" class="row">
+        <input type="text" class="form-control" id="searchInput" placeholder="جستجو کنید ..." />
+        <div id="ResultShow" class="">
+
+        </div>
+    </div>
+
     <div class="row SONGS">
-        <h3 class=" w-100 p-4 bg-primary bg-gradient text-light rounded-3 mt-4">آهنگ ها</h3>
         <div class="d-flex flex-row justify-content-between align-items-center flex-wrap text-center">
             @foreach (var song in ViewBag.Songs)
             {
                 <div class="m-1" data-id="@song.songId">
+                    @if (song.playList)
+                {
+
+                }
                     <span class="btn btn-light m-1  h-100 ">
                         <h5>@song.Name</h5>
                         <img src="~/Files/Photos/@song.Picture" class="img-fluid" style="max-width:100px;" />
@@ -29,6 +41,7 @@
                 </div>
             }
         </div>
-        </div>
+    </div>
+
 </div>
 <a class="btn btn-warning bg-gradient w-100 mt-3" id="Create">ذخیره پلی لیست</a>

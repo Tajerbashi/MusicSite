@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,9 @@ namespace DAL
 {
     public class Song
     {
+        public Song()
+        {
+        }
         [Key]
         public int songId { get; set; }
 
@@ -49,14 +54,10 @@ namespace DAL
 
         
         public virtual Singer Singer { get; set; }
-        
         public virtual GrouptType GrouptType { get; set; }
+        public virtual List<PlayListSongPKFK> PlayListSongPKFK { get; set; }
 
-        public virtual PlayList PlayLists { get; set; }
 
-        public Song()
-        {
-        }
 
     }
 }

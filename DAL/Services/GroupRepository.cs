@@ -64,7 +64,7 @@ namespace DAL.Services
 
         public IEnumerable<GrouptType> GetAll()
         {
-            return DB.GrouptTypes.ToList();
+            return DB.GrouptTypes.OrderByDescending(c => c.CreateDate).ToList();
         }
 
         public GrouptType GetById(int id)
@@ -74,7 +74,7 @@ namespace DAL.Services
 
         public GrouptType GetByName(string Name)
         {
-            return DB.GrouptTypes.Where(c => c.groupName == Name).SingleOrDefault();
+            return DB.GrouptTypes.Where(c => c.Name == Name).SingleOrDefault();
         }
 
         public void Save()

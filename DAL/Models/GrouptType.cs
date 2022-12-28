@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DAL
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام گروه")]
         [MaxLength(100)]
-        public String groupName { get; set; }
+        public String Name { get; set; }
 
         [Display(Name = "تعداد بازدید")]
         public int visit { get; set; }
@@ -26,16 +27,8 @@ namespace DAL
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; }
-
-        [Display(Name = "عضویت")]
-        public bool Type { get; set; }=false;
-
+        
         public virtual List<Song> Songs { get; set; }
-        public virtual List<PlayList> PlayLists { get; set; }
 
-        public GrouptType()
-        {
-
-        }
     }
 }

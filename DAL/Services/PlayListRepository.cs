@@ -63,7 +63,7 @@ namespace DAL.Services
 
         public IEnumerable<PlayList> GetAll()
         {
-            return DB.PlayLists.ToList();
+            return DB.PlayLists.OrderByDescending(c => c.CreateDate).ToList();
         }
 
         public PlayList GetById(int id)
@@ -93,10 +93,6 @@ namespace DAL.Services
                 return false;
             }
         }
-        public List<PlayList> GetGroups()
-        {
-            var list = DB.PlayLists.Include(p => p.GrouptType);
-            return list.ToList();
-        }
+       
     }
 }

@@ -53,7 +53,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,groupName,visit,duration,CreateDate,Type")] GrouptType grouptType)
+        public ActionResult Create([Bind(Include = "GroupId,Name,visit,duration,CreateDate")] GrouptType grouptType)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,groupName,Type")] GrouptType grouptType)
+        public ActionResult Edit([Bind(Include = "GroupId,Name")] GrouptType grouptType)
         {
             if (ModelState.IsValid)
             {

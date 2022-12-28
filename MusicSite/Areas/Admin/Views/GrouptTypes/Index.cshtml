@@ -11,7 +11,7 @@
     <table class="table table-hover text-center" style="cursor: pointer;">
         <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
             <th>
-                @Html.DisplayNameFor(model => model.groupName)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.visit)
@@ -22,17 +22,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="fw-bolder">
                 <td>
-                    @Html.DisplayFor(modelItem => item.groupName)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.visit)
@@ -42,9 +39,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
                     <a class="btn btn-warning" onclick="EditGroup(@item.GroupId)">
