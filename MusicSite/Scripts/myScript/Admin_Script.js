@@ -161,32 +161,30 @@ function Reload() {
 }
 songs.addEventListener("click", (event) => {
     //console.log(event.target.tagName);
-    if (event.target.tagName === "SPAN" || event.target.tagName === "P" || event.target.tagName === "IMG" || event.target.tagName === "I") {
-        if (event.target.parentElement.tagName === "SPAN") {
-            if (event.target.parentElement.children[2].classList.contains("d-none")) {
-                    event.target.parentElement.children[2].classList.remove("d-none");
-                    event.target.parentElement.parentElement.classList.add("SelectedSong");
-            } else {
-                    event.target.parentElement.children[2].classList.add("d-none");
-                    event.target.parentElement.parentElement.classList.remove("SelectedSong");
-            }
-        }
+    if (event.target.tagName === "SPAN") {
+        event.target.classList.add("d-none");
+        event.target.parentElement.parentElement.parentElement.classList.remove("SelectedSong");
+        //console.log(event.target);
     }
-    if (event.target.tagName === "I") {
-        if (event.target.parentElement.parentElement.children[2].classList.contains("d-none")) {
-            event.target.parentElement.parentElement.children[2].classList.remove("d-none");
-            event.target.parentElement.parentElement.parentElement.classList.add("SelectedSong");
+    else if (event.target.tagName === "I") {
+        event.target.parentElement.classList.add("d-none");
+        event.target.parentElement.parentElement.parentElement.classList.remove("SelectedSong");
+    }
+    else if (event.target.tagName === "IMG") {
+        if (event.target.nextElementSibling.classList.contains("d-none")) {
+            event.target.nextElementSibling.classList.remove("d-none");
+            event.target.parentElement.parentElement.classList.add("SelectedSong");
         } else {
-            event.target.parentElement.parentElement.children[2].classList.add("d-none");
-            event.target.parentElement.parentElement.parentElement.classList.remove("SelectedSong");
+            event.target.parentElement.parentElement.classList.remove("SelectedSong");
+            event.target.nextElementSibling.classList.add("d-none");
         }
     }
 });
 
 $("#Create").click(() => {
-    console.log("Clicked Create Btn");
     CreateArraySelectedSongs();
 });
+
 function CreateArraySelectedSongs() {
     let SelectedSongs = document.querySelectorAll(".SelectedSong");
     PlayListId = document.getElementById("groupSelected").value;
@@ -209,8 +207,3 @@ function CreateArraySelectedSongs() {
     });
 }
 
-// Search Panel
-let SearchSection = document.getElementById("SearchSection");
-let searchInput = document.getElementById("searchInput"); 
-let ResultShow = document.getElementById("ResultShow"); 
-let word;

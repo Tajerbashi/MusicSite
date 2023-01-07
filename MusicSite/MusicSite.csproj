@@ -128,6 +128,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GrouptTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlayListsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PlayListSongPKFKsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,6 +213,11 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />

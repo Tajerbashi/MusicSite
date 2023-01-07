@@ -17,5 +17,7 @@ namespace DAL.Context
         public DbSet<PlayList> PlayLists { get; set; } 
         public DbSet<Singer> Singers { get; set; }
         public DbSet<User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<DAL.PlayListSongPKFK> PlayListSongPKFKs { get; set; }
     }
 }

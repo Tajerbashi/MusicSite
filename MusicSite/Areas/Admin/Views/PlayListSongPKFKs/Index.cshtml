@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DAL.PlayListSongPKFK>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Model
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.IDPlayListSongPKFK }) |
+            @Html.ActionLink("Details", "Details", new { id = item.IDPlayListSongPKFK }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.IDPlayListSongPKFK })
+        </td>
+    </tr>
+}
+
+</table>

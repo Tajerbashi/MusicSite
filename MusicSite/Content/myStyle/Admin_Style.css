@@ -73,7 +73,7 @@ a {
 .playIcon {
     background: linear-gradient(0deg,#00000000,#ff8500,#00000000);
     position: absolute;
-    margin: -63px -12px 0px 0px;
+    margin: 15px -115px 0px 0px;
     width: 124px;
     height: 72px;
     text-align: center;
@@ -82,4 +82,15 @@ a {
 }
 .playIcon > i{
     color: #ffffff;
+}
+.song-items{
+    height: 120px !important;
+}
+.song-pic {
+    height: 80px !important;
+    width: 120px !important;
+    border-radius: 0.5rem;
+}
+#search-input{
+    background: #ffffff00 !important;
 }

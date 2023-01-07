@@ -2,41 +2,36 @@
     ViewBag.Title = "CreatePlayListSongs";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <h3 class="text-center">نام پلی لیست ها</h3>
-            <select id="groupSelected" class="form-control">
-                @foreach (var pList in ViewBag.PlayLists)
-                {
-                    <option value="@pList.playListId" class="form-control">@pList.Name</option>
-                }
-            </select>
-        </div>
+<h2 class="my-4 shadow p-3 text-center"> نام پلی لیست ها</h2>
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+    
+    <div class="row text-center">
+        <select id="groupSelected" class="form-control fw-bolder rounded-4">
+            @foreach (var pList in ViewBag.PlayLists)
+            {
+                <option value="@pList.playListId" class="form-control fw-bold">@pList.Name</option>
+            }
+        </select>
     </div>
-    
-    <h3 class=" text-center w-100 p-2 bg-primary bg-gradient text-light rounded-3 mt-2">آهنگ ها</h3>
-    
-    <div id="SearchSection" class="row">
-        <input type="text" class="form-control" id="searchInput" placeholder="جستجو کنید ..." />
-        <div id="ResultShow" class="">
+
+    <div class="row w-100 shadow rounded-5 my-3 p-3 align-items-center justify-content-center">
+        <input class="form-control rounded-5 w-50" id="search-input" placeholder="جستجو کنید ..." />
+        <div id="ResultSearch">
 
         </div>
     </div>
 
     <div class="row SONGS">
-        <div class="d-flex flex-row justify-content-between align-items-center flex-wrap text-center">
-            @foreach (var song in ViewBag.Songs)
-            {
-                <div class="m-1" data-id="@song.songId">
-                    <span class="btn btn-light m-1  h-100 ">
-                        <p>@song.Name</p>
-                        <img src="~/Files/Photos/@song.Picture" class="img-fluid" style="max-width:100px;" />
-                        <p class="playIcon d-none"><i class=" fa fa-check fa-3x"></i></p>
-                    </span>
+        @foreach (var song in ViewBag.Songs)
+        {
+            <div class="col-2 " data-id="@song.songId">
+                <div class="btn btn-light song-items">
+                    <div class="title-song fw-bold">@song.Name</div>
+                    <img src="~/Files/Photos/@song.Picture" class="song-pic img-fluid mt-1" />
+                    <span class="playIcon d-none"><i class=" fa fa-check fa-3x"></i></span>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 
 </div>

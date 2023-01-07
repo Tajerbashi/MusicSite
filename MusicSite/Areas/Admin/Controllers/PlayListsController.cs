@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Drawing;
-using System.Dynamic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DAL.Context;
-using DAL.Models;
 using DAL.Repository;
 using DAL.Services;
-using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json.Linq;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
@@ -142,7 +134,6 @@ namespace MusicSite.Areas.Admin.Controllers
             ViewBag.PlayLists = PlayList.GetAll();
             return View();
         }
-
         [HttpPost]
         public void CreatePlayListSongs(string PlayListId, List<string> SongIdList)
         {
@@ -158,11 +149,6 @@ namespace MusicSite.Areas.Admin.Controllers
                 song.PlayListSongPKFK.Add(PKFK);
             }
             Songs.Save();
-        }
-        public IEnumerable<Song> Search(string word)
-        {
-            var list=Songs.GetAll().Where(c => c.Name.Contains(word)).ToList();
-            return list.ToList();
         }
         protected override void Dispose(bool disposing)
         {
