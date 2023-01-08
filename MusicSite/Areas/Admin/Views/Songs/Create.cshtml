@@ -6,6 +6,7 @@
 }
 
 <h2>اضافه کرن اطلاعات آهنگ</h2>
+    <hr />
 
 
 @using (Html.BeginForm("Create","Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -13,7 +14,6 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal text-center">
-    <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-group d-flex flex-row mt-1">

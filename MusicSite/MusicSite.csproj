@@ -128,9 +128,9 @@
     <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Admin\Controllers\GrouptTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlayListsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PlayListSongPKFKsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,11 +213,11 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\PlayListSongPKFKs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />
@@ -251,6 +251,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Files\Musics\" />
     <Folder Include="Files\Photos\" />
+    <Folder Include="Files\User\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

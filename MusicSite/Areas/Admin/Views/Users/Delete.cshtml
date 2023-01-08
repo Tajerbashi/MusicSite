@@ -1,0 +1,65 @@
+﻿@model DAL.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h3 class="text-danger">برای حذف این کاربر مطمیین هستید؟</h3>
+    <hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name) :
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Family) :
+            @Html.DisplayFor(model => model.Family)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone) :
+            @Html.DisplayFor(model => model.Phone)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email) :
+            @Html.DisplayFor(model => model.Email)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Username) :
+            @Html.DisplayFor(model => model.Username)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password) :
+            @Html.DisplayFor(model => model.Password)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo) :
+            @Html.DisplayFor(model => model.Photo)
+        </dt>
+        <dt>
+            <img src="~/Files/User/@Model.Photo" class="img-fluid m-2 rounded-3 shadow" />
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type) :
+            @Html.DisplayFor(model => model.Type)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Total) :
+            @Html.DisplayFor(model => model.Total)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate) :
+            @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف کاربر" class="btn btn-danger w-100" />
+        </div>
+    }
+</div>

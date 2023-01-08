@@ -151,6 +151,25 @@ function DeleteSong(id) {
     });
 }
 
+//User
+function DetailUser(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Users/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeleteUser(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Users/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+
+
 let songs = document.querySelector(".SONGS");
 let CreateBtn = document.getElementById("Create");
 var SongIdList = [];

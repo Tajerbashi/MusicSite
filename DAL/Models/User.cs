@@ -45,10 +45,17 @@ namespace DAL
         [MaxLength(20)]
         public string Password { get; set; }
 
+        [Display(Name = "تصویر")]
+        public string Photo { get; set; }
+
+        [Required(ErrorMessage = "You Must Fill Input")]
+        [Display(Name = "عضویت")]
         public bool Type { get; set; }
+
+        [Display(Name = "مجموعه خرید")]
         public double Total { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
 
     }
 }
