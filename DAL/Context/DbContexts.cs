@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace DAL.Context
         public DbSet<PlayList> PlayLists { get; set; } 
         public DbSet<Singer> Singers { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Padcast> Padcasts { get; set; }
 
         public System.Data.Entity.DbSet<DAL.PlayListSongPKFK> PlayListSongPKFKs { get; set; }
     }

@@ -7,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public interface ICommentRepository
+    public interface ICommentRepository:IDisposable
     {
         bool Add(Comment comment);
         bool Update(Comment comment);
         bool Delete(Comment comment);
         bool Delete(int id);
         void Save();
-        IEnumerable<Comment> GetAll();
+        IEnumerable<Comment> GetAllCommentForPlayList(int id);
+        IEnumerable<Comment> GetAllCommentForGroup(int id);
+        IEnumerable<Comment> GetAllCommentForPadcast(int id);
+        IEnumerable<Comment> GetAllCommentForSong(int id);
+        IEnumerable<Comment> GetAllCommentForAlbum(int id);
         Comment GetById(int id);
-        Comment GetByName(string Name);
     }
 }

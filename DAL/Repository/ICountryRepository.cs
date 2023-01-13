@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public interface ICountryRepository
+    public interface ICountryRepository:IDisposable
     {
         bool Add(Country country);
         bool Update(Country country);

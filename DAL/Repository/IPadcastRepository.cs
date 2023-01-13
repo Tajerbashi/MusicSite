@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public interface IPadcastRepository
+    public interface IPadcastRepository:IDisposable
     {
         bool Add(Padcast padcast);
         bool Update(Padcast padcast);

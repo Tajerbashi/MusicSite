@@ -80,7 +80,11 @@
     <Compile Include="Repository\ISingerRepository.cs" />
     <Compile Include="Repository\ISongRepository.cs" />
     <Compile Include="Services\AdminRepository.cs" />
+    <Compile Include="Services\AlbumRepository.cs" />
+    <Compile Include="Services\CommentRepository.cs" />
+    <Compile Include="Services\CountryRepository.cs" />
     <Compile Include="Services\GroupRepository.cs" />
+    <Compile Include="Services\PadcastRepository.cs" />
     <Compile Include="Services\PlayListRepository.cs" />
     <Compile Include="Services\SingerRepository.cs" />
     <Compile Include="Services\SongRepository.cs" />
