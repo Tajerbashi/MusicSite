@@ -8,6 +8,8 @@ namespace DAL.Models
     {
         [Key]
         public int PadcastId { get; set; }
+
+        [Display(Name = "نام کشور")]
         public int CountryId { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]

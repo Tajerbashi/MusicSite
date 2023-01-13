@@ -6,6 +6,8 @@ C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\bin\Debug\EntityF
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\bin\Debug\EntityFramework.xml
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.Migrations.InitialDatabase.resources
+C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.dll
