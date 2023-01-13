@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class GrouptType
+    public class Group
     {
         [Key]
         public int GroupId { get; set; }
@@ -15,19 +16,20 @@ namespace DAL
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام گروه")]
         [MaxLength(100)]
-        public String Name { get; set; }
+        public String GroupName { get; set; }
 
         [Display(Name = "تعداد بازدید")]
-        public int visit { get; set; }
+        public int Visit { get; set; }
 
-        [Display(Name = "میزان جریان")]
-        public int duration { get; set; }
+        [Display(Name = "امتیاز")]
+        public int Score { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         
         public virtual List<Song> Songs { get; set; }
+        public virtual List<Comment> Comments { get; set; }
 
     }
 }

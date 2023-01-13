@@ -17,7 +17,7 @@ namespace DAL.Services
         {
             this.DB = DB;
         }
-        public bool Add(GrouptType group)
+        public bool Add(Group group)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace DAL.Services
             }
         }
 
-        public bool Delete(GrouptType group)
+        public bool Delete(Group group)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace DAL.Services
         {
             try
             {
-                GrouptType group = DB.GrouptTypes.Find(id);
+                Group group = DB.GrouptTypes.Find(id);
                 this.Delete(group);
                 return true;
             }
@@ -62,19 +62,19 @@ namespace DAL.Services
             DB.Dispose();
         }
 
-        public IEnumerable<GrouptType> GetAll()
+        public IEnumerable<Group> GetAll()
         {
             return DB.GrouptTypes.OrderByDescending(c => c.CreateDate).ToList();
         }
 
-        public GrouptType GetById(int id)
+        public Group GetById(int id)
         {
             return DB.GrouptTypes.Find(id);
         }
 
-        public GrouptType GetByName(string Name)
+        public Group GetByName(string Name)
         {
-            return DB.GrouptTypes.Where(c => c.Name == Name).SingleOrDefault();
+            return DB.GrouptTypes.Where(c => c.GroupName == Name).SingleOrDefault();
         }
 
         public void Save()
@@ -82,7 +82,7 @@ namespace DAL.Services
             DB.SaveChanges();
         }
 
-        public bool Update(GrouptType group)
+        public bool Update(Group group)
         {
             try
             {

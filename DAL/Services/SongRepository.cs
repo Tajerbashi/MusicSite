@@ -68,7 +68,7 @@ namespace DAL.Services
 
         public Song GetByName(string Name)
         {
-            return DB.Songs.Where(c => c.Name==Name).SingleOrDefault();
+            return DB.Songs.Where(c => c.SongName==Name).SingleOrDefault();
         }
 
         public void Save()

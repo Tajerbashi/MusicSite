@@ -13,7 +13,7 @@ namespace DAL.Context
 
         public DbSet<Song> Songs { get; set; } 
         public DbSet<Admin> Admins { get; set; } 
-        public DbSet<GrouptType> GrouptTypes { get; set; } 
+        public DbSet<Group> GrouptTypes { get; set; } 
         public DbSet<PlayList> PlayLists { get; set; } 
         public DbSet<Singer> Singers { get; set; }
         public DbSet<User> Users { get; set; }

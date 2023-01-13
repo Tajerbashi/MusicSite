@@ -54,13 +54,11 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "playListId,Name,PlayCount,CreateDate,Type")] PlayList playList)
+        public ActionResult Create([Bind(Include = "playListId,GroupName,PlayCount,CreateDate,Type")] PlayList playList)
         {
             if (ModelState.IsValid)
             {
                 playList.CreateDate= DateTime.Now;
-                playList.PlayCount= 0;
-
                 PlayList.Add(playList);
                 PlayList.Save();
                 return RedirectToAction("Index");
@@ -89,12 +87,11 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "playListId,Name,PlayCount,CreateDate,Type")] PlayList playList)
+        public ActionResult Edit([Bind(Include = "playListId,GroupName,PlayCount,CreateDate,Type")] PlayList playList)
         {
             if (ModelState.IsValid)
             {
                 playList.CreateDate = DateTime.Now;
-                playList.PlayCount = 0;
                 PlayList.Update(playList);
                 PlayList.Save();
                 return RedirectToAction("Index");

@@ -34,7 +34,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GrouptType grouptType = groupRepository.GetById(id.Value);
+            Group grouptType = groupRepository.GetById(id.Value);
             if (grouptType == null)
             {
                 return HttpNotFound();
@@ -53,7 +53,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,Name,visit,duration,CreateDate")] GrouptType grouptType)
+        public ActionResult Create([Bind(Include = "GroupId,GroupName,visit,duration,CreateDate")] Group grouptType)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GrouptType grouptType = groupRepository.GetById(id.Value);
+            Group grouptType = groupRepository.GetById(id.Value);
             if (grouptType == null)
             {
                 return HttpNotFound();
@@ -86,7 +86,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,Name")] GrouptType grouptType)
+        public ActionResult Edit([Bind(Include = "GroupId,Name")] Group grouptType)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GrouptType grouptType = groupRepository.GetById(id.Value);
+            Group grouptType = groupRepository.GetById(id.Value);
             if (grouptType == null)
             {
                 return HttpNotFound();
@@ -118,7 +118,7 @@ namespace MusicSite.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            GrouptType grouptType = groupRepository.GetById(id);
+            Group grouptType = groupRepository.GetById(id);
             groupRepository.Delete(grouptType);
             groupRepository.Save();
             return RedirectToAction("Index");

@@ -73,7 +73,7 @@ namespace DAL.Services
 
         public PlayList GetByName(string Name)
         {
-            return DB.PlayLists.Where(c => c.Name==Name).FirstOrDefault();
+            return DB.PlayLists.Where(c => c.PlayListName==Name).FirstOrDefault();
         }
 
         public void Save()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,13 +14,14 @@ namespace DAL
         public Song()
         {
         }
+
         [Key]
-        public int songId { get; set; }
+        public int SongId { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام آهنگ")]
         [MaxLength(100)]
-        public string Name { get; set; }
+        public string SongName { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "گروه")]
@@ -30,17 +32,16 @@ namespace DAL
         public int SingerId { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
-        [Display(Name = "عنوان")]
-        [MaxLength(100)]
-        public string Title { get; set; }
-
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "عضویت")]
         public bool Type { get; set; }
+
+        [Required(ErrorMessage = "You Must Fill Input")]
+        [Display(Name = "ریمیکس")]
+        public bool Remix { get; set; }
 
         [Display(Name = "فایل")]
         public string AddressFile { get; set; }
@@ -51,10 +52,15 @@ namespace DAL
         [Display(Name = "امتیاز")]
         public int Score { get; set; }
 
-        
+        [Display(Name = "تعداد بازدید")]
+        public int Visit { get; set; }
+
+
         public virtual Singer Singer { get; set; }
-        public virtual GrouptType GrouptType { get; set; }
+        public virtual Album Album { get; set; }
+        public virtual Group Group { get; set; }
         public virtual List<PlayListSongPKFK> PlayListSongPKFK { get; set; }
+        public virtual List<Comment> Comments { get; set; }
 
 
 

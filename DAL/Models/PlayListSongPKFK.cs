@@ -12,7 +12,7 @@ namespace DAL
         [Key]
         public int IDPlayListSongPKFK { get; set; }
 
-        public Song Song { get; set; }
-        public PlayList PlayList { get; set; }
+        public virtual Song Song { get; set; }
+        public virtual PlayList PlayList { get; set; }
     }
 }

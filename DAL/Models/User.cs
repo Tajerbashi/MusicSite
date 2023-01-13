@@ -55,6 +55,7 @@ namespace DAL
         [Display(Name = "مجموعه خرید")]
         public double Total { get; set; }
 
+        [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; } = DateTime.Now;
 
     }

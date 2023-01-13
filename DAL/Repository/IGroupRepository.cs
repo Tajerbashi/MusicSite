@@ -9,13 +9,13 @@ namespace DAL.Repository
 {
     public interface IGroupRepository:IDisposable
     {
-        bool Add(GrouptType group);
-        bool Update(GrouptType group);
-        bool Delete(GrouptType group);
+        bool Add(Group group);
+        bool Update(Group group);
+        bool Delete(Group group);
         bool Delete(int id);
         void Save();
-        IEnumerable<GrouptType> GetAll();
-        GrouptType GetById(int id);
-        GrouptType GetByName(string Name);
+        IEnumerable<Group> GetAll();
+        Group GetById(int id);
+        Group GetByName(string Name);
     }
 }

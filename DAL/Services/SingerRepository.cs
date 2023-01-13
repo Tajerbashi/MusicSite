@@ -22,7 +22,7 @@ namespace DAL.Services
             try
             {
                 singer.CreateDate= DateTime.Now;
-                if (DB.Singers.Any(c => c.Name==singer.Name))
+                if (DB.Singers.Any(c => c.SingerName==singer.SingerName))
                 {
                     return false;
                 }
@@ -82,7 +82,7 @@ namespace DAL.Services
 
         public Singer GetByName(string Name)
         {
-            return DB.Singers.Where(c => c.Name==Name).SingleOrDefault();
+            return DB.Singers.Where(c => c.SingerName==Name).SingleOrDefault();
         }
 
         public void Save()
@@ -94,7 +94,7 @@ namespace DAL.Services
         {
             try
             {
-                if (DB.Singers.Any(c => c.Name == singer.Name && c.SingerId != singer.SingerId))
+                if (DB.Singers.Any(c => c.SingerName == singer.SingerName && c.SingerId != singer.SingerId))
                 {
                     return false;
                 }
