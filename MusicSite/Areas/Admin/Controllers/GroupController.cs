@@ -13,21 +13,21 @@ using DAL.Services;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
-    public class GrouptTypesController : Controller
+    public class GroupController : Controller
     {
         IGroupRepository groupRepository;
         private DbContexts db = new DbContexts();
-        public GrouptTypesController()
+        public GroupController()
         {
             groupRepository = new GroupRepository(db);
         }
-        // GET: Admin/GrouptTypes
+        // GET: Admin/Group
         public ActionResult Index()
         {
             return View(groupRepository.GetAll());
         }
 
-        // GET: Admin/GrouptTypes/Details/5
+        // GET: Admin/Group/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -42,13 +42,13 @@ namespace MusicSite.Areas.Admin.Controllers
             return PartialView(grouptType);
         }
 
-        // GET: Admin/GrouptTypes/Create
+        // GET: Admin/Group/Create
         public ActionResult Create()
         {
             return PartialView();
         }
 
-        // POST: Admin/GrouptTypes/Create
+        // POST: Admin/Group/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -66,7 +66,7 @@ namespace MusicSite.Areas.Admin.Controllers
             return PartialView(grouptType);
         }
 
-        // GET: Admin/GrouptTypes/Edit/5
+        // GET: Admin/Group/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -81,7 +81,7 @@ namespace MusicSite.Areas.Admin.Controllers
             return PartialView(grouptType);
         }
 
-        // POST: Admin/GrouptTypes/Edit/5
+        // POST: Admin/Group/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -98,7 +98,7 @@ namespace MusicSite.Areas.Admin.Controllers
             return PartialView(grouptType);
         }
 
-        // GET: Admin/GrouptTypes/Delete/5
+        // GET: Admin/Group/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +113,7 @@ namespace MusicSite.Areas.Admin.Controllers
             return PartialView(grouptType);
         }
 
-        // POST: Admin/GrouptTypes/Delete/5
+        // POST: Admin/Group/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

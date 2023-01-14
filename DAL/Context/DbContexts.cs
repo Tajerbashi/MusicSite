@@ -1,5 +1,4 @@
-﻿using DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -23,6 +22,15 @@ namespace DAL.Context
         public DbSet<Country> Countries { get; set; }
         public DbSet<Padcast> Padcasts { get; set; }
 
+
         public System.Data.Entity.DbSet<DAL.PlayListSongPKFK> PlayListSongPKFKs { get; set; }
+
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new AdminConfig());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

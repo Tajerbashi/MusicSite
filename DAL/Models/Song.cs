@@ -1,5 +1,4 @@
-﻿using DAL.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,9 +26,12 @@ namespace DAL
         [Display(Name = "گروه")]
         public int GroupId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
-        [Display(Name = "آوازخوان")]
-        public int SingerId { get; set; }
+        //[Required(ErrorMessage = "You Must Fill Input")]
+        //[Display(Name = "آوازخوان")]
+        //public int SingerId { get; set; }
+
+        [Display(Name = "آلبوم")]
+        public int AlbumId { get; set; }
 
         [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
@@ -56,13 +58,11 @@ namespace DAL
         public int Visit { get; set; }
 
 
-        public virtual Singer Singer { get; set; }
+        //public virtual Singer Singer { get; set; }
         public virtual Album Album { get; set; }
         public virtual Group Group { get; set; }
         public virtual List<PlayListSongPKFK> PlayListSongPKFK { get; set; }
         public virtual List<Comment> Comments { get; set; }
-
-
 
     }
 }
