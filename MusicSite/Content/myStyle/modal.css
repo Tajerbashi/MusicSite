@@ -33,7 +33,7 @@
     margin: 5rem auto;
     width: 30rem;
     border-radius: 1rem;
-    box-shadow: 0 0 10px 0 rgb(61, 61, 61);
+    box-shadow: 0 0 20px 0 rgb(0, 0, 0);
     animation-name: fade;
     animation-duration: 1s;
 }
@@ -43,8 +43,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: rgb(0, 43, 136);
-    color: #eee;
+    background: rgb(0, 30, 114);
+    color: #000;
     border-radius: 1rem 1rem 0 0;
     padding: 0 1rem;
 }

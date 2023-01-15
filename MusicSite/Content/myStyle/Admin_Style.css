@@ -4,26 +4,29 @@
 }
 body {
     font-family: IranSans;
-    background: linear-gradient(270deg,#af70ff,#e58bff);
+    background: linear-gradient(270deg,#ff7d00ff,#ff7d00);
 }
 
 a {
     text-decoration: none !important;
 }
 .aside-list-item {
-    background: linear-gradient(90deg,#ab58ff,#e58bff);
+    background: linear-gradient(90deg,#000000b2,#000000b9);
     box-shadow: 0 0 10px 0 #000000ba;
     margin: 1rem;
     width: 250px;
 }
-.aside-list-item:hover {
-    background: linear-gradient(90deg,#7943ffff,#ffffffba);
-    box-shadow: 0 0 10px 0 #000000ba;
+.aside-list-item > a > div > p{
+    color: #fff !important;
+}
+.aside-list-item:hover{
+    background: linear-gradient(0deg,#000000bf,#ffffffba);
+    box-shadow: 0 0 20px 0 #ffffffff;
 }
 .title-item{
     font-size: 1.4rem;
     border-radius: 1rem;
-    background: linear-gradient(0deg,#ffffff56,#eeeeee00);
+    background: linear-gradient(0deg,#343434ff,#1e1e1eff);
     width: 100%;
     text-align: center;
     padding: 0.5rem 0.7rem;
@@ -35,7 +38,7 @@ a {
     z-index: 10001 !important;
     position: absolute;
     overflow: hidden;
-    background: linear-gradient(90deg,#ab58ff,#9c90ffff);
+    background: #000000ba;
     box-shadow: 0 0 50px 0 #000000;
 }
 #aside-list {
@@ -44,6 +47,7 @@ a {
 .open {
     animation-name: openAside;
     animation-duration: 1s;
+    backdrop-filter:blur(5px);
 }
 .close {
     animation-name: closeAside;
