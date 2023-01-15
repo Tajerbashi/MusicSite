@@ -28,7 +28,7 @@
                     {
                         AlbumId = c.Int(nullable: false, identity: true),
                         SingerId = c.Int(nullable: false),
-                        AlbumName = c.String(),
+                        AlbumName = c.String(nullable: false, maxLength: 100),
                         Visit = c.Int(nullable: false),
                         Score = c.Int(nullable: false),
                         Type = c.Boolean(nullable: false),
@@ -43,9 +43,9 @@
                 c => new
                     {
                         CommentID = c.Int(nullable: false, identity: true),
-                        FullName = c.String(),
-                        Email = c.String(),
-                        CommentText = c.String(),
+                        FullName = c.String(nullable: false, maxLength: 100),
+                        Email = c.String(nullable: false, maxLength: 100),
+                        CommentText = c.String(nullable: false),
                         Album_AlbumId = c.Int(),
                         Group_GroupId = c.Int(),
                         Song_SongId = c.Int(),
@@ -69,7 +69,7 @@
                 c => new
                     {
                         GroupId = c.Int(nullable: false, identity: true),
-                        GroupName = c.String(),
+                        GroupName = c.String(nullable: false, maxLength: 100),
                         Visit = c.Int(nullable: false),
                         Score = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
@@ -81,7 +81,7 @@
                 c => new
                     {
                         SongId = c.Int(nullable: false, identity: true),
-                        SongName = c.String(),
+                        SongName = c.String(nullable: false, maxLength: 200),
                         GroupId = c.Int(nullable: false),
                         AlbumId = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
@@ -118,7 +118,7 @@
                     {
                         playListId = c.Int(nullable: false, identity: true),
                         CountryId = c.Int(nullable: false),
-                        PlayListName = c.String(),
+                        PlayListName = c.String(nullable: false, maxLength: 100),
                         Visit = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
                         Score = c.Int(nullable: false),
@@ -134,7 +134,7 @@
                 c => new
                     {
                         CountryId = c.Int(nullable: false, identity: true),
-                        CountryName = c.String(),
+                        CountryName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.CountryId);
             
@@ -144,7 +144,7 @@
                     {
                         PadcastId = c.Int(nullable: false, identity: true),
                         CountryId = c.Int(nullable: false),
-                        PadcastName = c.String(),
+                        PadcastName = c.String(nullable: false, maxLength: 100),
                         Score = c.Int(nullable: false),
                         Visit = c.Int(nullable: false),
                         Type = c.Boolean(nullable: false),
@@ -162,7 +162,7 @@
                     {
                         SingerId = c.Int(nullable: false, identity: true),
                         CountryId = c.Int(nullable: false),
-                        SingerName = c.String(),
+                        SingerName = c.String(nullable: false, maxLength: 200),
                         CreateDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.SingerId)
@@ -174,12 +174,12 @@
                 c => new
                     {
                         userId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Family = c.String(),
-                        Phone = c.String(),
-                        Email = c.String(),
-                        Username = c.String(),
-                        Password = c.String(),
+                        Name = c.String(nullable: false, maxLength: 200),
+                        Family = c.String(nullable: false, maxLength: 200),
+                        Phone = c.String(nullable: false, maxLength: 11),
+                        Email = c.String(nullable: false, maxLength: 50),
+                        Username = c.String(nullable: false, maxLength: 20),
+                        Password = c.String(nullable: false, maxLength: 20),
                         Photo = c.String(),
                         Type = c.Boolean(nullable: false),
                         Total = c.Double(nullable: false),

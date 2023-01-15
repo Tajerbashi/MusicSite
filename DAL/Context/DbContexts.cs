@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.ModelConfig;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -30,6 +31,15 @@ namespace DAL.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AdminConfig());
+            modelBuilder.Configurations.Add(new AlbumConfig());
+            modelBuilder.Configurations.Add(new CommentConfig());
+            modelBuilder.Configurations.Add(new CountryConfig());
+            modelBuilder.Configurations.Add(new GroupConfig());
+            modelBuilder.Configurations.Add(new PadcastConfig());
+            modelBuilder.Configurations.Add(new PlayListConfig());
+            modelBuilder.Configurations.Add(new SongConfig());
+            modelBuilder.Configurations.Add(new SingerConfig());
+            modelBuilder.Configurations.Add(new UserConfig());
             base.OnModelCreating(modelBuilder);
         }
     }
