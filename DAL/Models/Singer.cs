@@ -9,15 +9,12 @@ namespace DAL
 {
     public class Singer
     {
-        [Key]
         public int SingerId { get; set; }
 
         [Display(Name = "نام کشور")]
         public int CountryId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام آوازخوان")]
-        [MaxLength(100)]
         public string SingerName { get; set; }
 
         [Display(Name = "تاریخ ثبت")]

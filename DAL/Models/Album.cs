@@ -9,15 +9,12 @@ namespace DAL
 {
     public class Album
     {
-        [Key]
         public int AlbumId { get; set; }
 
         [Display(Name = "نام خواننده")]
         public int SingerId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام آلبوم")]
-        [MaxLength(100)]
         public string AlbumName { get; set; }
 
         [Display(Name = "تعداد بازدید")]

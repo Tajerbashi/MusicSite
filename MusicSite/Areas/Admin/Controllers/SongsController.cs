@@ -63,7 +63,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "songId,Name,GroupId,SingerId,Title,CreateDate,Type,AddressFile,Picture,Score")] Song song,HttpPostedFileBase photoUp,HttpPostedFileBase fileUp)
+        public ActionResult Create([Bind(Include = "songId,Name,GroupId,Title,CreateDate,Type,AddressFile,Picture,Score")] Song song,HttpPostedFileBase photoUp,HttpPostedFileBase fileUp)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,6 @@ namespace MusicSite.Areas.Admin.Controllers
             }
 
             ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
-            ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name", song.SingerId);
             return View(song);
         }
 
@@ -99,7 +98,6 @@ namespace MusicSite.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
-            ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name", song.SingerId);
             return View(song);
         }
 
@@ -108,7 +106,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "songId,Name,GroupId,SingerId,Title,CreateDate,Type,AddressFile,Picture,Score")] Song song, HttpPostedFileBase photoUp, HttpPostedFileBase fileUp)
+        public ActionResult Edit([Bind(Include = "songId,Name,GroupId,Title,CreateDate,Type,AddressFile,Picture,Score")] Song song, HttpPostedFileBase photoUp, HttpPostedFileBase fileUp)
         {
             if (ModelState.IsValid)
             {
@@ -135,7 +133,6 @@ namespace MusicSite.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "groupName", song.GroupId);
-            ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name", song.SingerId);
             return View(song);
         }
 

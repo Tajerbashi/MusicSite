@@ -51,11 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202301132355048_Initial-Database.cs" />
-    <Compile Include="Migrations\202301132355048_Initial-Database.designer.cs">
-      <DependentUpon>202301132355048_Initial-Database.cs</DependentUpon>
+    <Compile Include="Migrations\202301151917090_Initial-Database.cs" />
+    <Compile Include="Migrations\202301151917090_Initial-Database.designer.cs">
+      <DependentUpon>202301151917090_Initial-Database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelConfig\AdminConfig.cs" />
+    <Compile Include="ModelConfig\AlbumConfig.cs" />
+    <Compile Include="ModelConfig\CommentConfig.cs" />
+    <Compile Include="ModelConfig\CountryConfig.cs" />
+    <Compile Include="ModelConfig\GroupConfig.cs" />
+    <Compile Include="ModelConfig\PadcastConfig.cs" />
+    <Compile Include="ModelConfig\PlayListConfig.cs" />
+    <Compile Include="ModelConfig\SingerConfig.cs" />
+    <Compile Include="ModelConfig\SongConfig.cs" />
+    <Compile Include="ModelConfig\UserConfig.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Context\DbContexts.cs" />
     <Compile Include="Models\Album.cs" />
@@ -95,8 +105,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202301132355048_Initial-Database.resx">
-      <DependentUpon>202301132355048_Initial-Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202301151917090_Initial-Database.resx">
+      <DependentUpon>202301151917090_Initial-Database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

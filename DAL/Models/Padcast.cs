@@ -6,20 +6,16 @@ namespace DAL
 {
     public class Padcast
     {
-        [Key]
         public int PadcastId { get; set; }
 
         [Display(Name = "نام کشور")]
         public int CountryId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام پاد کست")]
-        [MaxLength(100)]
         public string PadcastName { get; set; }
 
         [Display(Name = "امتیاز")]
         public int Score { get; set; } = 0;
-
 
         [Display(Name = "تعداد بازدید")]
         public int Visit { get; set; } = 0;

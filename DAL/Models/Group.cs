@@ -9,12 +9,9 @@ namespace DAL
 {
     public class Group
     {
-        [Key]
         public int GroupId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام گروه")]
-        [MaxLength(100)]
         public String GroupName { get; set; }
 
         [Display(Name = "تعداد بازدید")]
@@ -23,7 +20,6 @@ namespace DAL
         [Display(Name = "امتیاز")]
         public int Score { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; } = DateTime.Now;
         

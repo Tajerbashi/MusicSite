@@ -9,10 +9,8 @@ namespace DAL
 {
     public class Country
     {
-        [Key]
         public int CountryId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام کشور")]
         public string CountryName { get; set; }
 

@@ -12,7 +12,12 @@ namespace DAL
         public AdminConfig()
         {
             HasKey(e => e.adminId);
-            Property(e => e.Name).HasMaxLength(200).IsRequired();
+            Property(e => e.Name).HasMaxLength(100).IsRequired();
+            Property(e => e.Family).HasMaxLength(100).IsRequired();
+            Property(e => e.Email).HasMaxLength(150).IsRequired();
+            Property(e => e.Phone).HasMaxLength(11).IsRequired();
+            Property(e => e.Username).HasMaxLength(20).IsRequired();
+            Property(e => e.Password).HasMaxLength(20).IsRequired();
         }
     }
 }

@@ -10,19 +10,11 @@ namespace DAL
 {
     public class Song
     {
-        public Song()
-        {
-        }
-
-        [Key]
         public int SongId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "نام آهنگ")]
-        [MaxLength(100)]
         public string SongName { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "گروه")]
         public int GroupId { get; set; }
 
@@ -33,15 +25,12 @@ namespace DAL
         [Display(Name = "آلبوم")]
         public int AlbumId { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; } = DateTime.Now;
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "عضویت")]
         public bool Type { get; set; }
 
-        [Required(ErrorMessage = "You Must Fill Input")]
         [Display(Name = "ریمیکس")]
         public bool Remix { get; set; }
 
