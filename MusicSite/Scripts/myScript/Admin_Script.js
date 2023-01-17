@@ -52,6 +52,7 @@ function DeleteGroup(id) {
     });
 }
 
+//Singer
 $("#Create-Singer").click(function () {
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/Singers/Create", (res) => {

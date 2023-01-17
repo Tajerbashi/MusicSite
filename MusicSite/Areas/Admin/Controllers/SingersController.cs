@@ -17,9 +17,11 @@ namespace MusicSite.Areas.Admin.Controllers
     {
         private DbContexts db = new DbContexts();
         private ISingerRepository singerRep;
+        private ICountryRepository countryRepository;
         public SingersController()
         {
             singerRep = new SingerRepository(db);
+            countryRepository = new CountryRepository(db);
         }
         // GET: Admin/Singers
         public ActionResult Index()
@@ -45,6 +47,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/Singers/Create
         public ActionResult Create()
         {
+            ViewBag.CountryId = new SelectList(countryRepository.GetAll(), "CountryId", "CountryName");
             return PartialView();
         }
 
@@ -53,7 +56,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SingerId,Name,Description,CreateDate")] Singer singer)
+        public ActionResult Create([Bind(Include = "CountryId,SingerId,SingerName,CreateDate")] Singer singer)
         {
             if (ModelState.IsValid)
             {
@@ -72,6 +75,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.CountryId = new SelectList(countryRepository.GetAll(), "CountryId", "CountryName");
             Singer singer = singerRep.GetById(id.Value);
             if (singer == null)
             {
@@ -85,7 +89,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SingerId,Name,Description,CreateDate")] Singer singer)
+        public ActionResult Edit([Bind(Include = "CountryId,SingerId,SingerName,CreateDate")] Singer singer)
         {
             if (ModelState.IsValid)
             {

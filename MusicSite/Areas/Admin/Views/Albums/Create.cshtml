@@ -10,6 +10,7 @@
 
 <div class="form-horizontal">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
     <div class="form-group d-flex flex-row mt-1">
         @Html.LabelFor(model => model.SingerId, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
         <div class="col-10">
@@ -41,7 +42,3 @@
     </div>
 </div>
 }
-
-<div class="text-center">
-    @Html.ActionLink("برگشت", "Index", "", new { @class = "btn btn-dark w-25 mt-1" })
-</div>

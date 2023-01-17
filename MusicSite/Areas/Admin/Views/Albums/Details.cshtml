@@ -4,63 +4,31 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Album</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Singer.SingerName)
-        </dt>
-
-        <dd>
+            @Html.DisplayNameFor(model => model.Singer.SingerName) :
             @Html.DisplayFor(model => model.Singer.SingerName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AlbumName)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumName) :
             @Html.DisplayFor(model => model.AlbumName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Visit)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Visit) :
             @Html.DisplayFor(model => model.Visit)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Score)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Score) :
             @Html.DisplayFor(model => model.Score)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type) :
             @Html.DisplayFor(model => model.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreateDate)
         </dt>
-
-        <dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate) :
             @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-
+        </dt>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

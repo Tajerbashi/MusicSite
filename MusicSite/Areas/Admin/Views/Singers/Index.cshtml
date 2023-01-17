@@ -11,7 +11,10 @@
     <table class="table table-hover text-center" style="cursor: pointer;">
         <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.SingerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country.CountryName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
@@ -23,7 +26,10 @@
         {
             <tr class="fw-bold">
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.SingerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country.CountryName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateDate)

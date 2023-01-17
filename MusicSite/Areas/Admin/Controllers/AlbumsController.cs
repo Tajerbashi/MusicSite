@@ -17,9 +17,11 @@ namespace MusicSite.Areas.Admin.Controllers
     {
         private DbContexts db = new DbContexts();
         IAlbumRepository albumRepository;
+        ISingerRepository singerRepository;
         public AlbumsController()
         {
             albumRepository = new AlbumRepository(db);
+            singerRepository = new SingerRepository(db);
         }
         // GET: Admin/Albums
         public ActionResult Index()
@@ -45,7 +47,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/Albums/Create
         public ActionResult Create()
         {
-            ViewBag.SingerId = new SelectList(albumRepository.GetAll(), "SingerId", "SingerName");
+            ViewBag.SingerId = new SelectList(singerRepository.GetAll(), "SingerId", "SingerName");
             return PartialView();
         }
 
@@ -74,12 +76,12 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.SingerId = new SelectList(singerRepository.GetAll(), "SingerId", "SingerName");
             Album album = albumRepository.GetById(id.Value);
             if (album == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.SingerId = new SelectList(albumRepository.GetAll(), "SingerId", "SingerName", album.SingerId);
             return PartialView(album);
         }
 

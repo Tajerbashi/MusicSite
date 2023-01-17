@@ -21,7 +21,6 @@ namespace DAL.Services
         {
             try
             {
-                singer.CreateDate= DateTime.Now;
                 if (DB.Singers.Any(c => c.SingerName==singer.SingerName))
                 {
                     return false;
@@ -72,7 +71,7 @@ namespace DAL.Services
 
         public IEnumerable<Singer> GetAll()
         {
-            return DB.Singers.OrderByDescending(c => c.CreateDate).ToList();
+            return DB.Singers.OrderBy(c => c.SingerName).ToList();
         }
 
         public Singer GetById(int id)
