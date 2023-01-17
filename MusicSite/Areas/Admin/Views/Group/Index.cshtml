@@ -14,13 +14,13 @@
                 @Html.DisplayNameFor(model => model.GroupName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.visit)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.duration)
+                @Html.DisplayNameFor(model => model.Visit)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                تعداد نظریات
             </th>
             <th></th>
         </tr>
@@ -32,13 +32,13 @@
                     @Html.DisplayFor(modelItem => item.GroupName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.visit)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.duration)
+                    @Html.DisplayFor(modelItem => item.Visit)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments.Count)
                 </td>
                 <td>
                     <a class="btn btn-warning" onclick="EditGroup(@item.GroupId)">

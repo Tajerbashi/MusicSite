@@ -1,0 +1,28 @@
+﻿@model DAL.Group
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName) :
+            @Html.DisplayFor(model => model.GroupName)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Visit) :
+            @Html.DisplayFor(model => model.Visit)
+        </dt>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate) :
+            @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+
+        <dt>
+            تعداد نظریات :
+            @Html.DisplayFor(model => model.Comments.Count)
+        </dt>
+    </dl>
+</div>

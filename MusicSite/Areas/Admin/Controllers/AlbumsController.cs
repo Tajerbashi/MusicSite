@@ -13,114 +13,116 @@ using DAL.Services;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
-    public class GroupController : Controller
+    public class AlbumsController : Controller
     {
-        IGroupRepository groupRepository;
         private DbContexts db = new DbContexts();
-        public GroupController()
+        IAlbumRepository albumRepository;
+        public AlbumsController()
         {
-            groupRepository = new GroupRepository(db);
+            albumRepository = new AlbumRepository(db);
         }
-        // GET: Admin/Group
+        // GET: Admin/Albums
         public ActionResult Index()
         {
-            return View(groupRepository.GetAll());
+            return View(albumRepository.GetAll());
         }
 
-        // GET: Admin/Group/Details/5
+        // GET: Admin/Albums/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Group grouptType = groupRepository.GetById(id.Value);
-            if (grouptType == null)
+            Album album = albumRepository.GetById(id.Value);
+            if (album == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(grouptType);
+            return PartialView(album);
         }
 
-        // GET: Admin/Group/Create
+        // GET: Admin/Albums/Create
         public ActionResult Create()
         {
+            ViewBag.SingerId = new SelectList(albumRepository.GetAll(), "SingerId", "SingerName");
             return PartialView();
         }
 
-        // POST: Admin/Group/Create
+        // POST: Admin/Albums/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "GroupId,GroupName,Visit,CreateDate")] Group grouptType)
+        public ActionResult Create([Bind(Include = "AlbumId,SingerId,AlbumName,Visit,Score,Type,CreateDate")] Album album)
         {
             if (ModelState.IsValid)
             {
-                grouptType.CreateDate = DateTime.Now;
-                groupRepository.Add(grouptType);
-                groupRepository.Save();
+                albumRepository.Add(album);
+                albumRepository.Save();
                 return RedirectToAction("Index");
             }
 
-            return PartialView(grouptType);
+            ViewBag.SingerId = new SelectList(albumRepository.GetAll(), "SingerId", "SingerName", album.SingerId);
+            return PartialView(album);
         }
 
-        // GET: Admin/Group/Edit/5
+        // GET: Admin/Albums/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Group grouptType = groupRepository.GetById(id.Value);
-            if (grouptType == null)
+            Album album = albumRepository.GetById(id.Value);
+            if (album == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(grouptType);
+            ViewBag.SingerId = new SelectList(albumRepository.GetAll(), "SingerId", "SingerName", album.SingerId);
+            return PartialView(album);
         }
 
-        // POST: Admin/Group/Edit/5
+        // POST: Admin/Albums/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "GroupId,GroupName")] Group grouptType)
+        public ActionResult Edit([Bind(Include = "AlbumId,SingerId,AlbumName,Visit,Score,Type,CreateDate")] Album album)
         {
             if (ModelState.IsValid)
             {
-                grouptType.CreateDate = DateTime.Now;
-                groupRepository.Update(grouptType);
-                groupRepository.Save();
+                albumRepository.Update(album);
+                albumRepository.Save();
                 return RedirectToAction("Index");
             }
-            return PartialView(grouptType);
+            ViewBag.SingerId = new SelectList(albumRepository.GetAll(), "SingerId", "SingerName", album.SingerId);
+            return PartialView(album);
         }
 
-        // GET: Admin/Group/Delete/5
+        // GET: Admin/Albums/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Group grouptType = groupRepository.GetById(id.Value);
-            if (grouptType == null)
+            Album album = albumRepository.GetById(id.Value);
+            if (album == null)
             {
                 return HttpNotFound();
             }
-            return PartialView(grouptType);
+            return PartialView(album);
         }
 
-        // POST: Admin/Group/Delete/5
+        // POST: Admin/Albums/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Group grouptType = groupRepository.GetById(id);
-            groupRepository.Delete(grouptType);
-            groupRepository.Save();
+            Album album = albumRepository.GetById(id);
+            db.Albums.Remove(album);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

@@ -8,62 +8,62 @@
     <h2 class="my-2 shadow p-3 pe-5 px-5">پنل مدیریت ادمین</h2>
     @Html.ActionLink("ایجاد ادمین جدید", "Create", "", new { @class = "btn btn-light w-25 my-2" })
 
-    <table class="table table-hover text-center" style="cursor: pointer;">
-        <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Family)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
-            </th>
-            <th></th>
+<table class="table table-hover text-center" style="cursor: pointer;">
+    <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Family)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Family)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.adminId }, new { @class = "btn btn-warning" })
+                <a class="btn btn-info" onclick="DetailAdmin(@item.adminId)">
+                    نمایش
+                </a>
+                <a class="btn btn-danger" onclick="DeleteAdmin(@item.adminId)">
+                    حذف
+                </a>
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Family)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Username)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreateDate)
-                </td>
-                <td>
-                    @Html.ActionLink("ویرایش", "Edit", new { id = item.adminId }, new { @class = "btn btn-warning" })
-                    <a class="btn btn-info" onclick="DetailAdmin(@item.adminId)">
-                        نمایش
-                    </a>
-                    <a class="btn btn-danger" onclick="DeleteAdmin(@item.adminId)">
-                        حذف
-                    </a>
-                </td>
-            </tr>
-        }
-
-    </table>
+</table>
 
 </div>

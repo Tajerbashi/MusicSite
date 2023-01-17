@@ -1,4 +1,4 @@
-﻿@model DAL.GrouptType
+﻿@model DAL.Group
 
 @{
     ViewBag.Title = "Delete";
@@ -7,24 +7,28 @@
 <div>
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name) :
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.GroupName) :
+            @Html.DisplayFor(model => model.GroupName)
 
         </dt>
 
         <dt>
-            @Html.DisplayNameFor(model => model.visit) :
-            @Html.DisplayFor(model => model.visit)
+            @Html.DisplayNameFor(model => model.Visit) :
+            @Html.DisplayFor(model => model.Visit)
         </dt>
 
         <dt>
-            @Html.DisplayNameFor(model => model.duration) :
-            @Html.DisplayFor(model => model.duration)
+            @Html.DisplayNameFor(model => model.Score) :
+            @Html.DisplayFor(model => model.Score)
         </dt>
 
         <dt>
             @Html.DisplayNameFor(model => model.CreateDate) :
             @Html.DisplayFor(model => model.CreateDate)
+        </dt>
+        <dt>
+            تعداد کامنت ها :
+            @Html.DisplayFor(model => model.Comments.Count)
         </dt>
     </dl>
 

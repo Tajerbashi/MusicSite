@@ -126,6 +126,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AlbumsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlayListsController.cs" />
@@ -189,11 +190,11 @@
     <Content Include="Areas\Admin\Views\Admins\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Admins\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Admins\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\GrouptTypes\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\GrouptTypes\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\GrouptTypes\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\GrouptTypes\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\GrouptTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Group\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Group\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Group\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Group\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Group\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Singers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Singers\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Singers\Details.cshtml" />
@@ -225,6 +226,11 @@
     <Content Include="Areas\Admin\Views\Countries\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Countries\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Countries\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Albums\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Albums\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Albums\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Albums\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Albums\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />

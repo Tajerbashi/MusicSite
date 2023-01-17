@@ -20,25 +20,25 @@ $("#modal-shadow").click((event) => {
 });
 
 $("#Create-Group").click(function () {
-    console.log("CreateGroupClicked");
+    console.log("Create Group Clicked");
     $("#modal-shadow").addClass("d-block");
-    $.get("/Admin/GrouptTypes/Create", (res) => {
-        $("#modal-title").html("ساخت گروه");
+    $.get("/Admin/Group/Create", (res) => {
+        $("#modal-title").html("ساخت گروه دسته بندی");
         $("#modal-body").html(res);
     });
 });
 function EditGroup(id) {
     console.log("Click Edit");
     $("#modal-shadow").addClass("d-block");
-    $.get("/Admin/GrouptTypes/Edit/" + id, (res) => {
-        $("#modal-title").html("ویرایش گروه");
+    $.get("/Admin/Group/Edit/" + id, (res) => {
+        $("#modal-title").html("ویرایش گروه دسته بندی");
         $("#modal-body").html(res);
     });
 }
 function DetailsGroup(id) {
     console.log("Click Details");
     $("#modal-shadow").addClass("d-block");
-    $.get("/Admin/GrouptTypes/Details/" + id, (res) => {
+    $.get("/Admin/Group/Details/" + id, (res) => {
         $("#modal-title").html("نمایش اطلاعات");
         $("#modal-body").html(res);
     });
@@ -46,7 +46,7 @@ function DetailsGroup(id) {
 function DeleteGroup(id) {
     console.log("Click Delete");
     $("#modal-shadow").addClass("d-block");
-    $.get("/Admin/GrouptTypes/Delete/" + id, (res) => {
+    $.get("/Admin/Group/Delete/" + id, (res) => {
         $("#modal-title").html("حذف گروه");
         $("#modal-body").html(res);
     });
@@ -195,6 +195,39 @@ function DeleteCountry(id) {
     console.log("Click Delete");
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/Countries/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+//Album
+$("#Create-Album").click(function () {
+    console.log("Create Album Clicked");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Albums/Create", (res) => {
+        $("#modal-title").html("ساخت آلبوم");
+        $("#modal-body").html(res);
+    });
+});
+function EditAlbum(id) {
+    console.log("Click Edit");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Albums/Edit/" + id, (res) => {
+        $("#modal-title").html("ویرایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DetailsAlbum(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Albums/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeleteAlbum(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Albums/Delete/" + id, (res) => {
         $("#modal-title").html("حذف اطلاعات");
         $("#modal-body").html(res);
     });
