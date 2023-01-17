@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DAL.Padcast>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="index-admin" class="d-flex flex-column justify-content-center align-items-center ">
+    <a class="btn btn-light w-25 my-2" href="@Url.Action("Create","Padcasts")">ایجاد هنرمند جدید</a>
+    <table class="table table-hover text-center" style="cursor: pointer;">
+        <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PadcastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country.CountryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>            
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/Files//Photos/@item.Picture" class="img-fluid shadow rounded-1" style="height:100px; width:100px;"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PadcastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.ActionLink("ویرایش", "Edit", new { id = item.PadcastId },new {@class="btn btn-warning"})
+                    <a class="btn btn-info" onclick="DetailPadcasts(@item.PadcastId)">
+                        نمایش<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-danger" onclick="DeletePadcasts(@item.PadcastId)">
+                        حذف<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

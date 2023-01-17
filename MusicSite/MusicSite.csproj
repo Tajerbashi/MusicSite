@@ -129,6 +129,7 @@
     <Compile Include="Areas\Admin\Controllers\AlbumsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PadcastsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlayListsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
@@ -231,6 +232,11 @@
     <Content Include="Areas\Admin\Views\Albums\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Albums\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Albums\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Padcasts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Padcasts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Padcasts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Padcasts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Padcasts\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />

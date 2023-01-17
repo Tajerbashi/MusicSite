@@ -84,8 +84,7 @@ function DeleteSinger(id) {
         $("#modal-body").html(res);
     });
 }
-
-
+//PlayList
 $("#CreatePlayList").click(function () {
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/PlayLists/Create", (res) => {
@@ -229,6 +228,23 @@ function DeleteAlbum(id) {
     console.log("Click Delete");
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/Albums/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+//Padcast
+function DetailPadcasts(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Padcasts/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeletePadcasts(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Padcasts/Delete/" + id, (res) => {
         $("#modal-title").html("حذف اطلاعات");
         $("#modal-body").html(res);
     });

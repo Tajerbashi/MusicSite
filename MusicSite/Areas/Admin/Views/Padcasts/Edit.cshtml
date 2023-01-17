@@ -1,0 +1,71 @@
+﻿@model DAL.Padcast
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ویرایش پادکست</h2>
+<hr />
+@using (Html.BeginForm("Edit", "Padcasts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PadcastId)
+    @Html.HiddenFor(model => model.Picture)
+    @Html.HiddenFor(model => model.AddressFile)
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.CountryId, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
+        <div class="col-10">
+            @Html.DropDownList("CountryId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.PadcastName, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
+        <div class="col-10">
+            @Html.EditorFor(model => model.PadcastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PadcastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
+        <div class="col-10 text-center">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Type)
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.AddressFile, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
+        <div class="col-10">
+            <input name="file" class="form-control" type="file" />
+            @Html.ValidationMessageFor(model => model.AddressFile, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
+        <div class="col-10 text-center">
+            <input name="photo" class="form-control" type="file" />
+            <img src="~/Files//Photos/@Model.Picture" class="img-fluid shadow rounded-1 m-2" style="height:200px; width:200px;" />
+            @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-3 justify-content-center align-items-center">
+        <input type="submit" value="ذخیره" class=" btn btn-success w-25" />
+    </div>
+</div>
+}
+
+<div class="text-center">
+    @Html.ActionLink("برگشت", "Index", "", new { @class = "btn btn-dark w-25 mt-1" })
+</div>

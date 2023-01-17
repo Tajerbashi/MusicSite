@@ -2,6 +2,7 @@
 using DAL.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,7 @@ namespace DAL.Services
 
         public IEnumerable<Padcast> GetAll()
         {
-            return DB.Padcasts.ToList();
+            return DB.Padcasts.OrderBy(c => c.PadcastName).Include(c => c.Country).ToList();
         }
 
         public Padcast GetById(int id)
