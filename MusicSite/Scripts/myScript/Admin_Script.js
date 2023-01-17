@@ -150,7 +150,6 @@ function DeleteSong(id) {
         $("#modal-body").html(res);
     });
 }
-
 //User
 function DetailUser(id) {
     console.log("Click Details");
@@ -164,6 +163,38 @@ function DeleteUser(id) {
     console.log("Click Delete");
     $("#modal-shadow").addClass("d-block");
     $.get("/Admin/Users/Delete/" + id, (res) => {
+        $("#modal-title").html("حذف اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+//Country
+$("#Create-Country").click(function () {
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Countries/Create", (res) => {
+        $("#modal-title").html("کشور جدید");
+        $("#modal-body").html(res);
+    });
+});
+function EditCountry(id) {
+    console.log("Click Edit");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Countries/Edit/" + id, (res) => {
+        $("#modal-title").html("ویرایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DetailCountry(id) {
+    console.log("Click Details");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Countries/Details/" + id, (res) => {
+        $("#modal-title").html("نمایش اطلاعات");
+        $("#modal-body").html(res);
+    });
+}
+function DeleteCountry(id) {
+    console.log("Click Delete");
+    $("#modal-shadow").addClass("d-block");
+    $.get("/Admin/Countries/Delete/" + id, (res) => {
         $("#modal-title").html("حذف اطلاعات");
         $("#modal-body").html(res);
     });

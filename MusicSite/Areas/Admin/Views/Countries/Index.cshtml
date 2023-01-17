@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DAL.Country>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div id="index-admin" class="d-flex flex-column justify-content-center align-items-center ">
+
+    <h2 class="my-2 shadow p-3 pe-5 px-5">کنترل کشور ها</h2>
+    <hr />
+    <button id="Create-Country" class="btn btn-light w-25 my-2">ایجاد کشور جدید</button>
+
+    <table class="table table-hover text-center" style="cursor: pointer;">
+        <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
+            <th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>
+                <td class="d-flex flex-row justify-content-end">
+                    <a class="btn btn-warning" onclick="EditCountry(@item.CountryId)">
+                        ویرایش<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-danger mx-2" onclick="DeleteCountry(@item.CountryId)">
+                        حذف<i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

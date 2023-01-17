@@ -75,7 +75,7 @@ namespace DAL.Services
         {
             try
             {
-                DB.Entry(country).State = System.Data.Entity.EntityState.Deleted;
+                DB.Entry(country).State = System.Data.Entity.EntityState.Modified;
                 return true;
             }
             catch

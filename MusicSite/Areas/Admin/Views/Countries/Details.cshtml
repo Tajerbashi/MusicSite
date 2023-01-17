@@ -1,0 +1,14 @@
+﻿@model DAL.Country
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryName) :
+            @Html.DisplayFor(model => model.CountryName)
+        </dt>
+    </dl>
+</div>

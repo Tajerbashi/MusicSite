@@ -1,0 +1,22 @@
+﻿@model DAL.Country
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3 class="text-danger">شما از حذف این گروه مطمیین هستید؟</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryName) :
+            @Html.DisplayFor(model => model.CountryName)
+        </dt>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <input type="submit" value="حذف" class="btn btn-danger w-100" /> 
+        }
+</div>
