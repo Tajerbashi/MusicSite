@@ -6,17 +6,32 @@
 <div>
     <dl class="dl-horizontal">
         <dt class="my-1">
-            @Html.DisplayNameFor(model => model.Singer.Name) :
-            @Html.DisplayFor(model => model.Singer.Name)
-        </dt>
-
-        <dt class="my-1">
-            @Html.DisplayNameFor(model => model.Name) :
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Album.Singer.Country.CountryName) :
+            @Html.DisplayFor(model => model.Album.Singer.Country.CountryName)
         </dt>
         <dt class="my-1">
-            @Html.DisplayNameFor(model => model.Title) :
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Group.GroupName) :
+            @Html.DisplayFor(model => model.Group.GroupName)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Album.AlbumName) :
+            @Html.DisplayFor(model => model.Album.AlbumName)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Album.Singer.SingerName) :
+            @Html.DisplayFor(model => model.Album.Singer.SingerName)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.SongName) :
+            @Html.DisplayFor(model => model.SongName)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Visit) :
+            @Html.DisplayFor(model => model.Visit)
+        </dt>
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Score) :
+            @Html.DisplayFor(model => model.Score)
         </dt>
         <dt class="my-1">
             @Html.DisplayNameFor(model => model.CreateDate) :
@@ -26,7 +41,10 @@
             @Html.DisplayNameFor(model => model.Type) :
             @Html.DisplayFor(model => model.Type)
         </dt>
-
+        <dt class="my-1">
+            @Html.DisplayNameFor(model => model.Remix) :
+            @Html.DisplayFor(model => model.Remix)
+        </dt>
         <dt class="my-1">
             @Html.DisplayNameFor(model => model.AddressFile) :
             @Html.DisplayFor(model => model.AddressFile)
@@ -37,8 +55,7 @@
         </dt>
 
         <dt class="my-1">
-            @Html.DisplayNameFor(model => model.Picture) :
-            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow" style="max-width: 350px;" />
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow rounded-3" />
         </dt>
     </dl>
 </div>

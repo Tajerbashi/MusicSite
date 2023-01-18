@@ -20,13 +20,14 @@ namespace MusicSite.Areas.Admin.Controllers
         private DbContexts db = new DbContexts();
         ISongRepository songRep;
         IGroupRepository groupRep;
-        ISingerRepository singrep;
+        IAlbumRepository albumRep;
         IPlayListRepository PlayRep;
+
         public SongsController()
         {
             songRep = new SongRepository(db);
             groupRep = new GroupRepository(db);
-            singrep = new SingerRepository(db);
+            albumRep = new AlbumRepository(db);
             PlayRep = new PlayListRepository(db);
         }
         // GET: Admin/Songs
@@ -53,8 +54,8 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/Songs/Create
         public ActionResult Create()
         {
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name");
-            ViewBag.SingerId = new SelectList(singrep.GetAll(), "SingerId", "Name");
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "GroupName");
+            ViewBag.AlbumId = new SelectList(albumRep.GetAll(), "AlbumId", "AlbumName");
             return View();
         }
 
@@ -63,7 +64,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "songId,Name,GroupId,Title,CreateDate,Type,AddressFile,Picture,Score")] Song song,HttpPostedFileBase photoUp,HttpPostedFileBase fileUp)
+        public ActionResult Create([Bind(Include = "SongId,SongName,GroupId,AlbumId,Title,CreateDate,Type,AddressFile,Picture,Score,Remix,Visit")] Song song,HttpPostedFileBase photoUp,HttpPostedFileBase fileUp)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +81,9 @@ namespace MusicSite.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
+            //ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
+            ViewBag.AlbumId = new SelectList(albumRep.GetAll(), "AlbumId", "AlbumName");
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "GroupName");
             return View(song);
         }
 
@@ -96,7 +99,9 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
+            //ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "Name", song.GroupId);
+            ViewBag.AlbumId = new SelectList(albumRep.GetAll(), "AlbumId", "AlbumName");
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "GroupName");
             return View(song);
         }
 
@@ -105,7 +110,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "songId,Name,GroupId,Title,CreateDate,Type,AddressFile,Picture,Score")] Song song, HttpPostedFileBase photoUp, HttpPostedFileBase fileUp)
+        public ActionResult Edit([Bind(Include = "SongId,SongName,GroupId,AlbumId,Title,CreateDate,Type,AddressFile,Picture,Score,Remix,Visit")] Song song, HttpPostedFileBase photoUp, HttpPostedFileBase fileUp)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +136,9 @@ namespace MusicSite.Areas.Admin.Controllers
                 songRep.Save();
                 return RedirectToAction("Index");
             }
-            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "groupName", song.GroupId);
+            //ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "groupName", song.GroupId);
+            ViewBag.AlbumId = new SelectList(albumRep.GetAll(), "AlbumId", "AlbumName");
+            ViewBag.GroupId = new SelectList(groupRep.GetAll(), "GroupId", "GroupName");
             return View(song);
         }
 

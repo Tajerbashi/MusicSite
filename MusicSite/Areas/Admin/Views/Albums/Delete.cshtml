@@ -31,6 +31,9 @@
             @Html.DisplayNameFor(model => model.CreateDate) :
             @Html.DisplayFor(model => model.CreateDate)
         </dt>
+        <dt>
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow rounded-2" />
+        </dt>
     </dl>
 
     @using (Html.BeginForm())

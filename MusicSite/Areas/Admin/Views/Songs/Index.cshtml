@@ -9,18 +9,24 @@
     <h2 class="my-2 shadow p-3 pe-5 px-5">کنترل آهنگها</h2>
     <a href="@Url.Action("Create","Songs")" id="Create-Song" class="btn btn-light w-25 my-2">ایجاد آهنگ جدید</a>
     <table class="table table-hover text-center" style="cursor: pointer;">
-        <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
+        <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
             <th>
                 @Html.DisplayNameFor(model => model.Picture)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Singer.Name)
+                @Html.DisplayNameFor(model => model.Group.GroupName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Album.Singer.Country.CountryName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.Album.AlbumName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Album.Singer.SingerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SongName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
@@ -29,7 +35,16 @@
                 @Html.DisplayNameFor(model => model.Type)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Remix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                تعداد کامنت ها
             </th>
             <th></th>
         </tr>
@@ -38,16 +53,22 @@
         {
             <tr>
                 <td>
-                    <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow" style="max-width:100px;"/>
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow" style="max-width:100px;" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Singer.Name)
+                    @Html.DisplayFor(modelItem => item.Group.GroupName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.Album.Singer.Country.CountryName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Title)
+                    @Html.DisplayFor(modelItem => item.Album.AlbumName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Album.Singer.SingerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SongName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateDate)
@@ -56,16 +77,25 @@
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Remix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visit)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Score)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit","Songs",new {id =item.songId})" class="btn btn-warning">
+                    @Html.DisplayFor(modelItem => item.Comments.Count)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit","Songs",new {id =item.SongId})" class="btn btn-warning">
                         ویرایش
                     </a>
-                    <a class="btn btn-info" onclick="DetailSong(@item.songId)">
+                    <a class="btn btn-info" onclick="DetailSong(@item.SongId)">
                         نمایش
                     </a>
-                    <a class="btn btn-danger" onclick="DeleteSong(@item.songId)">
+                    <a class="btn btn-danger" onclick="DeleteSong(@item.SongId)">
                         حذف
                     </a>
                 </td>
