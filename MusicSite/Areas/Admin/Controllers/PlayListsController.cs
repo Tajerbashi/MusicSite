@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using DAL;
 using DAL.Context;
@@ -15,11 +17,13 @@ namespace MusicSite.Areas.Admin.Controllers
     {
         IPlayListRepository PlayList;
         ISongRepository Songs;
+        ICountryRepository country;
         private DbContexts DB=new DbContexts();
         public PlayListsController()
         {
             PlayList= new PlayListRepository(DB);
             Songs = new SongRepository(DB);
+            country = new CountryRepository(DB);
         }
 
         // GET: Admin/PlayLists
@@ -35,6 +39,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.CountryId = new SelectList(country.GetAll(), "CountryId", "CountryName");
             PlayList playList = PlayList.GetById(id.Value);
             if (playList == null)
             {
@@ -46,6 +51,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // GET: Admin/PlayLists/Create
         public ActionResult Create()
         {
+            ViewBag.CountryId = new SelectList(country.GetAll(), "CountryId", "CountryName");
             return PartialView();
         }
 
@@ -54,10 +60,15 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "playListId,GroupName,PlayCount,CreateDate,Type")] PlayList playList)
+        public ActionResult Create([Bind(Include = "CountryId,playListId,PlayListName,PlayCount,CreateDate,Type")] PlayList playList,HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null)
+                {
+                    playList.Picture = Guid.NewGuid() + Path.GetExtension(photo.FileName);
+                    photo.SaveAs(Server.MapPath("/Files/Photos/" + playList.Picture));
+                }
                 playList.CreateDate= DateTime.Now;
                 PlayList.Add(playList);
                 PlayList.Save();
@@ -74,6 +85,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.CountryId = new SelectList(country.GetAll(), "CountryId", "CountryName");
             PlayList playList = PlayList.GetById(id.Value);
             if (playList == null)
             {
@@ -87,10 +99,19 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "playListId,GroupName,PlayCount,CreateDate,Type")] PlayList playList)
+        public ActionResult Edit([Bind(Include = "CountryId,playListId,PlayListName,PlayCount,CreateDate,Type,Picture")] PlayList playList,HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null)
+                {
+                    if (playList.Picture != null)
+                    {
+                        System.IO.File.Delete(Server.MapPath("/Files/Photos/" + playList.Picture));
+                    }
+                    playList.Picture = Guid.NewGuid() + Path.GetExtension(photo.FileName);
+                    photo.SaveAs(Server.MapPath("/Files/Photos/" + playList.Picture));
+                }
                 playList.CreateDate = DateTime.Now;
                 PlayList.Update(playList);
                 PlayList.Save();
@@ -120,6 +141,10 @@ namespace MusicSite.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             PlayList playList = PlayList.GetById(id);
+            if (playList.Picture != null)
+            {
+                System.IO.File.Delete(Server.MapPath("/Files/Photos/" + playList.Picture));
+            }
             PlayList.Delete(playList);
             PlayList.Save();
             return RedirectToAction("Index");

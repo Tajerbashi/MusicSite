@@ -4,18 +4,19 @@
     ViewBag.Title = "Edit";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Albums", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.AlbumId)
+    @Html.HiddenFor(model => model.Picture)
 
     <div class="form-group d-flex flex-row mt-1">
         @Html.LabelFor(model => model.SingerId, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
         <div class="col-10">
-            @Html.DropDownList("SingerId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("SingerId", null,htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.SingerId, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -38,7 +39,23 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group d-flex flex-row mt-1">
+        @Html.LabelFor(model => model.Picture, htmlAttributes: new { @class = "lbl control-label col-2 text-center mt-1" })
+        <div class="col-10 text-center">
+            <div class="checkbox">
+                <input name="photo" class="form-control" type="file" />
+                @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group d-flex flex-row mt-1">
+        <div class="col-12 text-center">
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow rounded-2"/>
+        </div>
+    </div>
+
+    <div class="form-group mt-2">
         <input type="submit" value="ویرایش" class="btn btn-warning w-100" />
     </div>
 </div>

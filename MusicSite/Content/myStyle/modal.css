@@ -44,7 +44,7 @@
     justify-content: space-between;
     align-items: center;
     background: rgb(0, 30, 114);
-    color: #000;
+    color: #fff !important;
     border-radius: 1rem 1rem 0 0;
     padding: 0 1rem;
 }

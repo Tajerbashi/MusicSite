@@ -26,6 +26,9 @@ namespace DAL
         [Display(Name = "عضویت")]
         public bool Type { get; set; }
 
+        [Display(Name = "تصویر")]
+        public String Picture { get; set; }
+
         [Display(Name = "تاریخ ثبت")]
         public DateTime CreateDate { get; set; } = DateTime.Now;
 

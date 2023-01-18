@@ -11,6 +11,9 @@
     <table class="table table-hover text-center">
         <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
             <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Singer.SingerName)
             </th>
             <th>
@@ -34,6 +37,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <th>
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-1 shadow" style="height: 100px; width: 100px;" />
+                </th>
                 <td>
                     @Html.DisplayFor(modelItem => item.Singer.SingerName)
                 </td>

@@ -65,7 +65,7 @@ namespace DAL.Services
 
         public IEnumerable<Album> GetAll()
         {
-            return DB.Albums.Include(c=>c.Singer).ToList();
+            return DB.Albums.OrderByDescending(c => c.AlbumName).Include(c=>c.Singer).ToList();
         }
 
         public Album GetById(int id)

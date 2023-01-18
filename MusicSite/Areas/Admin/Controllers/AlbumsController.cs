@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -56,10 +57,15 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AlbumId,SingerId,AlbumName,Visit,Score,Type,CreateDate")] Album album)
+        public ActionResult Create([Bind(Include = "AlbumId,SingerId,AlbumName,Visit,Score,Type,CreateDate,Picture")] Album album,HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null)
+                {
+                    album.Picture = Guid.NewGuid() + Path.GetExtension(photo.FileName);
+                    photo.SaveAs(Server.MapPath("/Files/Photos/" + album.Picture));
+                }
                 albumRepository.Add(album);
                 albumRepository.Save();
                 return RedirectToAction("Index");
@@ -90,10 +96,19 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AlbumId,SingerId,AlbumName,Visit,Score,Type,CreateDate")] Album album)
+        public ActionResult Edit([Bind(Include = "AlbumId,SingerId,AlbumName,Visit,Score,Type,CreateDate,Picture")] Album album,HttpPostedFileBase photo)
         {
             if (ModelState.IsValid)
             {
+                if (photo != null)
+                {
+                    if (album.Picture != null)
+                    {
+                        System.IO.File.Delete(Server.MapPath("/Files/Photos/" + album.Picture));
+                    }
+                    album.Picture = Guid.NewGuid() + Path.GetExtension(photo.FileName);
+                    photo.SaveAs(Server.MapPath("/Files/Photos/" + album.Picture));
+                }
                 albumRepository.Update(album);
                 albumRepository.Save();
                 return RedirectToAction("Index");
@@ -123,6 +138,10 @@ namespace MusicSite.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Album album = albumRepository.GetById(id);
+            if (album.Picture != null)
+            {
+                System.IO.File.Delete(Server.MapPath("/Files/Photos/" + album.Picture));
+            }
             db.Albums.Remove(album);
             db.SaveChanges();
             return RedirectToAction("Index");

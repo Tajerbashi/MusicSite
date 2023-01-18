@@ -158,6 +158,14 @@ namespace MusicSite.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Padcast padcast = padcastRepository.GetById(id);
+            if (padcast.Picture != null)
+            {
+                System.IO.File.Delete(Server.MapPath("/Files/Photos/" + padcast.Picture));
+            }
+            if (padcast.AddressFile != null)
+            {
+                System.IO.File.Delete(Server.MapPath("/Files/Musics/" + padcast.AddressFile));
+            }
             padcastRepository.Delete(padcast);
             padcastRepository.Save();
             return RedirectToAction("Index");

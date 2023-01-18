@@ -9,12 +9,21 @@
     <h2 class="my-2 shadow p-3 pe-5 px-5">نمایش تمام پلی لیست ها</h2>
     <button class="btn btn-light w-25 my-2" id="CreatePlayList">ایجاد پلی لیست جدید</button>
     <table class="table table-hover text-center">
-        <tr class="py-1" style="background: linear-gradient(270deg,#4900c1,#9044ff); color: #ffffff; ">
+        <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Picture)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PlayCount)
+                @Html.DisplayNameFor(model => model.PlayListName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country.CountryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CreateDate)
@@ -29,10 +38,19 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-1" style="height:100px; width:100px;" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PlayCount)
+                    @Html.DisplayFor(modelItem => item.PlayListName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateDate)
