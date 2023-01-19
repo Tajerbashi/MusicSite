@@ -98,3 +98,72 @@ a {
 #search-input{
     background: #ffffff00 !important;
 }
+/*  Play List PkFk    */
+
+#search-panel {
+    background: linear-gradient(0deg,rgb(255, 115, 0),rgb(255, 123, 0));
+    padding: 1rem;
+    margin: 1rem auto;
+    direction: rtl;
+    display: flex;
+    flex-direction: row;
+}
+
+#search-panel-control {
+    background: linear-gradient(0deg,rgba(77, 77, 77, 0.233),rgba(68, 68, 68, 0.377));
+    margin: 1rem auto;
+    padding: 1rem;
+    width: 70%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#search-word {
+    background: rgba(255, 255, 255, 0);
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0);
+    outline: none;
+    color: #eee;
+    width: 90%;
+}
+
+#search-word::placeholder {
+    color: rgba(255, 255, 255, 0.644);
+}
+
+#search-icon-pk {
+    cursor: pointer;
+    color: #eee;
+    transform: scale(1.5);
+    margin-top: 5px;
+}
+
+#search-icon-pk:hover {
+    color: rgb(8, 8, 8);
+    transform: scale(2);
+}
+
+/* ROW SONGS */
+.img-songs-items {
+    height: 6rem;
+}
+.song-items-PK {
+    background: linear-gradient(0deg,rgb(255, 132, 94),rgb(255, 130, 57));
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.song-items-PK:hover {
+    background: linear-gradient(0deg,rgb(110, 13, 0),rgb(255, 145, 0));
+    box-shadow: 0 0 10px 0 rgb(238, 255, 0);
+    color: #eee;
+    cursor: pointer;
+}
+
+.Checked {
+    background: linear-gradient(0deg,rgb(255, 255, 255),rgb(0, 0, 0));
+}

@@ -211,7 +211,6 @@
     <Content Include="Areas\Admin\Views\PlayLists\Details.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\PlayLists\CreatePlayListSongs.cshtml" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -237,6 +236,7 @@
     <Content Include="Areas\Admin\Views\Padcasts\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Padcasts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Padcasts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayLists\CreatePlayListSongs.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />

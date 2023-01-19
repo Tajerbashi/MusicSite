@@ -250,39 +250,26 @@ function DeletePadcasts(id) {
     });
 }
 
-
-let songs = document.querySelector(".SONGS");
-let CreateBtn = document.getElementById("Create");
-var SongIdList = [];
-let PlayListId;
-
-function Reload() {
-    songs = document.querySelectorAll(".SONGS");
-}
-songs.addEventListener("click", (event) => {
-    //console.log(event.target.tagName);
-    if (event.target.tagName === "SPAN") {
-        event.target.classList.add("d-none");
-        event.target.parentElement.parentElement.parentElement.classList.remove("SelectedSong");
-        //console.log(event.target);
-    }
-    else if (event.target.tagName === "I") {
-        event.target.parentElement.classList.add("d-none");
-        event.target.parentElement.parentElement.parentElement.classList.remove("SelectedSong");
-    }
-    else if (event.target.tagName === "IMG") {
-        if (event.target.nextElementSibling.classList.contains("d-none")) {
-            event.target.nextElementSibling.classList.remove("d-none");
-            event.target.parentElement.parentElement.classList.add("SelectedSong");
+// SONGS
+let songsItemsPKFK = document.querySelectorAll(".song-items-PK");
+songsItemsPKFK.forEach(item => {
+    item.addEventListener("click", (event) => {
+        if (event.target.tagName === "DIV") {
+            if (event.target.classList.contains("Checked")) {
+                event.target.classList.remove("Checked");
+            } else {
+                event.target.classList.add("Checked");
+            }
+            console.log(event.target);
         } else {
-            event.target.parentElement.parentElement.classList.remove("SelectedSong");
-            event.target.nextElementSibling.classList.add("d-none");
+            if (event.target.parentElement.classList.contains("Checked")) {
+                event.target.parentElement.classList.remove("Checked");
+            } else {
+                event.target.parentElement.classList.add("Checked");
+            }
+            console.log(event.target.parentElement);
         }
-    }
-});
-
-$("#Create").click(() => {
-    CreateArraySelectedSongs();
+    });
 });
 
 function CreateArraySelectedSongs() {

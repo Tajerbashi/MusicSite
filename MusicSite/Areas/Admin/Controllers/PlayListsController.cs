@@ -150,12 +150,15 @@ namespace MusicSite.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
         
+        // PlayListSong PKFK
         public ActionResult CreatePlayListSongs()
         {
-            ViewBag.Songs = Songs.GetAllWitdPlayList();
-            ViewBag.PlayLists = PlayList.GetAll();
+            ViewBag.Songs = Songs.GetAll();
+            ViewBag.Playlists = new SelectList(PlayList.GetAll(), "playListId", "PlayListName");
             return View();
         }
+
+
         [HttpPost]
         public void CreatePlayListSongs(string PlayListId, List<string> SongIdList)
         {
