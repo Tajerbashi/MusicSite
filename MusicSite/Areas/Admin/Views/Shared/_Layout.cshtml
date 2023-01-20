@@ -12,8 +12,12 @@
 <body dir="rtl">
 
     <nav id="navTop">
-        <div class="bg-dark text-light text-center p-3 w-100">
+        <div class="d-flex flex-row justify-content-between bg-dark text-light text-center p-3">
             <h1 id="header-h1">پنل مدیریت کنترل محتوا</h1>
+            <div id="search-container-nav" class="d-flex flex-row justify-content-between align-items-center">
+                <input class="p-2" id="search-input-nav" placeholder="جستجو کنید ..." />
+                <span><i id="search-icon-nav" class="fa fa-search"></i></span>
+            </div>
         </div>
     </nav>
 
@@ -148,6 +152,6 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/myScript/modal.js"></script>
     <script src="~/Scripts/myScript/Admin_Script.js" defer></script>
-    @RenderSection("Scripts", required: false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -71,8 +71,32 @@ a {
         height: 90vh;
     }
 }
-.lbl{
-    font-size: 1.3rem; 
+
+#search-container-nav {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(90deg,#ffffff12,#ffffff26);
+    border-radius: 5rem;
+    width: 20rem;
+}
+#search-input-nav{
+    background: #00000000;
+    color: #ffffffba;
+    outline: none;
+    border: 1px solid #fff0;
+    width: 90%;
+}
+#search-icon-nav {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+#search-icon-nav:hover{
+    color: #ff7d00ff;
+    transform: scale(1.5);
+}
+
+.lbl {
+    font-size: 1.3rem;
 }
 .playIcon {
     background: linear-gradient(0deg,#00000000,#ff8500,#00000000);
