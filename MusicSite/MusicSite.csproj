@@ -237,6 +237,7 @@
     <Content Include="Areas\Admin\Views\Padcasts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Padcasts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\CreatePlayListSongs.cshtml" />
+    <Content Include="Areas\Admin\Views\PlayLists\ShowPlayListSongs.cshtml" />
     <None Include="Scripts\jquery-3.6.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.1.js" />
     <Content Include="Scripts\jquery-3.6.1.min.js" />

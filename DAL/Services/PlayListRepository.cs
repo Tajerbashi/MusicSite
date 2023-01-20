@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DAL.Services
 {
@@ -64,6 +65,24 @@ namespace DAL.Services
         public IEnumerable<PlayList> GetAll()
         {
             return DB.PlayLists.OrderByDescending(c => c.CreateDate).ToList();
+        }
+
+        public IEnumerable<PlayList> GetAllPlayListPKFK()
+        {
+            return DB
+                .PlayLists
+                .Include(c => c.PlayListSongPKFK)
+                .ToList();
+        }
+
+        public IEnumerable<PlayListSongPKFK> GetAllPlayListSongPKFK()
+        {
+            return DB
+                .PlayListSongPKFKs
+                .Include(c => c.PlayList)
+                .Include(c => c.Song)
+                .Include(c => c.Song.Album)
+                .ToList();
         }
 
         public PlayList GetById(int id)

@@ -8,6 +8,7 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
     <h2 class="my-2 shadow p-3 pe-5 px-5">نمایش تمام پلی لیست ها</h2>
     <button class="btn btn-light w-25 my-2" id="CreatePlayList">ایجاد پلی لیست جدید</button>
+    <a href="@Url.Action("ShowPlayListSongs","PlayLists")" class="col-sm-10 col-md-6 btn btn-primary mt-1">نمایش همه پلی لیست ها با آهنگ های</a>
     <table class="table table-hover text-center">
         <tr class="py-1" style="background: linear-gradient(270deg,#ff4e00,#ffd800); color: #000000; ">
             <th>
@@ -38,7 +39,7 @@
         {
             <tr>
                 <td>
-                    <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-1" style="height:100px; width:100px;" />
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-1" style="height:50px; width:50px;" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PlayListName)

@@ -252,6 +252,9 @@ function DeletePadcasts(id) {
 
 // SONGS
 let songsItemsPKFK = document.querySelectorAll(".song-items-PK");
+let SavePlayList = document.getElementById("SavePlayList");
+let Playlists = document.getElementById("Playlists");
+
 songsItemsPKFK.forEach(item => {
     item.addEventListener("click", (event) => {
         if (event.target.tagName === "DIV") {
@@ -260,25 +263,32 @@ songsItemsPKFK.forEach(item => {
             } else {
                 event.target.classList.add("Checked");
             }
-            console.log(event.target);
+            //console.log(event.target);
         } else {
             if (event.target.parentElement.classList.contains("Checked")) {
                 event.target.parentElement.classList.remove("Checked");
             } else {
                 event.target.parentElement.classList.add("Checked");
             }
-            console.log(event.target.parentElement);
+            //console.log(event.target.parentElement);
         }
     });
 });
 
-function CreateArraySelectedSongs() {
-    let SelectedSongs = document.querySelectorAll(".SelectedSong");
-    PlayListId = document.getElementById("groupSelected").value;
-    console.log("Selected : " + SelectedSongs);
+SavePlayList.addEventListener("click", () => {
+    console.log("Clicked");
+    CreateArraySelectedSongs(Playlists.value);
+});
+
+function CreateArraySelectedSongs(PlayListId) {
+    console.log("ID : " + PlayListId);
+    let SelectedSongs = document.querySelectorAll(".Checked");
+    let SongIdList = [];
     SelectedSongs.forEach((item) => {
         SongIdList.push(item.getAttribute("data-id"));
+        //console.log(item.getAttribute("data-id"));
     });
+    console.log(SongIdList);
     $.ajax({
         type: 'POST',
         url: '/Admin/PlayLists/CreatePlayListSongs',
@@ -292,5 +302,6 @@ function CreateArraySelectedSongs() {
             alert("jqXHR:" + jqXHR.status + " errorThrown: " + errorThrown);
         }
     });
+   
 }
 

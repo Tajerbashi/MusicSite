@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "ShowPlayListSongs";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    string nameList="";
+}
+<div class="text-center">
+    <div id="search-panel">
+        <div id="search-panel-control">
+            <input id="search-word" placeholder="جستجو کنید ..." />
+            <span><i id="search-icon-pk" class="fa fa-search"></i></span>
+        </div>
+    </div>
+    <a href="@Url.Action("CreatePlayListSongs","PlayLists")" class="col-sm-10 col-md-6 btn btn-dark my-2">ایجاد پلی لیست جدید</a>
+    <div dir="rtl" class="container-fluid">
+        <div class="row">
+            @foreach (var list in ViewBag.PlayLists)
+            {
+                if (nameList != list.PlayList.PlayListName)
+                {
+                    <div class="col-sm-3 col-md-4 col-lg-2">
+                        <div class="playlist-container">
+                            <h6 class="p-2 text-center text-light rounded-3 sticky-top title-playlist-show">@list.PlayList.PlayListName</h6>
+                            @foreach (var i in ViewBag.PlayLists)
+                            {
+                                if (i.PlayList.playListId == list.PlayList.playListId)
+                                {
+                                    <div class="d-flex flex-row justify-content-start p-1 mt-1 rounded-3 playList-item-show">
+                                        <img src="~/Files/Photos/@i.Song.Picture" class="img-fluid rounded-circle" style="height: 3rem; width: 3rem;" alt="">
+                                        <div class="d-flex flex-column justify-content-between">
+                                            <span class="text-warning px-2">@i.Song.Album.Singer.SingerName</span>
+                                            <span class="text-light px-2">@i.Song.SongName  :  @i.Song.Album.AlbumName</span>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+                nameList = list.PlayList.PlayListName;
+            }
+
+        </div>
+    </div>
+
+</div>
+

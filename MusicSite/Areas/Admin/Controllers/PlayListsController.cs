@@ -157,7 +157,11 @@ namespace MusicSite.Areas.Admin.Controllers
             ViewBag.Playlists = new SelectList(PlayList.GetAll(), "playListId", "PlayListName");
             return View();
         }
-
+        public ActionResult ShowPlayListSongs()
+        {
+            ViewBag.Playlists = PlayList.GetAllPlayListSongPKFK();
+            return View();
+        }
 
         [HttpPost]
         public void CreatePlayListSongs(string PlayListId, List<string> SongIdList)
