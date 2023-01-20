@@ -30,10 +30,32 @@ namespace DAL.Services
             }
         }
 
+        public bool CheckPlayList(PlayList list)
+        {
+            try
+            {
+                var query1 = DB.PlayListSongPKFKs.Where(c => c.PlayList.playListId == list.playListId).ToList();
+                if (query1.Count > 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public bool Delete(PlayList playList)
         {
             try
             {
+                List<PlayListSongPKFK> play = DB.PlayListSongPKFKs.Where(c => c.PlayList.playListId == playList.playListId).ToList();
+                foreach (var item in play)
+                {
+                    DB.PlayListSongPKFKs.Remove(item);
+                }
                 DB.Entry(playList).State=EntityState.Deleted;
                 return true;
             }

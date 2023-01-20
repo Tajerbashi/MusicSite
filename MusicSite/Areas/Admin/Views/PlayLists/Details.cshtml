@@ -26,12 +26,11 @@
             @Html.DisplayFor(model => model.Score)
         </dt>
         <dt>
-            @Html.DisplayNameFor(model => model.Picture)
-            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow rounded-1" />
-        </dt>
-        <dt>
             @Html.DisplayNameFor(model => model.Type) :
             @Html.DisplayFor(model => model.Type)
+        </dt>
+        <dt>
+            <img src="~/Files/Photos/@Model.Picture" class="img-fluid shadow rounded-1" />
         </dt>
     </dl>
 </div>

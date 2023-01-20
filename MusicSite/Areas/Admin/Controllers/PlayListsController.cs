@@ -39,6 +39,7 @@ namespace MusicSite.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            ViewBag.Playlists = PlayList.GetAllPlayListSongPKFK();
             ViewBag.CountryId = new SelectList(country.GetAll(), "CountryId", "CountryName");
             PlayList playList = PlayList.GetById(id.Value);
             if (playList == null)
@@ -166,18 +167,30 @@ namespace MusicSite.Areas.Admin.Controllers
         [HttpPost]
         public void CreatePlayListSongs(string PlayListId, List<string> SongIdList)
         {
-            PlayList playList = PlayList.GetById(Int32.Parse(PlayListId));
-            foreach (var i in SongIdList)
+            if ((SongIdList != null && PlayListId != null))
             {
-                PlayListSongPKFK PKFK= new PlayListSongPKFK();
-                Song song = Songs.GetById(Convert.ToInt32(i));
+                if (PlayListId != "")
+                {
+                    if (SongIdList != null)
+                    {
+                        PlayList playList = PlayList.GetById(Int32.Parse(PlayListId));
+                        if (PlayList.CheckPlayList(playList))
+                        {
+                            foreach (var i in SongIdList)
+                            {
+                                PlayListSongPKFK PKFK = new PlayListSongPKFK();
+                                Song song = Songs.GetById(Convert.ToInt32(i));
 
-                PKFK.PlayList = playList;
-                PKFK.Song = song;
-                playList.PlayListSongPKFK.Add(PKFK);
-                song.PlayListSongPKFK.Add(PKFK);
+                                PKFK.PlayList = playList;
+                                PKFK.Song = song;
+                                playList.PlayListSongPKFK.Add(PKFK);
+                                song.PlayListSongPKFK.Add(PKFK);
+                            }
+                            Songs.Save();
+                        }
+                    }
+                }
             }
-            Songs.Save();
         }
         protected override void Dispose(bool disposing)
         {

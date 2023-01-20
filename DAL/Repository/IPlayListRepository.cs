@@ -12,6 +12,7 @@ namespace DAL.Repository
         bool Update(PlayList playList);
         bool Delete(PlayList playList);
         bool Delete(int id);
+        bool CheckPlayList(PlayList list);
         void Save();
         IEnumerable<PlayList> GetAll();
         IEnumerable<PlayList> GetAllPlayListPKFK();
