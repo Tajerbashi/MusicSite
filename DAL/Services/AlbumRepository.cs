@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -66,6 +67,19 @@ namespace DAL.Services
         public IEnumerable<Album> GetAll()
         {
             return DB.Albums.OrderByDescending(c => c.AlbumName).Include(c=>c.Singer).ToList();
+        }
+
+        public IEnumerable<ViewModelAlbums> GetAllModelAlbum()
+        {
+            return DB.Albums.OrderByDescending(c => c.Visit).Select(c => new ViewModelAlbums
+            {
+                AlbumId=c.AlbumId,
+                AlbumName= c.AlbumName,
+                SingerName=c.Singer.SingerName,
+                Visit=c.Visit,
+                Score=c.Score,
+                Picture=c.Picture
+            });
         }
 
         public Album GetById(int id)

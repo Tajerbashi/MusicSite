@@ -4,7 +4,6 @@ let modalHeaderSite = document.getElementById("modal-header-site");
 let modalHeaderTitle = document.getElementById("modal-header-title");
 let userPanel = document.getElementById("userPanel");
 
-
 modal_container.addEventListener("click", (event) => {
     // console.log(event.target);
     if (event.target.getAttribute("id") === "modal-container" || event.target.classList.contains("fa-close")) {

@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -57,7 +58,33 @@ namespace DAL.Services
         {
             return DB.Songs.Include(c => c.Album).Include(c => c.Album.Singer).OrderByDescending(c => c.CreateDate).ToList();
         }
-       
+
+        public IEnumerable<ViewModelSongs> GetAllSongForDateTime()
+        {
+            return DB.Songs.OrderByDescending(c => c.CreateDate).Select(song => new ViewModelSongs
+            {
+                SongId = song.SongId,
+                SongName = song.SongName,
+                SingerName = song.Album.Singer.SingerName,
+                AlbumName = song.Album.AlbumName,
+                Picture = song.Picture,
+                AddressFile = song.AddressFile,
+            });
+        }
+
+        public IEnumerable<ViewModelSongs> GetAllSongForIndexShow()
+        {
+            return DB.Songs.Select(song => new ViewModelSongs
+            {
+                SongId= song.SongId,
+                SongName= song.SongName,
+                SingerName=song.Album.Singer.SingerName,
+                AlbumName= song.Album.AlbumName,
+                Picture=song.Picture,
+                AddressFile=song.AddressFile
+            });
+        }
+
         public Song GetById(int id)
         {
             return DB.Songs.Find(id);

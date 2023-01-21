@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace DAL.Repository
         bool Delete(int id);
         void Save();
         IEnumerable<Song> GetAll();
+        IEnumerable<ViewModelSongs> GetAllSongForIndexShow();
+        IEnumerable<ViewModelSongs> GetAllSongForDateTime();
         Song GetById(int id);
         Song GetByName(string Name);
     }

@@ -239,11 +239,7 @@ Search Aside Panel
         cursor: pointer !important;
     }
 
-.singer-list-play {
-    font-size: 0.8rem;
-}
-
-.song-list-play {
+.singer-list-play, .song-list-play, .Album-list-play {
     font-size: 0.8rem;
 }
 

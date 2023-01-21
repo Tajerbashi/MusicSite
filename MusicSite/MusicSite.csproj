@@ -276,6 +276,10 @@
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\Header\LoginPanelUser.cshtml" />
     <Content Include="Views\Header\SearchPanel.cshtml" />
+    <Content Include="Views\Header\ShowMostSongsScore.cshtml" />
+    <Content Include="Views\Header\ShowMostSongsDate.cshtml" />
+    <Content Include="Views\Header\ShowMostAlbums.cshtml" />
+    <Content Include="Views\Header\ShowPlayer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -33,7 +33,17 @@
         @Html.Action("SearchPanel", "Header")
 
         <div class="mt-1">
-            @RenderBody()
+            <ul id="nav-list" class="d-flex flex-row justify-content-evenly flex-wrap">
+                <li id="HomePage" class="nav-list-item w-100 rounded-5"><a href="#">صفحه اصلی</a></li>
+                <li id="Groups" class="nav-list-item"><a href="#">دسته بندی ها</a></li>
+                <li id="Songs" class="nav-list-item"><a href="#">آهنگها</a></li>
+                <li id="PlayLists" class="nav-list-item"><a href="#">پلی لیست ها</a></li>
+                <li id="Albumes" class="nav-list-item"><a href="#">آلبوم ها</a></li>
+                <li id="Padcasts" class="nav-list-item"><a href="#">پادکست ها</a></li>
+                <li id="Countries" class="nav-list-item"><a href="#">کشور ها</a></li>
+                <li id="Singers" class="nav-list-item"><a href="#">خوانندگان</a></li>
+                <li id="Remixes" class="nav-list-item"><a href="#">ریمیکس</a></li>
+            </ul>
         </div>
     </div>
     <!-- Ended top nav -->
@@ -42,19 +52,7 @@
     <div class="container-fluid">
         <div id="header-row1" class="row">
 
-            <div class="col-sm-12 col-md-2 p-3">
-                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
-                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">پربازدیدترین های تاپ صدا</h6>
-                    <ul class="list-group">
-                        <li class="list-group-item-list">
-                            <a class="d-flex flex-row justify-content-between" href="#">
-                                <span class="song-list-play">چشم آبی من</span>
-                                <span class="singer-list-play">یوسف زمانی</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            @Html.Action("ShowMostSongsScore", "Header")
 
             <div class="col-sm-12 col-md-2 p-3">
                 <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
@@ -64,64 +62,16 @@
                             <a class="d-flex flex-row justify-content-between" href="#">
                                 <span class="song-list-play">چشم آبی من</span>
                                 <span class="singer-list-play">یوسف زمانی</span>
+                                <span class="Album-list-play">آلبوم</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-sm-12 col-md-4">
-                <div class=" d-flex flex-column justify-content-between align-items-center">
-                    <img src="./../img/body.jpg" class="shadow" id="header-img" />
-                    <div class="mt-5 text-dark">
-                        <h6>
-                            یوسف زمانی</ح>
-                            <h5>پاییز</h5>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between align-items-center w-100">
-                        <span style="font-size: 12px;">05:10</span>
-                        <span style="font-size: 12px;">05:10</span>
-                    </div>
-                    <div id="Progress-Container">
-                        <div id="Progress"></div>
-                    </div>
-                    <div id="Controller-Container" class="m-2 px-2 d-flex flex-row justify-content-around align-items-center w-100">
-                        <i class="fa fa-step-backward header-music-controller"></i>
-                        <i class="fa fa-backward header-music-controller"></i>
-                        <i class="fa fa-stop header-music-controller"></i>
-                        <i class="fa fa-play header-music-controller"></i>
-                        <i class="fa fa-forward header-music-controller"></i>
-                        <i class="fa fa-step-forward header-music-controller"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-2 p-3">
-                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
-                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">آخرین تک آهنگ ها</h6>
-                    <ul class="list-group">
-                        <li class="list-group-item-list">
-                            <a class="d-flex flex-row justify-content-between" href="#">
-                                <span class="song-list-play">چشم آبی من</span>
-                                <span class="singer-list-play">یوسف زمانی</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-2 p-3">
-                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
-                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">آلبوم های پربازدید</h6>
-                    <ul class="list-group">
-                        <li class="list-group-item-list">
-                            <a class="d-flex flex-row justify-content-between" href="#">
-                                <span class="song-list-play">چشم آبی من</span>
-                                <span class="singer-list-play">یوسف زمانی</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+           @RenderBody()
+            @Html.Action("ShowMostSongsDate", "Header")
+            @Html.Action("ShowMostAlbums", "Header")
         </div>
     </div>
     <!-- End Index Page -->
