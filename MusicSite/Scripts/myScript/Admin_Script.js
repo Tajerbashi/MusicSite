@@ -1,4 +1,12 @@
-﻿var aside = document.getElementById("aside-panel");
+﻿document.getElementById("modal-shadow").addEventListener("click", () => {
+    document.getElementById("modal-shadow").classList.remove("d-block-modal");
+});
+document.getElementById("close-X").addEventListener("click", () => {
+    document.getElementById("modal-shadow").classList.remove("d-block-modal");
+});
+
+
+var aside = document.getElementById("aside-panel");
 
 aside.addEventListener("click", (event) => {
     console.log(event.target.tagName);

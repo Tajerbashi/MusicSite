@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -158,13 +159,19 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\myStyle\Admin_Style.css" />
-    <Content Include="Content\myStyle\modal.css" />
+    <Content Include="Content\myStyle\style.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Photos\11.jpg" />
+    <Content Include="Photos\2.jpg" />
+    <Content Include="Photos\3.jpg" />
+    <Content Include="Photos\5.jpg" />
+    <Content Include="Photos\7.jpg" />
+    <Content Include="Photos\8.jpg" />
     <Content Include="Photos\ICO\Admin.png" />
     <Content Include="Photos\ICO\Albums.png" />
     <Content Include="Photos\ICO\Country.png" />
@@ -238,11 +245,14 @@
     <Content Include="Areas\Admin\Views\Padcasts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\CreatePlayListSongs.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\ShowPlayListSongs.cshtml" />
-    <None Include="Scripts\jquery-3.6.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.6.1.js" />
-    <Content Include="Scripts\jquery-3.6.1.min.js" />
-    <Content Include="Scripts\jquery-3.6.1.slim.js" />
-    <Content Include="Scripts\jquery-3.6.1.slim.min.js" />
+    <Content Include="fonts\IRANSansWeb Bold.ttf" />
+    <None Include="Scripts\jquery-3.6.3.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.3.js" />
+    <Content Include="Scripts\jquery-3.6.3.min.js" />
+    <Content Include="Scripts\jquery-3.6.3.slim.js" />
+    <Content Include="Scripts\jquery-3.6.3.slim.min.js" />
+    <Content Include="Scripts\jquery-3.6.3.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.3.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -250,7 +260,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\myScript\Admin_Script.js" />
-    <Content Include="Scripts\myScript\modal.js" />
+    <Content Include="Scripts\myScript\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -262,9 +272,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_DefaultLayout.cshtml" />
+    <Content Include="Views\Header\LoginPanelUser.cshtml" />
+    <Content Include="Views\Header\SearchPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -298,8 +309,6 @@
     <Content Include="Scripts\bootstrap.esm.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\jquery-3.6.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.6.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

@@ -3,20 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music:@ViewBag.Title</title>
+    <title>_Layout : @ViewBag.Title</title>
 </head>
-<body>
-    <a class="btn btn-primary" href="/Admin/Admins/Index">ADMIN</a>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-
-    <script src="~/Scripts/jquery-3.6.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    @RenderSection("scripts", required: false)
+<body dir="rtl">
+    @RenderBody()
 </body>
 </html>

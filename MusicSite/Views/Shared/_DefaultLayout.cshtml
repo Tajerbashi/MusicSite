@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/myStyle/style.css">
+
+    <title>Music Site: Index</title>
+</head>
+<body dir="rtl">
+
+    <!-- Start Modal -->
+    <div id="modal-container" class="d-none">
+        <div id="modal">
+            <div id="modal-header" class="d-flex flex-row justify-content-between">
+                <span id="modal-header-site" style="margin: 13px;">نام سایت</span>
+                <span id="modal-header-title" style="margin: 13px;">عنوان</span>
+                <span style="margin: 10px;"><i class="fa fa-close fa-2x"></i></span>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Started top nav -->
+    <div class="d-flex flex-column open">
+        @Html.Action("LoginPanelUser", "Header")
+        @Html.Action("SearchPanel", "Header")
+
+        <div class="mt-1">
+            @RenderBody()
+        </div>
+    </div>
+    <!-- Ended top nav -->
+
+    <!-- Start Index Page -->
+    <div class="container-fluid">
+        <div id="header-row1" class="row">
+
+            <div class="col-sm-12 col-md-2 p-3">
+                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">پربازدیدترین های تاپ صدا</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item-list">
+                            <a class="d-flex flex-row justify-content-between" href="#">
+                                <span class="song-list-play">چشم آبی من</span>
+                                <span class="singer-list-play">یوسف زمانی</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-2 p-3">
+                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">لیست در حال پخش</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item-list">
+                            <a class="d-flex flex-row justify-content-between" href="#">
+                                <span class="song-list-play">چشم آبی من</span>
+                                <span class="singer-list-play">یوسف زمانی</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class=" d-flex flex-column justify-content-between align-items-center">
+                    <img src="./../img/body.jpg" class="shadow" id="header-img" />
+                    <div class="mt-5 text-dark">
+                        <h6>
+                            یوسف زمانی</ح>
+                            <h5>پاییز</h5>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                        <span style="font-size: 12px;">05:10</span>
+                        <span style="font-size: 12px;">05:10</span>
+                    </div>
+                    <div id="Progress-Container">
+                        <div id="Progress"></div>
+                    </div>
+                    <div id="Controller-Container" class="m-2 px-2 d-flex flex-row justify-content-around align-items-center w-100">
+                        <i class="fa fa-step-backward header-music-controller"></i>
+                        <i class="fa fa-backward header-music-controller"></i>
+                        <i class="fa fa-stop header-music-controller"></i>
+                        <i class="fa fa-play header-music-controller"></i>
+                        <i class="fa fa-forward header-music-controller"></i>
+                        <i class="fa fa-step-forward header-music-controller"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-2 p-3">
+                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">آخرین تک آهنگ ها</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item-list">
+                            <a class="d-flex flex-row justify-content-between" href="#">
+                                <span class="song-list-play">چشم آبی من</span>
+                                <span class="singer-list-play">یوسف زمانی</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2 p-3">
+                <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+                    <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">آلبوم های پربازدید</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item-list">
+                            <a class="d-flex flex-row justify-content-between" href="#">
+                                <span class="song-list-play">چشم آبی من</span>
+                                <span class="singer-list-play">یوسف زمانی</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Index Page -->
+
+    <div id="footer" class="d-flex flex-column justify-content-center align-items-center pt-2">
+        <p>
+            تمامی حقوق اين وبسايت متعلق به پارسی دانلود مي باشد و کپی برداری از مطالب فقط با ذکر منبع مجاز است.
+            طـبق ماده 12 فصل سوم قانون جرائم رایانه ای هرگونه کپی برداری از قالب پیگرد قانونی دارد.
+        </p>
+        <p class="d-flex flex-row justify-content-between w-25 ">
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-spotify"></i>
+            <i class="fa fa-youtube"></i>
+            <i class="fa fa-music"></i>
+            <i class="fa fa-maxcdn"></i>
+            👉
+        </p>
+    </div>
+    <script src="~/Scripts/jquery-3.6.3.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/myScript/script.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
