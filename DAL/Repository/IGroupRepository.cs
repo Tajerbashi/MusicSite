@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,8 @@ namespace DAL.Repository
         bool Delete(Group group);
         bool Delete(int id);
         void Save();
-        IEnumerable<Group> GetAll();
+        IEnumerable<Group> GetAll(); 
+        IEnumerable<ViewModelGroups> GetAllGroupToShow(); 
         Group GetById(int id);
         Group GetByName(string Name);
     }

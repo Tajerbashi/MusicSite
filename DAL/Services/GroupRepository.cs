@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -65,6 +66,17 @@ namespace DAL.Services
         public IEnumerable<Group> GetAll()
         {
             return DB.GrouptTypes.OrderByDescending(c => c.CreateDate).ToList();
+        }
+
+        public IEnumerable<ViewModelGroups> GetAllGroupToShow()
+        {
+            return DB.GrouptTypes.OrderByDescending(c => c.GroupName).Select(c => new ViewModelGroups
+            {
+                GroupId=c.GroupId,
+                GroupName=c.GroupName,
+                Visit=c.Visit,
+                Score=c.Score
+            });
         }
 
         public Group GetById(int id)

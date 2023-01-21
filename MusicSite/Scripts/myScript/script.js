@@ -3,6 +3,7 @@ let navListItem = document.querySelectorAll(".nav-list-item");
 let modalHeaderSite = document.getElementById("modal-header-site");
 let modalHeaderTitle = document.getElementById("modal-header-title");
 let userPanel = document.getElementById("userPanel");
+let modalBody = document.getElementById("modal-body");
 
 modal_container.addEventListener("click", (event) => {
     // console.log(event.target);
@@ -12,11 +13,13 @@ modal_container.addEventListener("click", (event) => {
 });
 navListItem.forEach(item => {
     item.addEventListener("click", () => {
-        console.log(item);
         if (item.getAttribute("id") != "HomePage") {
             modal_container.classList.remove("d-none");
             modalHeaderSite.innerHTML = "موزیک سایت";
             modalHeaderTitle.innerHTML = item.firstChild.innerHTML;
+            if (modalHeaderTitle.innerHTML === "دسته بندی ها") {
+                GroupOpen();
+            }
         }
     });
 });
@@ -27,3 +30,10 @@ userPanel.addEventListener("click", () => {
     modal_container.classList.remove("d-none");
 
 });
+
+function GroupOpen() {
+    console.log("Group Open Clicked");
+    $.get("/Group/Index", (res) => {
+        $("#modal-body").html(res);
+    });
+}

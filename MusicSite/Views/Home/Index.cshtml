@@ -1,4 +1,18 @@
 ﻿
+<div class="col-sm-12 col-md-2 p-3">
+    <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+        <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">لیست در حال پخش</h6>
+        <ul class="list-group">
+            <li class="list-group-item-list">
+                <a class="d-flex flex-row justify-content-between" href="#">
+                    <span class="song-list-play">@Model.SongName</span>
+                    <span class="singer-list-play">@Model.Album.Singer.SingerName</span>
+                    <span class="Album-list-play">@Model.Album.AlbumName</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="col-sm-12 col-md-4">
     <div class=" d-flex flex-column justify-content-between align-items-center">
         <img src="~/Files/Photos/@Model.Picture" class="shadow" id="header-img" />
@@ -7,8 +21,8 @@
             <h5>@Model.SongName</h5>
         </div>
         <div class="d-flex flex-row justify-content-between align-items-center w-100">
-            <span id="durTime" class="text-light" style="font-size: 12px;">00:00</span>
-            <span id="endTime" class="text-light" style="font-size: 12px;">00:00</span>
+            <span id="endTime" class="text-light" style="font-size: 14px;">00:00</span>
+            <span id="durTime" class="text-light" style="font-size: 14px;">00:00</span>
         </div>
         <div id="Progress-Container">
             <div id="Progress"></div>
@@ -17,7 +31,7 @@
         <div id="Controller-Container" class="m-2 px-2 d-flex flex-row justify-content-around align-items-center w-100">
             <i class="fa fa-forward header-music-controller"></i>
             <i class="fa fa-step-forward header-music-controller"></i>
-            <i class="fa fa-stop header-music-controller"></i>
+            <i onclick="Stop()" class="fa fa-stop header-music-controller"></i>
             <i id="playBtn" class="fa fa-play header-music-controller"></i>
             <i class="fa fa-step-backward header-music-controller"></i>
             <i class="fa fa-backward header-music-controller"></i>
@@ -25,17 +39,36 @@
     </div>
 </div>
 <script>
-    let audioIndex = document.getElementById("audioIndex");
     let play = document.getElementById("playBtn");
+    let durTime = document.getElementById("durTime");
     let endTime = document.getElementById("endTime");
     let IsPlay = false;
+    let ProgressContainer = document.getElementById("Progress-Container");
+    let Progress = document.getElementById("Progress");
+    let audioIndex = document.getElementById("audioIndex");
+
     play.addEventListener("click", () => {
-        console.log("Click Play");
-        loadSong();
-        audioIndex.play();
+        if (IsPlay) {            
+            play.classList.remove("fa-pause");
+            play.classList.add("fa-play");
+            IsPlay = false;
+            Pause();
+        } else {
+            play.classList.remove("fa-play");
+            play.classList.add("fa-pause");
+            IsPlay = true;
+            loadSong();
+        }
     });
-    function loadSong() {
-        endTime.innerHTML = GetTime(audioIndex.duration);
+    function Stop() {
+        play.classList.remove("fa-pause");
+        play.classList.add("fa-play");
+        IsPlay = false;
+        audioIndex.pause();
+        audioIndex.currentTime = 0;
+    }
+    function Pause() {
+        audioIndex.pause();
     }
     function GetTime(sec) {
         let Time = 0;
@@ -56,5 +89,28 @@
             }
         }
         return Time;
+    }
+    function UpdateTimer() {
+        let Time = GetTime(audioIndex.currentTime);
+        let progressPercent = (audioIndex.currentTime / audioIndex.duration) * 100;
+        Progress.style.width = progressPercent + "%";
+        durTime.innerHTML = Time;
+    }
+    function setProgress(e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audioIndex.duration;
+        audioIndex.currentTime = (clickX / width) * duration;
+    }
+
+    function loadSong() {
+        audioIndex.play();
+        Progress.style.width = 0 + "%";
+        endTime.innerHTML = GetTime(audioIndex.duration);
+        ProgressContainer.addEventListener('click', setProgress);
+        audioIndex.addEventListener("timeupdate", UpdateTimer);
+        setTimeout(function () {
+            durTime.innerHTML = GetTime(audioIndex.duration);
+        }, 1000);
     }
 </script>

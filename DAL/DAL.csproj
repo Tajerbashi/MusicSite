@@ -95,6 +95,7 @@
     <Compile Include="Services\SongRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
     <Compile Include="ViewModels\ViewModelAlbums.cs" />
+    <Compile Include="ViewModels\ViewModelGroups.cs" />
     <Compile Include="ViewModels\ViewModelSongs.cs" />
   </ItemGroup>
   <ItemGroup>
