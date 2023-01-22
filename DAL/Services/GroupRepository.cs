@@ -75,7 +75,8 @@ namespace DAL.Services
                 GroupId=c.GroupId,
                 GroupName=c.GroupName,
                 Visit=c.Visit,
-                Score=c.Score
+                Score=c.Score,
+                Song=c.Songs
             });
         }
 

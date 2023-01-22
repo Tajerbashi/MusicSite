@@ -12,6 +12,6 @@ namespace DAL.ViewModels
         public string GroupName { get; set; }
         public int Visit { get; set; }
         public int Score { get; set; }
-
+        public List<Song> Song { get; set; }
     }
 }

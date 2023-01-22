@@ -21,7 +21,7 @@ namespace MusicSite.Controllers
         [Route("Group/Index")]
         public ActionResult Index()
         {
-            return PartialView();
+            return PartialView(groupRepository.GetAllGroupToShow());
         }
     }
 }

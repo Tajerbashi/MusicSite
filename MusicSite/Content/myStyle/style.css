@@ -410,3 +410,69 @@ Search Aside Panel
     color: #fff;
     background: linear-gradient(90deg,rgb(2, 0, 36),rgb(63, 0, 0));
 }
+
+/*  Start Group Modal   */
+.group {
+    text-align: center;
+    background: linear-gradient(90deg,#ffffffa3,rgb(255, 255, 255, 0.70));
+    margin-bottom: 5px;
+    border-radius: 1rem;
+}
+
+.groupTitle {
+    background: linear-gradient(45deg,rgba(146, 58, 0, 0.582),rgba(0, 9, 138, 0.603));
+    color: #eee;
+    padding: 0.4rem 1rem;
+    border-radius: 1rem;
+    margin: 1rem 0 0 0;
+    text-align: center;
+    width: 20rem;
+}
+
+.group-list {
+    margin-top: 1px;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    border-radius: 1rem;
+}
+
+.group-item {
+    background: linear-gradient(0deg,rgb(27, 0, 70),rgb(109, 74, 0));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 10rem 10px;
+    margin: 10px;
+    color: #eee;
+}
+
+.group-song {
+    background: black;
+    border-radius: 5rem;
+    padding: 0.2rem 0.5rem;
+    margin: 5px 0 5px 0;
+    width: 150px;
+}
+
+.group-sing {
+    background: rgb(83, 44, 0);
+    border-radius: 5rem;
+    padding: 0.2rem 0.5rem;
+    width: 150px;
+}
+
+.group-item:hover {
+    background: linear-gradient(60deg,rgb(109, 40, 0),rgb(0, 0, 0));
+}
+
+.group-item > img {
+    border-radius: 50rem;
+    width: 70px;
+    height: 70px;
+}
+/*  End Group Modal   */

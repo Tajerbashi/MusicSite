@@ -1,1 +1,29 @@
-﻿<h1>This is Index Group</h1>
+﻿@model IEnumerable<DAL.ViewModels.ViewModelGroups>
+@{ 
+    string list = "";
+}
+<div class="container-fluid">
+    @foreach (var item in Model)
+    {
+        if (list != item.GroupName)
+        {
+            if (item.Song.Count>0)
+            {
+                <div class="row group">
+                    <div class="d-flex flex-row justify-content-evenly"><h6 class="groupTitle">@item.GroupName</h6><h6 class="groupTitle">تعداد بازید : @item.Visit</h6><h6 class="groupTitle">امتیاز : @item.Score</h6></div>
+                    <div class="group-list">
+                        @foreach (var i in item.Song)
+                        {
+                            <div class="group-item">
+                                <img src="~/Files/Photos/@i.Picture" class="img-fluid">
+                                <span class="group-song">@i.SongName</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+
+        list = item.GroupName;
+    }
+</div>
