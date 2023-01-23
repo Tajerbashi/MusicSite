@@ -16,7 +16,7 @@ namespace DAL.Repository
         bool Delete(int id);
         void Save();
         IEnumerable<Group> GetAll(); 
-        IEnumerable<ViewModelGroups> GetAllGroupToShow(); 
+        IEnumerable<ViewGroup> GetAllGroupToShow(); 
         Group GetById(int id);
         Group GetByName(string Name);
     }

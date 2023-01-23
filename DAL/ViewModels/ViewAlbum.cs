@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.ViewModels
 {
-    public class ViewModelAlbums
+    public class ViewAlbum
     {
         public int AlbumId { get; set; }
         public String AlbumName { get; set; }

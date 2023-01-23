@@ -69,9 +69,9 @@ namespace DAL.Services
             return DB.Albums.OrderByDescending(c => c.AlbumName).Include(c=>c.Singer).ToList();
         }
 
-        public IEnumerable<ViewModelAlbums> GetAllModelAlbum()
+        public IEnumerable<ViewAlbum> GetAllModelAlbum()
         {
-            return DB.Albums.OrderByDescending(c => c.Visit).Select(c => new ViewModelAlbums
+            return DB.Albums.OrderByDescending(c => c.Visit).Select(c => new ViewAlbum
             {
                 AlbumId=c.AlbumId,
                 AlbumName= c.AlbumName,

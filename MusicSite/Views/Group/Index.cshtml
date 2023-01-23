@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DAL.ViewModels.ViewModelGroups>
+﻿@model IEnumerable<DAL.ViewModels.ViewGroup>
 @{ 
     string list = "";
 }
@@ -9,8 +9,18 @@
         {
             if (item.Song.Count>0)
             {
-                <div class="row group">
-                    <div class="d-flex flex-row justify-content-evenly"><h6 class="groupTitle">@item.GroupName</h6><h6 class="groupTitle">تعداد بازید : @item.Visit</h6><h6 class="groupTitle">امتیاز : @item.Score</h6></div>
+                <div class="row group" data-id="@item.GroupId">
+                    <div class="d-flex flex-row justify-content-between w-100">
+                        <div class="GroupTitleModal">
+                            <h6>@item.GroupName</h6>
+                            <a href="#"><i class="fa fa-play mt-1" title="پخش"></i></a>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                            <h6 class="groupTitle">تعداد بازید : @item.Visit</h6>
+                            <h6 class="groupTitle">امتیاز : @item.Score</h6>
+                        </div>
+                    </div>
                     <div class="group-list">
                         @foreach (var i in item.Song)
                         {

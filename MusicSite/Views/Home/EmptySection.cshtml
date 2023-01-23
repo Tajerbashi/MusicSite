@@ -1,0 +1,39 @@
+﻿<div class="col-sm-12 col-md-2 p-3">
+    <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+        <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">لیست در حال پخش</h6>
+        <ul class="list-group">
+            <li class="list-group-item-list">
+                <a class="d-flex flex-row justify-content-between" href="#">
+                    <span class="song-list-play">@ViewBag.List.SongName</span>
+                    <span class="singer-list-play">@ViewBag.List.album.Singer.SingerName</span>
+                    <span class="Album-list-play">@ViewBag.List.album.AlbumName</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-sm-12 col-md-4">
+    <div class=" d-flex flex-column justify-content-between align-items-center">
+        <img src="~/Files/Photos/@ViewBag.List.Picture" class="shadow" id="header-img" />
+        <div class="mt-5 text-dark">
+            <h6>@ViewBag.List.album.Singer.SingerName</h6>
+            <h5>@ViewBag.List.SongName</h5>
+        </div>
+        <div class="d-flex flex-row justify-content-between align-items-center w-100">
+            <span id="endTime" class="text-light" style="font-size: 14px;">00:00</span>
+            <span id="durTime" class="text-light" style="font-size: 14px;">00:00</span>
+        </div>
+        <div id="Progress-Container">
+            <div id="Progress"></div>
+            <audio id="audioIndex" src="~/Files/Musics/@ViewBag.List.AddressFile"></audio>
+        </div>
+        <div id="Controller-Container" class="m-2 px-2 d-flex flex-row justify-content-around align-items-center w-100">
+            <i class="fa fa-forward header-music-controller"></i>
+            <i class="fa fa-step-forward header-music-controller"></i>
+            <i onclick="Stop()" class="fa fa-stop header-music-controller"></i>
+            <i id="playBtn" class="fa fa-play header-music-controller"></i>
+            <i class="fa fa-step-backward header-music-controller"></i>
+            <i class="fa fa-backward header-music-controller"></i>
+        </div>
+    </div>
+</div>

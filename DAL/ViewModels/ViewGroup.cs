@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.ViewModels
 {
-    public class ViewModelGroups
+    public class ViewGroup
     {
         public int GroupId { get; set; }
         public string GroupName { get; set; }

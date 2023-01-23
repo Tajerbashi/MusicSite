@@ -1,12 +1,13 @@
-﻿@font-face {
-    font-family: "iranSansWeb";
-    src: url('~/fonts/IRANSansWeb Bold.ttf');
+﻿
+@font-face {
+    font-family: 'iransansweb bold';
+    src: url('../../fonts/iransansweb bold.ttf') format('truetype');
 }
 
 body {
     background: url("../../Photos/3.jpg") no-repeat center center/cover;
     backdrop-filter: blur(5px);
-    font-family: "iranSansWeb";
+    font-family: 'iransansweb bold';
     text-align: center;
 }
 
@@ -61,9 +62,9 @@ ul {
     cursor: pointer;
 }
 
-    .fa-close:hover {
-        color: rgb(255, 255, 255);
-    }
+.fa-close:hover {
+    color: rgb(255, 255, 255);
+}
 
 #modal-body {
     background: linear-gradient(45deg,rgba(255, 192, 140, 0.5),rgba(255, 243, 132, 0.5));
@@ -168,14 +169,14 @@ Search Aside Panel
     width: 150px;
 }
 
-    .nav-list-item:hover {
-        background: linear-gradient(130deg,rgba(255, 0, 34, 0.767),rgb(255, 136, 0));
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.438),0 6px 20px 0 rgba(0, 0, 0, 0.671);
-    }
+.nav-list-item:hover {
+    background: linear-gradient(130deg,rgba(255, 0, 34, 0.767),rgb(255, 136, 0));
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.438),0 6px 20px 0 rgba(0, 0, 0, 0.671);
+}
 
-    .nav-list-item > a {
-        color: rgb(255, 255, 255);
-    }
+.nav-list-item > a {
+    color: rgb(255, 255, 255);
+}
 
 .close {
     animation-name: closeSide;
@@ -234,10 +235,10 @@ Search Aside Panel
 }
 
     /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(0deg,rgb(0, 0, 0),rgba(238, 238, 238, 0));
-        cursor: pointer !important;
-    }
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(0deg,rgb(0, 0, 0),rgba(238, 238, 238, 0));
+    cursor: pointer !important;
+}
 
 .singer-list-play, .song-list-play, .Album-list-play {
     font-size: 0.8rem;
@@ -400,10 +401,10 @@ Search Aside Panel
     color: red;
 }
 
-    .list-group-item-list:hover {
-        background: linear-gradient(90deg,rgb(255, 255, 255),rgb(255, 242, 208));
-        border-right: 5px solid rgb(255, 0, 0);
-    }
+.list-group-item-list:hover {
+    background: linear-gradient(90deg,rgb(255, 255, 255),rgb(255, 242, 208));
+    border-right: 5px solid rgb(255, 0, 0);
+}
 
 #footer {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4),0 6px 20px 0 rgba(0, 0, 0, 0.5);
@@ -414,65 +415,83 @@ Search Aside Panel
 /*  Start Group Modal   */
 .group {
     text-align: center;
-    background: linear-gradient(90deg,#ffffffa3,rgb(255, 255, 255, 0.70));
+    background: linear-gradient(0deg,#00000000,rgb(255, 255, 255, 0.60));
     margin-bottom: 5px;
     border-radius: 1rem;
+    cursor: pointer;
 }
-
+.group:hover {
+    background: #ffffffdc;
+}
 .groupTitle {
-    background: linear-gradient(45deg,rgba(146, 58, 0, 0.582),rgba(0, 9, 138, 0.603));
-    color: #eee;
-    padding: 0.4rem 1rem;
-    border-radius: 1rem;
-    margin: 1rem 0 0 0;
+    color: black;
     text-align: center;
-    width: 20rem;
+    width: 10rem;
+    margin-top: 0.5rem;
 }
-
+.GroupTitleModal {
+    background: black;
+    color: rgb(255, 255, 255);
+    width: 20rem;
+    border-radius: 0 1rem 0 0;
+    cursor: pointer;
+    margin: 0 -12px 0 0;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.GroupTitleModal > a > i{
+    color: red;
+}
+.GroupTitleModal > a > i:hover{
+    color: red;
+    transform: scale(1.5);
+}
 .group-list {
     margin-top: 1px;
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 }
 
 .group-item {
-    background: linear-gradient(0deg,rgb(27, 0, 70),rgb(109, 74, 0));
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5px;
     cursor: pointer;
-    width: fit-content;
-    border-radius: 10rem 10px;
+    height: 200px;
+    width: 200px;
+    border: 1px solid rgb(77, 77, 77, 0.65);
+    border-radius: 10rem;
     margin: 10px;
-    color: #eee;
+    background: linear-gradient(0deg,#eeeeee74,#eeeeee7f);
 }
-
+.group-item:hover {
+    background: linear-gradient(0deg,#0000008c,#eee);
+}
 .group-song {
-    background: black;
+    background: linear-gradient(0deg,rgb(0, 0, 0, 0.80),rgb(0, 0, 0, 0.52));
     border-radius: 5rem;
     padding: 0.2rem 0.5rem;
     margin: 5px 0 5px 0;
     width: 150px;
+    color: rgb(255, 255, 255);
 }
-
-.group-sing {
-    background: rgb(83, 44, 0);
-    border-radius: 5rem;
-    padding: 0.2rem 0.5rem;
-    width: 150px;
-}
-
-.group-item:hover {
-    background: linear-gradient(60deg,rgb(109, 40, 0),rgb(0, 0, 0));
-}
-
 .group-item > img {
     border-radius: 50rem;
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
 }
 /*  End Group Modal   */
+
+/* Start Mobile Style   */
+@media screen and (min-width: 768px) {
+    #header-img {
+        width: 200px !important;
+        height: 200px !important;
+    }
+}
+/* End Mobile Style   */

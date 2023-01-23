@@ -59,29 +59,18 @@ namespace DAL.Services
             return DB.Songs.Include(c => c.Album).Include(c => c.Album.Singer).OrderByDescending(c => c.CreateDate).ToList();
         }
 
-        public IEnumerable<ViewModelSongs> GetAllSongForDateTime()
+        public IEnumerable<ViewSong> GetAllSongView()
         {
-            return DB.Songs.OrderByDescending(c => c.CreateDate).Select(song => new ViewModelSongs
-            {
-                SongId = song.SongId,
-                SongName = song.SongName,
-                SingerName = song.Album.Singer.SingerName,
-                AlbumName = song.Album.AlbumName,
-                Picture = song.Picture,
-                AddressFile = song.AddressFile,
-            });
-        }
-
-        public IEnumerable<ViewModelSongs> GetAllSongForIndexShow()
-        {
-            return DB.Songs.Select(song => new ViewModelSongs
+            return DB.Songs.Select(song => new ViewSong
             {
                 SongId= song.SongId,
                 SongName= song.SongName,
-                SingerName=song.Album.Singer.SingerName,
-                AlbumName= song.Album.AlbumName,
-                Picture=song.Picture,
-                AddressFile=song.AddressFile
+                SingerName= song.Album.Singer.SingerName,
+                album= song.Album,
+                Score= song.Score,
+                Visit= song.Visit,
+                Picture= song.Picture,
+                AddressFile= song.AddressFile
             });
         }
 

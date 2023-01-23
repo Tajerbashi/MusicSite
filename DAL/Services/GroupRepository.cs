@@ -68,9 +68,9 @@ namespace DAL.Services
             return DB.GrouptTypes.OrderByDescending(c => c.CreateDate).ToList();
         }
 
-        public IEnumerable<ViewModelGroups> GetAllGroupToShow()
+        public IEnumerable<ViewGroup> GetAllGroupToShow()
         {
-            return DB.GrouptTypes.OrderByDescending(c => c.GroupName).Select(c => new ViewModelGroups
+            return DB.GrouptTypes.OrderByDescending(c => c.GroupName).Select(c => new ViewGroup
             {
                 GroupId=c.GroupId,
                 GroupName=c.GroupName,

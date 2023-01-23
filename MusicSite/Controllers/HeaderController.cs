@@ -31,11 +31,11 @@ namespace MusicSite.Controllers
         }
         public ActionResult ShowMostSongsScore()
         {
-            return PartialView(songRepository.GetAllSongForIndexShow());
+            return PartialView(songRepository.GetAllSongView().OrderByDescending(c => c.Visit));
         }
         public ActionResult ShowMostSongsDate()
         {
-            return PartialView(songRepository.GetAllSongForDateTime());
+            return PartialView(songRepository.GetAllSongView());
         }
         public ActionResult ShowMostAlbums()
         {

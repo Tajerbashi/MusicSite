@@ -94,9 +94,9 @@
     <Compile Include="Services\SingerRepository.cs" />
     <Compile Include="Services\SongRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
-    <Compile Include="ViewModels\ViewModelAlbums.cs" />
-    <Compile Include="ViewModels\ViewModelGroups.cs" />
-    <Compile Include="ViewModels\ViewModelSongs.cs" />
+    <Compile Include="ViewModels\ViewAlbum.cs" />
+    <Compile Include="ViewModels\ViewGroup.cs" />
+    <Compile Include="ViewModels\ViewSong.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

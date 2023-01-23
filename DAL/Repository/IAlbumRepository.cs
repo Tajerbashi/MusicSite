@@ -15,7 +15,7 @@ namespace DAL.Repository
         bool Delete(int id);
         void Save();
         IEnumerable<Album> GetAll();
-        IEnumerable<ViewModelAlbums> GetAllModelAlbum();
+        IEnumerable<ViewAlbum> GetAllModelAlbum();
         Album GetById(int id);
         Album GetByName(string Name);
     }
