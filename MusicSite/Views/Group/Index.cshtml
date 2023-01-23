@@ -7,13 +7,13 @@
     {
         if (list != item.GroupName)
         {
-            if (item.Song.Count>0)
+            if (item.Songs.Any())
             {
-                <div class="row group" data-id="@item.GroupId">
+                <div class="row group">
                     <div class="d-flex flex-row justify-content-between w-100">
                         <div class="GroupTitleModal">
                             <h6>@item.GroupName</h6>
-                            <a href="#"><i class="fa fa-play mt-1" title="پخش"></i></a>
+                            <a href="@Url.Action("Index","Home",new {Section="Group",id=item.GroupId})"><i class="fa fa-play mt-1" title="پخش"></i></a>
                         </div>
 
                         <div class="d-flex flex-row">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div class="group-list">
-                        @foreach (var i in item.Song)
+                        @foreach (var i in item.Songs)
                         {
                             <div class="group-item">
                                 <img src="~/Files/Photos/@i.Picture" class="img-fluid">

@@ -283,6 +283,9 @@
     <Content Include="Views\Header\ShowPlayer.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
     <Content Include="Views\Home\EmptySection.cshtml" />
+    <Content Include="Views\Home\GroupSection.cshtml" />
+    <Content Include="Views\Home\Player.cshtml" />
+    <Content Include="Views\Home\PlayList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

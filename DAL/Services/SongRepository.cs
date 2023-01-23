@@ -64,6 +64,7 @@ namespace DAL.Services
             return DB.Songs.Select(song => new ViewSong
             {
                 SongId= song.SongId,
+                GroupId= song.GroupId,
                 SongName= song.SongName,
                 SingerName= song.Album.Singer.SingerName,
                 album= song.Album,

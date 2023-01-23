@@ -1,4 +1,11 @@
-﻿@Html.Partial("EmptySection")
+﻿@if (ViewBag.SectionName == "")
+{
+    @Html.Partial("EmptySection")
+}
+else if (ViewBag.SectionName == "Group")
+{
+    @Html.Partial("GroupSection", new {id=ViewBag.id})
+}
 
 <script>
     let play = document.getElementById("playBtn");

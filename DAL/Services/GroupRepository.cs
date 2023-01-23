@@ -70,13 +70,17 @@ namespace DAL.Services
 
         public IEnumerable<ViewGroup> GetAllGroupToShow()
         {
-            return DB.GrouptTypes.OrderByDescending(c => c.GroupName).Select(c => new ViewGroup
+            return DB.Songs
+                .OrderByDescending(c => c.Group.GroupName)
+                .Include(c => c.Group)
+                .Include(c => c.Album)
+                .Select(c => new ViewGroup
             {
                 GroupId=c.GroupId,
-                GroupName=c.GroupName,
-                Visit=c.Visit,
-                Score=c.Score,
-                Song=c.Songs
+                GroupName=c.Group.GroupName,
+                Visit=c.Group.Visit,
+                Score=c.Group.Score,
+                Songs=c.Group.Songs
             });
         }
 

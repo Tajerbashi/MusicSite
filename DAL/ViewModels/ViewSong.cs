@@ -9,6 +9,7 @@ namespace DAL.ViewModels
     public class ViewSong
     {
         public int SongId { get; set; }
+        public int GroupId { get; set; }
         public int Score { get; set; }
         public int Visit { get; set; }
         public String SongName { get; set; }

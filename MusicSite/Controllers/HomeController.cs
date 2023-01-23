@@ -24,42 +24,57 @@ namespace MusicSite.Controllers
             songRepository = new SongRepository(DB);
             groupRepository = new GroupRepository(DB);
         }
+        public ActionResult Index(int id = 0, string Section = "")
+        {
 
-        public ActionResult Index(int id=0,string Section="")
-        {
             ViewBag.SectionName = Section;
-            ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Score).FirstOrDefault();
+            ViewBag.id = id;
+
+            if (Section == "")
+            {
+                ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Score).FirstOrDefault();
+            }
+            else if (Section == "Group")
+            {
+                ViewBag.Group = groupRepository.GetAllGroupToShow().Where(c => c.GroupId == id).First();
+            }
+            else if (Section == "PlayList")
+            {
+                ViewBag.List = playListRepository.GetAll().Where(c => c.playListId == id).OrderByDescending(c => c.CreateDate).FirstOrDefault();
+            }
+            else if (Section == "Padcast")
+            {
+                ViewBag.List = padcastRepository.GetAll().Where(c => c.PadcastId == id).FirstOrDefault();
+            }
+            else if (Section == "Album")
+            {
+                ViewBag.List = albumRepository.GetAllModelAlbum().Where(c => c.AlbumId == id).FirstOrDefault();
+            }
+            else if (Section == "Song")
+            {
+                ViewBag.Song = songRepository.GetAllSongView().Where(c=> c.SongId==id).FirstOrDefault();
+            }
+            else if (Section == "Singer")
+            {
+
+            }
+            else if (Section == "Country")
+            {
+
+            }
             return View();
         }
-        public ActionResult EmptySection()
+        public ActionResult PlayList(int id=0)
         {
-            ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Score).FirstOrDefault();
-            return View();
-        }
-        public ActionResult GroupSection(int id)
-        {
-            ViewBag.List = groupRepository.GetAllGroupToShow().Where(c => c.GroupId == id);
-            return View();
-        }
-        public ActionResult SongSection(int id)
-        {
-            ViewBag.List = songRepository.GetById(id);
-            return View();
-        }
-        public ActionResult AlbumSection(int id)
-        {
-            ViewBag.List = albumRepository.GetAllModelAlbum().Where(c => c.AlbumId == id);
-            return View();
-        }
-        public ActionResult PlayListSection(int id)
-        {
-            ViewBag.List = playListRepository.GetAll().OrderByDescending(c => c.CreateDate).FirstOrDefault();
-            return View();
-        }
-        public ActionResult PadcastSection(int id)
-        {
-            ViewBag.List = padcastRepository.GetAll().Where(c => c.PadcastId == id);
-            return View();
+            if ( id != 0 )
+            {
+                ViewBag.Group = groupRepository.GetAllGroupToShow().Where(c => c.GroupId == id).First();
+            }
+            else
+            {
+                ViewBag.Group = groupRepository.GetAllGroupToShow().OrderByDescending(c => c.Score).FirstOrDefault();
+            }
+            return PartialView();
         }
     }
 }

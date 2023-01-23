@@ -23,7 +23,7 @@ ul {
 /* Start Modal */
 #modal-container {
     background: rgba(0, 0, 0, 0.514);
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -462,28 +462,25 @@ Search Aside Panel
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    height: 200px;
-    width: 200px;
-    border: 1px solid rgb(77, 77, 77, 0.65);
+    height: 220px;
+    width: 250px;
     border-radius: 10rem;
-    margin: 10px;
-    background: linear-gradient(0deg,#eeeeee74,#eeeeee7f);
-}
-.group-item:hover {
-    background: linear-gradient(0deg,#0000008c,#eee);
+    margin: 20px 5px;
 }
 .group-song {
     background: linear-gradient(0deg,rgb(0, 0, 0, 0.80),rgb(0, 0, 0, 0.52));
     border-radius: 5rem;
     padding: 0.2rem 0.5rem;
     margin: 5px 0 5px 0;
-    width: 150px;
     color: rgb(255, 255, 255);
+    width: 7rem;
+    margin: 10px;
 }
 .group-item > img {
+    margin-top: -1rem;
     border-radius: 50rem;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 }
 /*  End Group Modal   */
 
