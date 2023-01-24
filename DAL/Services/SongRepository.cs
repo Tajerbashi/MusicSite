@@ -67,7 +67,7 @@ namespace DAL.Services
                 GroupId= song.GroupId,
                 SongName= song.SongName,
                 SingerName= song.Album.Singer.SingerName,
-                album= song.Album,
+                Album= song.Album,
                 Score= song.Score,
                 Visit= song.Visit,
                 Picture= song.Picture,

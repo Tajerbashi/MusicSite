@@ -14,7 +14,7 @@ namespace DAL.ViewModels
         public int Visit { get; set; }
         public String SongName { get; set; }
         public String SingerName { get; set; }
-        public Album album { get; set; }
+        public Album Album { get; set; }
         public String Picture { get; set; }
         public String AddressFile { get; set; }
         public bool Remix { get; set; }

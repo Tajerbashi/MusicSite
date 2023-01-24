@@ -14,68 +14,7 @@
 </head>
 <body dir="rtl">
 
-    <!-- Start Modal -->
-    <div id="modal-container" class="d-none">
-        <div id="modal">
-            <div id="modal-header" class="d-flex flex-row justify-content-between">
-                <span id="modal-header-site" style="margin: 13px;">نام سایت</span>
-                <span id="modal-header-title" style="margin: 13px;">عنوان</span>
-                <span style="margin: 10px;"><i class="fa fa-close fa-2x"></i></span>
-            </div>
-            <div id="modal-body"></div>
-        </div>
-    </div>
-    <!-- End Modal -->
-
-    <!-- Started top nav -->
-    <div class="d-flex flex-column open">
-        @Html.Action("LoginPanelUser", "Header")
-        @Html.Action("SearchPanel", "Header")
-
-        <div class="mt-1">
-            <ul id="nav-list" class="d-flex flex-row justify-content-evenly flex-wrap">
-                <li id="HomePage" class="nav-list-item w-100 rounded-5"><a href="#">صفحه اصلی</a></li>
-                <li id="Groups" class="nav-list-item"><a href="#">دسته بندی ها</a></li>
-                <li id="Songs" class="nav-list-item"><a href="#">آهنگها</a></li>
-                <li id="PlayLists" class="nav-list-item"><a href="#">پلی لیست ها</a></li>
-                <li id="Albumes" class="nav-list-item"><a href="#">آلبوم ها</a></li>
-                <li id="Padcasts" class="nav-list-item"><a href="#">پادکست ها</a></li>
-                <li id="Countries" class="nav-list-item"><a href="#">کشور ها</a></li>
-                <li id="Singers" class="nav-list-item"><a href="#">خوانندگان</a></li>
-                <li id="Remixes" class="nav-list-item"><a href="#">ریمیکس</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- Ended top nav -->
-
-    <!-- Start Index Page -->
-    <div class="container-fluid">
-        <div id="header-row1" class="row">
-
-            @Html.Action("ShowMostSongsScore", "Header")
-            @Html.Action("PlayList", "Home")
-            @RenderBody()
-            @Html.Action("ShowMostSongsDate", "Header")
-            @Html.Action("ShowMostAlbums", "Header")
-        </div>
-    </div>
-    <!-- End Index Page -->
-
-    <div id="footer" class="d-flex flex-column justify-content-center align-items-center pt-2">
-        <p>
-            تمامی حقوق اين وبسايت متعلق به پارسی دانلود مي باشد و کپی برداری از مطالب فقط با ذکر منبع مجاز است.
-            طـبق ماده 12 فصل سوم قانون جرائم رایانه ای هرگونه کپی برداری از قالب پیگرد قانونی دارد.
-        </p>
-        <p class="d-flex flex-row justify-content-between w-25 ">
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-spotify"></i>
-            <i class="fa fa-youtube"></i>
-            <i class="fa fa-music"></i>
-            <i class="fa fa-maxcdn"></i>
-            👉
-        </p>
-    </div>
+   @RenderBody()
     <script src="~/Scripts/jquery-3.6.3.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

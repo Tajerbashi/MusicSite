@@ -134,8 +134,6 @@
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
-    <Compile Include="Controllers\GroupController.cs" />
-    <Compile Include="Controllers\HeaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,19 +271,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
-    <Content Include="Views\Header\LoginPanelUser.cshtml" />
-    <Content Include="Views\Header\SearchPanel.cshtml" />
-    <Content Include="Views\Header\ShowMostSongsScore.cshtml" />
-    <Content Include="Views\Header\ShowMostSongsDate.cshtml" />
-    <Content Include="Views\Header\ShowMostAlbums.cshtml" />
-    <Content Include="Views\Header\ShowPlayer.cshtml" />
-    <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Home\EmptySection.cshtml" />
-    <Content Include="Views\Home\GroupSection.cshtml" />
-    <Content Include="Views\Home\Player.cshtml" />
-    <Content Include="Views\Home\PlayList.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
