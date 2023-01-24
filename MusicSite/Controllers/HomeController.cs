@@ -15,12 +15,10 @@ namespace MusicSite.Controllers
     {
         DbContexts DB = new DbContexts();
         ISongRepository songRepository;
-        IGroupRepository groupRepository;
         IAlbumRepository albumRepository;
         public HomeController()
         {
             songRepository =new SongRepository(DB);
-            groupRepository =new GroupRepository(DB);
             albumRepository =new AlbumRepository(DB);
         }
         public ActionResult Index()
@@ -48,9 +46,18 @@ namespace MusicSite.Controllers
         {
             return View();
         }
-        public ActionResult Player()
+        public ActionResult Player(int id=0)
         {
-            return PartialView();
+            ViewSong song;
+            if (id==0)
+            {
+                song=songRepository.GetAllSongView().OrderByDescending(c => c.Visit).FirstOrDefault();
+            }
+            else
+            {
+                song = songRepository.GetAllSongView().Where(c => c.SongId==id).FirstOrDefault();
+            }
+            return PartialView(song);
         }
         public ActionResult PlayLastSingleSong()
         {

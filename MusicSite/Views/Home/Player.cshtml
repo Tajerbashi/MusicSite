@@ -1,9 +1,11 @@
-﻿<div class="col-sm-12 col-md-4">
+﻿@model DAL.ViewModels.ViewSong
+
+<div class="col-sm-12 col-md-4">
     <div class=" d-flex flex-column justify-content-between align-items-center">
-        <img src="~/Files/Photos/List.jpg" class="shadow" id="header-img" />
+        <img src="~/Files/Photos/@Model.Picture" class="shadow" id="header-img" />
         <div class="mt-5 text-dark">
-            <h6>یوسف زمانی</h6>
-            <h5>پاییز زرد</h5>
+            <h6>@Model.SingerName</h6>
+            <h5>@Model.SongName</h5>
         </div>
         <div class="d-flex flex-row justify-content-between align-items-center w-100">
             <span id="endTime" class="text-light" style="font-size: 14px;">00:00</span>
@@ -11,7 +13,7 @@
         </div>
         <div id="Progress-Container">
             <div id="Progress"></div>
-            <audio id="audioIndex" src="~/Files/Musics/gs.jpg"></audio>
+            <audio id="audioIndex" src="~/Files/Musics/@Model.AddressFile"></audio>
         </div>
         <div id="Controller-Container" class="m-2 px-2 d-flex flex-row justify-content-around align-items-center w-100">
             <i class="fa fa-forward header-music-controller"></i>

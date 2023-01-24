@@ -30,10 +30,9 @@ userPanel.addEventListener("click", () => {
     modal_container.classList.remove("d-none");
 
 });
-
 function GroupOpen() {
-    console.log("Group Open Clicked");
-    $.get("/Group/Index", (res) => {
+    console.log("Section Group Open Clicked");
+    $.get("/Section/Group", (res) => {
         $("#modal-body").html(res);
     });
 }
