@@ -61,7 +61,7 @@ namespace DAL.Services
 
         public IEnumerable<ViewSong> GetAllSongView()
         {
-            return DB.Songs.Select(song => new ViewSong
+            return DB.Songs.OrderByDescending(c => c.CreateDate).Select(song => new ViewSong
             {
                 SongId= song.SongId,
                 GroupId= song.GroupId,

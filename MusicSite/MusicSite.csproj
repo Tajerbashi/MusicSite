@@ -273,6 +273,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_DefaultLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\UserPanel.cshtml" />
+    <Content Include="Views\Home\NavPanel.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Home\MostTopSongs.cshtml" />
+    <Content Include="Views\Home\Player.cshtml" />
+    <Content Include="Views\Home\PlayLastSingleSong.cshtml" />
+    <Content Include="Views\Home\MostTopAlbums.cshtml" />
+    <Content Include="Views\Home\PlayListGroup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

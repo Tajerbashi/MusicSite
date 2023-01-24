@@ -13,8 +13,38 @@
     <title>Music Site: Index</title>
 </head>
 <body dir="rtl">
+    <!-- Start Modal -->
+    <div id="modal-container" class="d-none">
+        <div id="modal">
+            <div id="modal-header" class="d-flex flex-row justify-content-between">
+                <span id="modal-header-site" style="margin: 13px;">نام سایت</span>
+                <span id="modal-header-title" style="margin: 13px;">عنوان</span>
+                <span style="margin: 10px;"><i class="fa fa-close fa-2x"></i></span>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    <!-- End Modal -->
 
-   @RenderBody()
+    @Html.Action("UserPanel", "Home")
+    @Html.Action("NavPanel", "Home")
+    <!-- Start Index Page -->
+    <div class="container-fluid">
+        <div id="header-row1" class="row">
+
+
+            @Html.Action("MostTopSongs", "Home")
+
+            @RenderBody()
+
+            @Html.Action("Player", "Home")
+            @Html.Action("PlayLastSingleSong", "Home")
+            @Html.Action("MostTopAlbums", "Home")
+            
+        </div>
+    </div>
+    <!-- End Index Page -->
+    @Html.Action("Footer", "Home")
     <script src="~/Scripts/jquery-3.6.3.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
