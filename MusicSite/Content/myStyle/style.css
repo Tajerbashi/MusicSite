@@ -504,6 +504,7 @@ Search Aside Panel
     border-radius: 40% 1% 40% 1%;
     padding: 1rem;
     border: 1px solid rgb(255, 255, 255, 0.5);
+    height: 250px !important;
 }
 .song-item-modal > img{
     border-radius: 50%;
