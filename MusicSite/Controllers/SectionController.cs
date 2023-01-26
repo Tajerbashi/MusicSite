@@ -13,15 +13,21 @@ namespace MusicSite.Controllers
     {
         DbContexts DB=new DbContexts();
         IGroupRepository groupRepository;
-
+        ISongRepository songRepository;
         // GET: Section
         public SectionController()
         {
             groupRepository = new GroupRepository(DB);
+            songRepository = new SongRepository(DB);
         }
         public ActionResult Group()
         {
             return PartialView(groupRepository.GetAllGroupToShow());
+        }
+        public ActionResult Songs()
+        {
+            ViewBag.List=songRepository.GetAllSongView();
+            return PartialView();
         }
     }
 }

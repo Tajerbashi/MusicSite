@@ -14,11 +14,14 @@ modal_container.addEventListener("click", (event) => {
 navListItem.forEach(item => {
     item.addEventListener("click", () => {
         if (item.getAttribute("id") != "HomePage") {
+            console.log(item);
             modal_container.classList.remove("d-none");
             modalHeaderSite.innerHTML = "موزیک سایت";
-            modalHeaderTitle.innerHTML = item.firstChild.innerHTML;
+            modalHeaderTitle.innerHTML = item.innerHTML;
             if (modalHeaderTitle.innerHTML === "دسته بندی ها") {
                 GroupOpen();
+            } else if (modalHeaderTitle.innerHTML === "آهنگها") {
+                SongsOpen();
             }
         }
     });
@@ -31,8 +34,14 @@ userPanel.addEventListener("click", () => {
 
 });
 function GroupOpen() {
-    console.log("Section Group Open Clicked");
+    console.log("Section Groups Open Clicked");
     $.get("/Section/Group", (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function SongsOpen() {
+    console.log("Section Songs Open Clicked");
+    $.get("/Section/Songs", (res) => {
         $("#modal-body").html(res);
     });
 }

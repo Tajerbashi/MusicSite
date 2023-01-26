@@ -492,3 +492,25 @@ Search Aside Panel
     }
 }
 /* End Mobile Style   */
+
+/* Start Songs Styles */
+.song-item-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg,#00000000,#ffffff4d);
+    backdrop-filter: blur(20px);
+    border-radius: 40% 1% 40% 1%;
+    padding: 1rem;
+    border: 1px solid rgb(255, 255, 255, 0.5);
+}
+.song-item-modal > img{
+    border-radius: 50%;
+    box-shadow: 0 0 20px 0 black;
+}
+.song-item-modal:hover {
+    box-shadow: 0 0 10px 0 black;
+    cursor: pointer;
+}
+ /* End Songs Styles */

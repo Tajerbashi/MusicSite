@@ -1,0 +1,22 @@
+﻿<div class="container-fluid">
+    <div class="row d-flex flex-column align-items-center">
+        <div class="w-50" id="search-panel">
+            <div id="search-panel-control" class="rounded-5">
+                <input id="search-word" placeholder="جستجو کنید ...">
+                <span><i id="search-icon-pk" class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in ViewBag.List)
+        {
+            <div class="col-2 mt-2">
+                <a class="song-item-modal" href="#">
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid" style="width:100px;height:100px;" />
+                    <span>@item.SongName</span>
+                    <span>@item.SingerName</span>
+                </a>
+            </div>
+        }
+    </div>
+</div>
