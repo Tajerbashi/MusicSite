@@ -13,7 +13,7 @@
                     <div class="d-flex flex-row justify-content-between w-100">
                         <div class="GroupTitleModal">
                             <h6>@item.GroupName</h6>
-                            <a href="@Url.Action("PlayListGroup","Home")"><i class="fa fa-play mt-1" title="پخش"></i></a>
+                            <a href="@Url.Action("PlayListGroup","Home",new {id=item.GroupId})"><i class="fa fa-play mt-1" title="پخش"></i></a>
                         </div>
 
                         <div class="d-flex flex-row">

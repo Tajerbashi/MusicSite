@@ -4,6 +4,7 @@
 }
 body {
     font-family: IranSans;
+    background: linear-gradient(90deg,rgb(255, 171, 108),rgb(255, 116, 54));
 }
 
 a {

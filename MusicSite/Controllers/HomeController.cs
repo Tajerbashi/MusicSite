@@ -47,24 +47,35 @@ namespace MusicSite.Controllers
         public ActionResult PlayListGroup(int id)
         {
             ViewGroup viewGroup=groupRepository.GetAllGroupToShow().Where(c => c.GroupId==id).FirstOrDefault();
-            return View();
+            Group group = groupRepository.GetById(id);
+            group.Visit += 1;
+            groupRepository.Save();
+            return View(viewGroup);
         }
         public ActionResult Player(int id=0)
         {
             ViewSong song;
             if (id==0)
             {
-                song=songRepository.GetAllSongView().OrderByDescending(c => c.Visit).FirstOrDefault();
+                song = new ViewSong
+                {
+                    SingerName = "",
+                    SongName="",
+                    Picture="../../Photos/11.jpg",
+                    AddressFile=""
+                };
             }
             else
             {
                 song = songRepository.GetAllSongView().Where(c => c.SongId==id).FirstOrDefault();
+                song.Visit += 1;
+                songRepository.Save();
             }
             return PartialView(song);
         }
         public ActionResult PlayLastSingleSong()
         {
-            ViewBag.List = songRepository.GetAllSongView().Take(30);
+            ViewBag.List = songRepository.GetAllSongView().Where(c=> !c.Remix).Take(30);
             return PartialView();
         }
         public ActionResult MostTopAlbums()
