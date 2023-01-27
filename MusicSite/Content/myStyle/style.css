@@ -515,3 +515,28 @@ Search Aside Panel
     cursor: pointer;
 }
  /* End Songs Styles */
+/* Start PlayList Style */
+.play-list-item{
+    background: linear-gradient(90deg,rgb(255, 255, 255, 0.53),rgb(0, 0, 0));
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    cursor: pointer;
+}
+.play-list-item:hover {
+    background: linear-gradient(90deg,rgb(255, 255, 255),rgb(0, 0, 0));
+    backdrop-filter: blur(10px);
+}
+.play-list-item > div{
+    /*background: linear-gradient(90deg,rgb(255, 255, 255),rgb(76, 0, 255));*/
+    /*backdrop-filter: blur(10px);*/
+    /*height: 150px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+}
+/* End PlayList Style */

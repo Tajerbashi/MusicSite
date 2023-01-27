@@ -14,11 +14,13 @@ namespace MusicSite.Controllers
         DbContexts DB=new DbContexts();
         IGroupRepository groupRepository;
         ISongRepository songRepository;
+        IPlayListRepository playListRepository;
         // GET: Section
         public SectionController()
         {
             groupRepository = new GroupRepository(DB);
             songRepository = new SongRepository(DB);
+            playListRepository = new PlayListRepository(DB);
         }
         public ActionResult Group()
         {
@@ -33,6 +35,10 @@ namespace MusicSite.Controllers
         {
             ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId==id).ToList();
             return PartialView();
+        }
+        public ActionResult PlayLists()
+        {
+            return PartialView(playListRepository.GetAllToShow());
         }
     }
 }

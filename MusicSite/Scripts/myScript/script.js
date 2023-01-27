@@ -22,6 +22,8 @@ navListItem.forEach(item => {
                 GroupOpen();
             } else if (modalHeaderTitle.innerHTML === "آهنگها") {
                 SongsOpen();
+            } else if (modalHeaderTitle.innerHTML === "پلی لیست ها") {
+                PlayListOpen();
             }
         }
     });
@@ -42,6 +44,12 @@ function GroupOpen() {
 function SongsOpen() {
     console.log("Section Songs Open Clicked");
     $.get("/Section/Songs", (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function PlayListOpen() {
+    console.log("Section PlayList Open Clicked");
+    $.get("/Section/PlayLists", (res) => {
         $("#modal-body").html(res);
     });
 }

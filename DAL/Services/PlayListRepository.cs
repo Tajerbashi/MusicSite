@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -105,6 +106,23 @@ namespace DAL.Services
                 .Include(c => c.Song)
                 .Include(c => c.Song.Album)
                 .ToList();
+        }
+
+        public IEnumerable<ViewPlayList> GetAllToShow()
+        {
+            return DB.PlayLists
+                .Include(c => c.Country)
+                .Include(c => c.Country.Singers)
+                .OrderByDescending(C => C.CreateDate)
+                .Select(c => new ViewPlayList
+                {
+                    PlayListName=c.PlayListName,
+                    Country=c.Country.CountryName,
+                    Visit=c.Visit,
+                    Score=c.Score,
+                    Picture=c.Picture,
+                    Type=c.Type
+                });
         }
 
         public PlayList GetById(int id)

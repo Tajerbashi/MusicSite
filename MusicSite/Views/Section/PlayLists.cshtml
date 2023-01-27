@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewPlayList>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-12 col-lg-4 ">
+                <div class="play-list-item m-1 p-1">
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-5" style="width: 200px;"/>
+                    <div class="mx-1">
+                        <span class="bg-dark text-light mt-1 px-3 py-1 rounded-5">@item.PlayListName</span>
+                        <span class="bg-dark text-light mt-1 px-3 py-1 rounded-5">کشور: @item.Country</span>
+                        <span class="bg-dark text-light mt-1 px-3 py-1 rounded-5">تعداد بازدید: @item.Visit</span>
+                        <span class="bg-dark text-light mt-1 px-3 py-1 rounded-5">امتیاز: @item.Score</span>
+                        <span class="bg-dark text-light mt-1 px-3 py-1 rounded-5">نوع: @item.Type</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

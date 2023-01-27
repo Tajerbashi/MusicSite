@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace DAL.Repository
         bool CheckPlayList(PlayList list);
         void Save();
         IEnumerable<PlayList> GetAll();
+        IEnumerable<ViewPlayList> GetAllToShow();
         IEnumerable<PlayList> GetAllPlayListPKFK();
         IEnumerable<PlayListSongPKFK> GetAllPlayListSongPKFK();
         PlayList GetById(int id);
