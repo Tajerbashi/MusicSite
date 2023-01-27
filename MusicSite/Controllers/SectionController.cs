@@ -29,5 +29,10 @@ namespace MusicSite.Controllers
             ViewBag.List=songRepository.GetAllSongView();
             return PartialView();
         }
+        public ActionResult PlaySong(int id)
+        {
+            ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId==id).ToList();
+            return PartialView();
+        }
     }
 }

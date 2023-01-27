@@ -1,11 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PlaySong";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
 }
 
 <div class="col-sm-12 col-md-2 p-3">
-    <div class="bg-dark bg-gradient text-light p-2 rounded-2 overflow-auto" style="height: 550px;">
+    <div class="p-2 rounded-2 overflow-auto" style="height: 550px; background: linear-gradient(180deg, rgb(255, 255, 255, 0.30), rgb(255, 255, 255, 0.50)); border:1px solid #ffffffd6; backdrop-filter: blur(10px);">
         <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">لیست در حال پخش</h6>
         <ul class="list-group">
             @foreach (var item in ViewBag.List)

@@ -284,6 +284,7 @@
     <Content Include="Views\Home\PlayListGroup.cshtml" />
     <Content Include="Views\Section\Group.cshtml" />
     <Content Include="Views\Section\Songs.cshtml" />
+    <Content Include="Views\Section\PlaySong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

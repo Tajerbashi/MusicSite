@@ -14,18 +14,31 @@ namespace MusicSite.Controllers
     public class HomeController : Controller
     {
         DbContexts DB = new DbContexts();
+
         ISongRepository songRepository;
         IAlbumRepository albumRepository;
         IGroupRepository groupRepository;
+
         public HomeController()
         {
             songRepository =new SongRepository(DB);
             albumRepository =new AlbumRepository(DB);
             groupRepository =new GroupRepository(DB);
         }
-        public ActionResult Index()
+
+        public ActionResult Index(int id=0)
         {
-            ViewBag.List=songRepository.GetAllSongView().OrderByDescending(c => c.Visit).Take(30);
+            if (id==0)
+            {
+                ViewBag.List = songRepository
+                .GetAllSongView()
+                .OrderByDescending(c => c.Visit)
+                .Take(30);
+            }
+            else
+            {
+                ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId == id).ToList();
+            }
             return View();
         }
 
@@ -44,6 +57,7 @@ namespace MusicSite.Controllers
             ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Score).Take(30);
             return PartialView();
         }
+
         public ActionResult PlayListGroup(int id)
         {
             ViewGroup viewGroup=groupRepository.GetAllGroupToShow().Where(c => c.GroupId==id).FirstOrDefault();
@@ -52,6 +66,7 @@ namespace MusicSite.Controllers
             groupRepository.Save();
             return View(viewGroup);
         }
+
         public ActionResult Player(int id=0)
         {
             ViewSong song;
@@ -73,16 +88,19 @@ namespace MusicSite.Controllers
             }
             return PartialView(song);
         }
+
         public ActionResult PlayLastSingleSong()
         {
             ViewBag.List = songRepository.GetAllSongView().Where(c=> !c.Remix).Take(30);
             return PartialView();
         }
+
         public ActionResult MostTopAlbums()
         {
             ViewBag.List = albumRepository.GetAllModelAlbum().Take(30);
             return PartialView();
         }
+
         public ActionResult Footer()
         {
             return PartialView();
