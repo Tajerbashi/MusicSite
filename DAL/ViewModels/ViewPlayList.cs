@@ -15,5 +15,6 @@ namespace DAL.ViewModels
         public String Picture { get; set; }
         public String Country { get; set; }
         public String PlayListName { get; set; }
+        public IEnumerable<Song> songs { get; set; }
     }
 }
