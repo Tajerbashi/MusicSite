@@ -110,20 +110,20 @@ namespace DAL.Services
 
         public IEnumerable<ViewPlayList> GetAllToShow()
         {
-            return DB.PlayListSongPKFKs
-                .Include(c => c.Song)
-                .Include(c => c.Song.Album)
-                .Include(c => c.Song.Album.Singer)
+            return DB
+                .PlayListSongPKFKs
                 .Include(c => c.PlayList)
-                .OrderByDescending(C => C.PlayList.CreateDate)
+                .Include(c => c.Song)
+                .OrderByDescending(c => c.PlayList.CreateDate)
                 .Select(c => new ViewPlayList
                 {
-                    PlayListName=c.PlayList.PlayListName,
                     Country=c.PlayList.Country.CountryName,
+                    PlayListName=c.PlayList.PlayListName,
+                    PlayListId=c.PlayList.playListId,
                     Visit=c.PlayList.Visit,
                     Score=c.PlayList.Score,
-                    Picture=c.PlayList.Picture,
                     Type=c.PlayList.Type,
+                    songs=c.Song.PlayListSongPKFK
                 });
         }
 
