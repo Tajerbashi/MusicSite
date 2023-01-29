@@ -3,6 +3,7 @@ using DAL.Repository;
 using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -112,18 +113,20 @@ namespace DAL.Services
         {
             return DB
                 .PlayListSongPKFKs
-                .Include(c => c.PlayList)
-                .Include(c => c.Song)
                 .OrderByDescending(c => c.PlayList.CreateDate)
                 .Select(c => new ViewPlayList
                 {
-                    Country=c.PlayList.Country.CountryName,
-                    PlayListName=c.PlayList.PlayListName,
+                    PlayListName = c.PlayList.PlayListName,
+                    SongName = c.Song.SongName,
+                    SingerName = c.Song.Album.Singer.SingerName,
+                    AlbumName = c.Song.Album.AlbumName,
+                    CountryName = c.PlayList.Country.CountryName,
+                    Picture = c.PlayList.Picture,
+                    Visit = c.PlayList.Visit,
+                    Score = c.PlayList.Score,
+                    Type = c.PlayList.Type,
                     PlayListId=c.PlayList.playListId,
-                    Visit=c.PlayList.Visit,
-                    Score=c.PlayList.Score,
-                    Type=c.PlayList.Type,
-                    songs=c.Song.PlayListSongPKFK
+                    SongId=c.Song.SongId,
                 });
         }
 

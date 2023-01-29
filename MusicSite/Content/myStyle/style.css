@@ -257,11 +257,11 @@ Search Aside Panel
     padding: 1rem;
 }
 
-    .header-music-controller:hover {
-        animation: ChangeColor 5s infinite linear;
-        color: rgb(255, 153, 0);
-        transform: scale(1.5);
-    }
+.header-music-controller:hover {
+    animation: ChangeColor 5s infinite linear;
+    color: rgb(255, 153, 0);
+    transform: scale(1.5);
+}
 
 #header-img {
     height: 350px;
@@ -516,8 +516,8 @@ Search Aside Panel
 }
  /* End Songs Styles */
 /* Start PlayList Style */
-.play-list-item{
-    background: linear-gradient(90deg,rgb(255, 255, 255, 0.53),rgb(202, 202, 202));
+.play-list-item {
+    background: linear-gradient(0deg,rgb(255, 255, 255, 0.53),rgb(89, 169, 255));
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: row;
@@ -525,9 +525,12 @@ Search Aside Panel
     cursor: pointer;
 }
 .play-list-item:hover {
-    background: linear-gradient(90deg,rgb(255, 255, 255),rgb(255, 125, 0, 0.75));
+    background: linear-gradient(180deg,rgb(255, 255, 255),rgb(255, 125, 0, 0.75));
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px 0 #454545;
+    animation-name: ShowItem;
+    animation-duration: 1s;
+    transform: scale(1.1);
 }
 .play-list-item > div{
     /*background: linear-gradient(90deg,rgb(255, 255, 255),rgb(76, 0, 255));*/
@@ -537,5 +540,21 @@ Search Aside Panel
     flex-direction: column;
     justify-content: center;
     text-align: right;
+}
+@keyframes ShowItem {
+    0%{
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+.info-music-play > span{
+    font-size: 12px;
+}
+.LIST{
+    margin-top: 1rem;
+    height: 150px;
+    overflow: auto;
 }
 /* End PlayList Style */

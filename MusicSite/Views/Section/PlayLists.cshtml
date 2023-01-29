@@ -3,32 +3,25 @@
 @{ 
     string Name = "";
 }
+
 <div class="container-fluid">
     <div class="row">
         @foreach (var item in Model)
         {
             if (Name != item.PlayListName)
             {
-                if (item.songs.Count() > 0)
-                {
-                    <div class="col-sm-12 col-md-6 col-lg-4 ">
-                        <a href="#" class="play-list-item rounded-1 d-flex flex-sm-column justify-content-between align-items-center flex-lg-row p-1 m-2">
-                            <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-1" style="width: 200px;" />
-                            <div class="mx-1">
-                                <span class="bg-warning bg-gradient text-dark mt-1 px-3 py-1 rounded-3 shadow">@item.PlayListName</span>
-                                <span class="bg-dark bg-gradient text-light mt-1 px-3 py-1 rounded-2 shadow">کشور: @item.Country</span>
-                                <span class="bg-dark bg-gradient text-light mt-1 px-3 py-1 rounded-2 shadow">تعداد بازدید: @item.Visit</span>
-                                <span class="bg-dark bg-gradient text-light mt-1 px-3 py-1 rounded-2 shadow">امتیاز: @item.Score</span>
-                            </div>
-                            @foreach (var song in item.songs)
-                            {
-                                <div class="mx-1 bg-primary bg-gradient text-light">
-                                    @song.SongName:@song.Album.Singer.SingerName
-                                </div>
-                            }
-                        </a>
-                    </div>
-                }
+                <div class="col-sm-12 col-md-4 col-lg-2">
+                    <a href="#" class="play-list-item rounded-1 d-flex flex-column justify-content-start align-items-center p-1 m-2">
+                        <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-1" style="height: 200px;" />
+                        <div class="mx-1 info-music-play">
+                            <span class="bg-warning bg-gradient text-dark mt-1 px-3 py-1 rounded-3 shadow">@item.PlayListName</span>
+                            <span class="bg-dark bg-gradient text-light mt-1 px-3 py-1 rounded-2 shadow">کشور: @item.CountryName</span>
+                            <span class="bg-dark bg-gradient text-light mt-1 px-3 py-1 rounded-2 shadow">تعداد بازدید: @item.Visit</span>
+                            <span class="bg-dark bg-gradient text-light mt-1 px-3 py-1 rounded-2 shadow">امتیاز: @item.Score</span>
+                        </div>
+                        @Html.Action("PlayListsShowSongs", "Section", new {id=item.PlayListId})
+                    </a>
+                </div>
             }
             Name = item.PlayListName;
         }

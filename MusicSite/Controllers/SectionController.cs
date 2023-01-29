@@ -40,5 +40,9 @@ namespace MusicSite.Controllers
         {
             return PartialView(playListRepository.GetAllToShow());
         }
+        public ActionResult PlayListsShowSongs(int id)
+        {
+            return PartialView(playListRepository.GetAllToShow().Where(c => c.PlayListId==id).ToList());
+        }
     }
 }

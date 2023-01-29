@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewPlayList>
+
+<div class="mx-1 LIST w-100">
+    @foreach (var song in Model)
+    {
+        <div class="d-flex flex-row justify-content-between align-items-center bg-primary bg-gradient text-light mt-1 rounded-2">
+            <span class="mt-1 px-3 py-1" style="font-size: 10px;">@song.SongName</span>
+            <span class="mt-1 px-3 py-1" style="font-size: 10px;">@song.SingerName</span>
+        </div>
+    }
+</div>

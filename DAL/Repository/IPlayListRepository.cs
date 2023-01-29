@@ -17,7 +17,6 @@ namespace DAL.Repository
         void Save();
         IEnumerable<PlayList> GetAll();
         IEnumerable<ViewPlayList> GetAllToShow();
-        IEnumerable<PlayList> GetAllPlayListPKFK();
         IEnumerable<PlayListSongPKFK> GetAllPlayListSongPKFK();
         PlayList GetById(int id);
         PlayList GetByName(string Name);

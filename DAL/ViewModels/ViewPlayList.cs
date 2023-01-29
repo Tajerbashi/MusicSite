@@ -8,13 +8,16 @@ namespace DAL.ViewModels
 {
     public class ViewPlayList
     {
-        public int PlayListId { get; set; }
-        public int Score { get; set; }
-        public int Visit { get; set; }
-        public bool Type { get; set; }
-        public String Picture { get; set; }
-        public String Country { get; set; }
         public String PlayListName { get; set; }
-        public IEnumerable<Song> songs { get; set; }
+        public String SongName { get; set; }
+        public String AlbumName { get; set; }
+        public String SingerName { get; set; }
+        public String CountryName { get; set; }
+        public String Picture { get; set; }
+        public int PlayListId { get; set; }
+        public int SongId { get; set; }
+        public int Visit { get; set; }
+        public int Score { get; set; }
+        public bool Type { get; set; }
     }
 }
