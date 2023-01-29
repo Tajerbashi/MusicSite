@@ -50,6 +50,7 @@ namespace MusicSite.Controllers
             PlayList playList = playListRepository.GetById(id);
             playList.Visit += 1;
             playListRepository.Save();
+            ViewBag.Name = playList.PlayListName;
             return View(playListRepository.GetAllToShow().Where(c => c.PlayListId == id).ToList());
         }
     }
