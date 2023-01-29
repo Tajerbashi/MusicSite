@@ -54,7 +54,7 @@ namespace MusicSite.Controllers
 
         public ActionResult MostTopSongs()
         {
-            ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Score).Take(30);
+            ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Visit).Take(30);
             return PartialView();
         }
 

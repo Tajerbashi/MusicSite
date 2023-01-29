@@ -11,7 +11,7 @@
             if (Name != item.PlayListName)
             {
                 <div class="col-sm-12 col-md-4 col-lg-2">
-                    <a href="#" class="play-list-item rounded-1 d-flex flex-column justify-content-start align-items-center p-1 m-2">
+                    <a href="@Url.Action("PlayListsPlay","Section",new {id=item.PlayListId})" class="play-list-item rounded-1 d-flex flex-column justify-content-start align-items-center p-1 m-2">
                         <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow rounded-1" style="height: 200px;" />
                         <div class="mx-1 info-music-play">
                             <span class="bg-warning bg-gradient text-dark mt-1 px-3 py-1 rounded-3 shadow">@item.PlayListName</span>

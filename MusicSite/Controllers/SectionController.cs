@@ -1,4 +1,5 @@
-﻿using DAL.Context;
+﻿using DAL;
+using DAL.Context;
 using DAL.Repository;
 using DAL.Services;
 using System;
@@ -43,6 +44,13 @@ namespace MusicSite.Controllers
         public ActionResult PlayListsShowSongs(int id)
         {
             return PartialView(playListRepository.GetAllToShow().Where(c => c.PlayListId==id).ToList());
+        }
+        public ActionResult PlayListsPlay(int id)
+        {
+            PlayList playList = playListRepository.GetById(id);
+            playList.Visit += 1;
+            playListRepository.Save();
+            return View(playListRepository.GetAllToShow().Where(c => c.PlayListId == id).ToList());
         }
     }
 }
