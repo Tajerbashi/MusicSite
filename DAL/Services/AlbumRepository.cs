@@ -72,17 +72,18 @@ namespace DAL.Services
         public IEnumerable<ViewAlbum> GetAllModelAlbum()
         {
             return DB.Albums
+                .Where(c => c.Songs.Count > 0)
                 .Include(c => c.Singer)
                 .Include(c => c.Songs)
                 .OrderByDescending(c => c.Visit).Select(c => new ViewAlbum
-            {
-                AlbumId=c.AlbumId,
-                AlbumName= c.AlbumName,
-                SingerName=c.Singer.SingerName,
-                Visit=c.Visit,
-                Score=c.Score,
-                Picture=c.Picture
-            });
+                {
+                    AlbumId = c.AlbumId,
+                    AlbumName = c.AlbumName,
+                    SingerName = c.Singer.SingerName,
+                    Visit = c.Visit,
+                    Score = c.Score,
+                    Picture = c.Picture
+                });
         }
 
         public Album GetById(int id)

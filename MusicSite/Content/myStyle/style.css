@@ -396,7 +396,7 @@ Search Aside Panel
 .list-group-item-list {
     background: linear-gradient(90deg,rgb(255, 207, 136),rgb(255, 242, 208));
     border-radius: 5px;
-    padding: 0.1rem 0.5rem;
+    padding: 0.2rem 0.5rem;
     margin-top: 1px;
     color: red;
 }
@@ -577,3 +577,28 @@ Search Aside Panel
     box-shadow: 0 0 10px 0 #1b1b1b;
 }
 /*   End Album Style   */
+
+/*   Start Padcast Style   */
+.Padcast-Items {
+    background: linear-gradient(0deg,rgb(255, 180, 0, 0.75),rgb(255, 255, 255, 0.43));
+    padding: 5px;
+    height: 265px;
+    width: 200px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 0 #000000 !important;
+}
+.Padcast-Items > img{
+    height: 150px;
+    width: 150px;
+    border-radius: 10rem;
+    box-shadow: 0 0 10px 0 #1b1b1b !important; 
+}
+.Padcast-Items:hover {
+    background: linear-gradient(0deg,rgb(255, 255, 255, 0.43),rgb(255, 180, 0, 0.75));
+    box-shadow: 0 0 20px 0 #ffffff !important;
+    animation-name: ShowItem;
+    animation-duration: 1s;
+    transform: scale(1.1);
+    z-index: 99999;
+}
+/*   End Padcast Style   */

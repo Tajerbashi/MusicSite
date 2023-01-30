@@ -17,6 +17,7 @@ namespace MusicSite.Controllers
         ISongRepository songRepository;
         IPlayListRepository playListRepository;
         IAlbumRepository albumRepository;
+        IPadcastRepository padcastRepository;
         // GET: Section
         public SectionController()
         {
@@ -24,6 +25,7 @@ namespace MusicSite.Controllers
             songRepository = new SongRepository(DB);
             playListRepository = new PlayListRepository(DB);
             albumRepository= new AlbumRepository(DB);
+            padcastRepository= new PadcastRepository(DB);
         }
         public ActionResult Group()
         {
@@ -70,6 +72,17 @@ namespace MusicSite.Controllers
             albumRepository.Save();
             ViewBag.Name = album.AlbumName;
             return View(songRepository.GetAllSongView().Where(c => c.Album.AlbumId == id).ToList());
+        }
+        public ActionResult Padcasts()
+        {
+            return PartialView(padcastRepository.GetAllToShow());
+        }
+        public ActionResult PadcastPlay(int id)
+        {
+            Padcast padcast = padcastRepository.GetById(id);
+            padcast.Visit += 1;
+            padcastRepository.Save();
+            return View(padcastRepository.GetAllToShow().Where(c => c.PadcastId == id).Single());
         }
     }
 }

@@ -26,6 +26,8 @@ navListItem.forEach(item => {
                 PlayListOpen();
             } else if (modalHeaderTitle.innerHTML === "آلبوم ها") {
                 AlbumOpen();
+            } else if (modalHeaderTitle.innerHTML === "پادکست ها") {
+                PadcastOpen();
             }
         }
     });
@@ -58,6 +60,12 @@ function PlayListOpen() {
 function AlbumOpen() {
     console.log("Section Album Open Clicked");
     $.get("/Section/Albums", (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function PadcastOpen() {
+    console.log("Section Padcast Open Clicked");
+    $.get("/Section/Padcasts", (res) => {
         $("#modal-body").html(res);
     });
 }

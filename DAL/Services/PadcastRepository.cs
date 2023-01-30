@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -63,6 +64,20 @@ namespace DAL.Services
         public IEnumerable<Padcast> GetAll()
         {
             return DB.Padcasts.OrderBy(c => c.PadcastName).Include(c => c.Country).ToList();
+        }
+
+        public IEnumerable<ViewPadcast> GetAllToShow()
+        {
+            return DB.Padcasts.OrderByDescending(c => c.CreateDate).Select(c => new ViewPadcast
+            {
+                PadcastId = c.PadcastId,
+                PadcastName = c.PadcastName,
+                AddressFile = c.AddressFile,
+                Picture = c.Picture,
+                Score = c.Score,
+                Visit = c.Visit,
+                Type = c.Type,
+            });
         }
 
         public Padcast GetById(int id)
