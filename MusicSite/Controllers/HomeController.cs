@@ -70,21 +70,34 @@ namespace MusicSite.Controllers
         public ActionResult Player(int id=0)
         {
             ViewSong song;
-            if (id==0)
+            if (id == 0)
             {
                 song = new ViewSong
                 {
                     SingerName = "",
-                    SongName="",
-                    Picture="../../Photos/11.jpg",
-                    AddressFile=""
+                    SongName = "",
+                    Picture = "../../Photos/11.jpg",
+                    AddressFile = ""
                 };
             }
             else
             {
-                song = songRepository.GetAllSongView().Where(c => c.SongId==id).FirstOrDefault();
-                song.Visit += 1;
-                songRepository.Save();
+                song = songRepository.GetAllSongView().Where(c => c.SongId == id).FirstOrDefault();
+                if (song != null)
+                {
+                    song.Visit += 1;
+                    songRepository.Save();
+                }
+                else
+                {
+                    song = new ViewSong
+                    {
+                        SingerName = "",
+                        SongName = "",
+                        Picture = "../../Photos/11.jpg",
+                        AddressFile = ""
+                    };
+                }
             }
             return PartialView(song);
         }

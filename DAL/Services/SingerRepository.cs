@@ -84,6 +84,8 @@ namespace DAL.Services
                     SingerName = c.SingerName,
                     CountryId = c.CountryId,
                     SingerId = c.SingerId,
+                    Picture=c.Albums.OrderByDescending(e => e.CreateDate).FirstOrDefault().Picture,
+                    SongCount=c.Albums.Count                    
                 });
         }
 

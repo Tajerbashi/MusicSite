@@ -30,6 +30,8 @@ navListItem.forEach(item => {
                 PadcastOpen();
             } else if (modalHeaderTitle.innerHTML === "کشور ها") {
                 CountryOpen();
+            } else if (modalHeaderTitle.innerHTML === "خوانندگان") {
+                SingerOpen();
             }
         }
     });
@@ -74,6 +76,12 @@ function PadcastOpen() {
 function CountryOpen() {
     console.log("Section Country Open Clicked");
     $.get("/Section/Countries", (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function SingerOpen() {
+    console.log("Section Country Open Clicked");
+    $.get("/Section/Singers", (res) => {
         $("#modal-body").html(res);
     });
 }

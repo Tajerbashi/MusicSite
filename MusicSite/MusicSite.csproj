@@ -297,6 +297,8 @@
     <Content Include="Views\Section\CountriesPlayLists.cshtml" />
     <Content Include="Views\Section\CountriesSingers.cshtml" />
     <Content Include="Views\Section\CountriesPadcasts.cshtml" />
+    <Content Include="Views\Section\Singers.cshtml" />
+    <Content Include="Views\Section\PlaySingerSongs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

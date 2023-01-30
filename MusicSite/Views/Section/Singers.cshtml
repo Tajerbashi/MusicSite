@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewSinger>
+
+<div class="container-fluid">
+    <div class="row d-flex flex-column align-items-center">
+        <div class="w-50" id="search-panel">
+            <div id="search-panel-control" class="rounded-5">
+                <input id="search-word" placeholder="جستجو کنید ...">
+                <span><i id="search-icon-pk" class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-between flex-wrap">
+        @foreach (var item in Model)
+        {
+            <div class="SingerItem">
+                <a href="@Url.Action("PlaySingerSongs","Section",new {id=item.SingerId})" class="d-flex flex-column justify-content-between">
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2 shadow" style="height: 150px; width: 150px; " />
+                    <span class="w-100 bg-primary text-light p-1 rounded-2 mt-2">@item.SingerName</span>
+                </a>
+            </div>
+        }
+    </div>
+</div>

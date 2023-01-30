@@ -10,6 +10,8 @@ namespace DAL.ViewModels
     {
         public int SingerId { get; set; }
         public int CountryId { get; set; }
+        public int SongCount { get; set; }
         public string SingerName { get; set; }
+        public string Picture { get; set; }
     }
 }

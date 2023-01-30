@@ -8,7 +8,7 @@
         if (Name != item.PlayListName)
         {
             <li class="list-group-item ItemCountry">
-                <a href="#">
+                <a href="@Url.Action("PlayListsPlay","Section",new {id=item.PlayListId})">
                     <span>@item.PlayListName</span>
                     <span>@item.SingerName</span>
                 </a>

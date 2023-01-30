@@ -521,19 +521,18 @@ Search Aside Panel
 /* Start PlayList Style */
 .play-list-item {
     background: linear-gradient(0deg,rgb(255, 255, 255, 0.53),rgb(89, 169, 255));
-    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: row;
     justify-content: start;
     cursor: pointer;
+    transform: scale(0.8);
 }
 .play-list-item:hover {
     background: linear-gradient(180deg,rgb(255, 255, 255),rgb(255, 125, 0, 0.75));
-    backdrop-filter: blur(10px);
     box-shadow: 0 0 30px 0 #454545;
     animation-name: ShowItem;
     animation-duration: 1s;
-    transform: scale(1.1);
+    transform: scale(1);
 }
 .play-list-item > div{
     /*background: linear-gradient(90deg,rgb(255, 255, 255),rgb(76, 0, 255));*/
@@ -546,14 +545,14 @@ Search Aside Panel
 }
 @keyframes ShowItem {
     0%{
-        transform: scale(1);
+        transform: scale(0.8);
     }
     100% {
-        transform: scale(1.1);
+        transform: scale(1);
     }
 }
 .info-music-play > span{
-    font-size: 12px;
+    font-size: 1rem;
 }
 .LIST{
     margin-top: 1rem;
@@ -626,4 +625,16 @@ Search Aside Panel
     border-left: 5px solid red;
 }
 /*   End Country Style   */
+/* Start Singer Style */
+.SingerItem{
+    background: linear-gradient(0deg,rgb(255, 255, 255),rgba(255, 255, 255, 0.5));
+    padding: 0.5rem;
+    border-radius: 10px;
 
+}
+.SingerItem:hover {
+    background: linear-gradient(180deg,rgb(255, 255, 255),rgba(255, 255, 255, 0.5));
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 #000000 !important;
+}
+/* End Singer Style */
