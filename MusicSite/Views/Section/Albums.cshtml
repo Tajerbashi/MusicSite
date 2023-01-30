@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewAlbum>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-flex flex-row justify-content-between flex-wrap">
+            @foreach (var item in Model)
+            {
+                <a href="@Url.Action("AlbumPlay","Section",new {id=item.AlbumId})" class="album-item-nav">
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2" style="height: 150px; width: 180px;" />
+                    <div class="d-flex flex-column">
+                        <span class="bg-dark text-warning rounded-1">@item.AlbumName</span>
+                        <span class="bg-warning text-dark rounded-1 mb-1">@item.SingerName</span>
+                        <span class="bg-primary text-light">امتیاز آلبوم : @item.Score</span>
+                        <span class="bg-primary text-light">تعداد بازدید : @item.Visit</span>
+                    </div>
+                    <div class="d-flex flex-column overflow-auto" style="height: 150px;">
+                        <span class="bg-dark text-light w-100 rounded-1 mt-1">آهنگ ها</span>
+                        @Html.Action("ShowAlbumSongs", "Section",new {id=item.AlbumId})
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

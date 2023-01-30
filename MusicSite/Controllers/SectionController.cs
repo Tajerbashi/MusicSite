@@ -16,12 +16,14 @@ namespace MusicSite.Controllers
         IGroupRepository groupRepository;
         ISongRepository songRepository;
         IPlayListRepository playListRepository;
+        IAlbumRepository albumRepository;
         // GET: Section
         public SectionController()
         {
             groupRepository = new GroupRepository(DB);
             songRepository = new SongRepository(DB);
             playListRepository = new PlayListRepository(DB);
+            albumRepository= new AlbumRepository(DB);
         }
         public ActionResult Group()
         {
@@ -52,6 +54,22 @@ namespace MusicSite.Controllers
             playListRepository.Save();
             ViewBag.Name = playList.PlayListName;
             return View(playListRepository.GetAllToShow().Where(c => c.PlayListId == id).ToList());
+        }
+        public ActionResult Albums()
+        {
+            return PartialView(albumRepository.GetAllModelAlbum());
+        }
+        public ActionResult ShowAlbumSongs(int id)
+        {
+            return PartialView(songRepository.GetAllSongView().Where(c => c.Album.AlbumId == id).ToList());
+        }
+        public ActionResult AlbumPlay(int id)
+        {
+            Album album = albumRepository.GetById(id);
+            album.Visit += 1;
+            albumRepository.Save();
+            ViewBag.Name = album.AlbumName;
+            return View(songRepository.GetAllSongView().Where(c => c.Album.AlbumId == id).ToList());
         }
     }
 }

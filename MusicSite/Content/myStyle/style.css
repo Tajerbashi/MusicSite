@@ -513,6 +513,9 @@ Search Aside Panel
 .song-item-modal:hover {
     box-shadow: 0 0 10px 0 black;
     cursor: pointer;
+    animation-name: ShowItem;
+    animation-duration: 1s;
+    transform: scale(1.1);
 }
  /* End Songs Styles */
 /* Start PlayList Style */
@@ -558,3 +561,19 @@ Search Aside Panel
     overflow: auto;
 }
 /* End PlayList Style */
+/*   Start Album Style   */
+.album-item-nav{
+    padding: 0.2rem;
+    background: linear-gradient(0deg,#eee6,#160072ce);
+    margin-top: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.album-item-nav:hover {
+    background: linear-gradient(0deg,#160072ce,#eee6);
+    animation-name: ShowItem;
+    animation-duration: 1s;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 0 #1b1b1b;
+}
+/*   End Album Style   */
