@@ -114,6 +114,9 @@ namespace MusicSite.Controllers
             ViewBag.Name = singer.SingerName;
             return View(songRepository.GetAllSongView().Where(c => c.SingerName==singer.SingerName).ToList());
         }
-
+        public ActionResult Remix()
+        {
+            return PartialView(songRepository.GetAllSongView().OrderBy(c => c.SingerName).Where(c => c.Remix).ToList());
+        }
     }
 }

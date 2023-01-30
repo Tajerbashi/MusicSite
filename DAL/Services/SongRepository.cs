@@ -63,15 +63,16 @@ namespace DAL.Services
         {
             return DB.Songs.OrderByDescending(c => c.CreateDate).Select(song => new ViewSong
             {
-                SongId= song.SongId,
-                GroupId= song.GroupId,
-                SongName= song.SongName,
-                SingerName= song.Album.Singer.SingerName,
-                Album= song.Album,
-                Score= song.Score,
-                Visit= song.Visit,
-                Picture= song.Picture,
-                AddressFile= song.AddressFile
+                SongId = song.SongId,
+                GroupId = song.GroupId,
+                SongName = song.SongName,
+                SingerName = song.Album.Singer.SingerName,
+                Album = song.Album,
+                Score = song.Score,
+                Visit = song.Visit,
+                Picture = song.Picture,
+                AddressFile = song.AddressFile,
+                Remix = song.Remix
             });
         }
 

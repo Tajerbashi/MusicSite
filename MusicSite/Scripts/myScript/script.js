@@ -32,6 +32,8 @@ navListItem.forEach(item => {
                 CountryOpen();
             } else if (modalHeaderTitle.innerHTML === "خوانندگان") {
                 SingerOpen();
+            } else if (modalHeaderTitle.innerHTML === "ریمیکس") {
+                RemixOpen();
             }
         }
     });
@@ -82,6 +84,12 @@ function CountryOpen() {
 function SingerOpen() {
     console.log("Section Country Open Clicked");
     $.get("/Section/Singers", (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function RemixOpen() {
+    console.log("Section Remix Open Clicked");
+    $.get("/Section/Remix", (res) => {
         $("#modal-body").html(res);
     });
 }
