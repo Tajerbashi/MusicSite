@@ -610,6 +610,7 @@ Search Aside Panel
     padding: 1rem;
     height: 500px;
     box-shadow: 0 0 20px 0 #000000 !important;
+    overflow: auto;
 }
 .ItemCountry{
     background: linear-gradient(0deg,rgb(255, 255, 255, 0.88),rgb(255, 255, 255, 0.50));

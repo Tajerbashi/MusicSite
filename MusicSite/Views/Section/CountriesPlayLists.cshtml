@@ -8,8 +8,10 @@
         if (Name != item.PlayListName)
         {
             <li class="list-group-item ItemCountry">
-                <span>@item.PlayListName</span>
-                <span>@item.SingerName</span>
+                <a href="#">
+                    <span>@item.PlayListName</span>
+                    <span>@item.SingerName</span>
+                </a>
             </li>
         }
         Name = item.PlayListName;

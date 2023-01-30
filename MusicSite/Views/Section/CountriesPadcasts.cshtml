@@ -7,9 +7,11 @@
     {
         if (Name != item.PadcastName)
         {
-            <li class="list-group-item ItemCountry d-flex flex-column">
-                <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2 shadow" style="height: 150px;"/>
-                <span class="w-100 bg-primary text-light mt-2 rounded-3">@item.PadcastName</span>
+            <li class="list-group-item ItemCountry">
+                <a href="#" class="d-flex flex-column">
+                    <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2 shadow" style="height: 150px;" />
+                    <span class="bg-primary text-light mt-2 rounded-3 w-100 mt-2 py-2">@item.PadcastName</span>
+                </a>
             </li>
         }
         Name = item.PadcastName;
