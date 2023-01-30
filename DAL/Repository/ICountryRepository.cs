@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace DAL.Repository
         bool Delete(int id);
         void Save();
         IEnumerable<Country> GetAll();
+        IEnumerable<ViewCountry> GetAllToShow();
         Country GetById(int id);
         Country GetByName(string Name);
     }

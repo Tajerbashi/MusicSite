@@ -1,5 +1,6 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -72,6 +73,18 @@ namespace DAL.Services
         public IEnumerable<Singer> GetAll()
         {
             return DB.Singers.OrderBy(c => c.SingerName).ToList();
+        }
+
+        public IEnumerable<ViewSinger> GetAllToShow()
+        {
+            return DB.Singers
+                .OrderByDescending(c => c.CreateDate)
+                .Select(c => new ViewSinger
+                {
+                    SingerName = c.SingerName,
+                    CountryId = c.CountryId,
+                    SingerId = c.SingerId,
+                });
         }
 
         public Singer GetById(int id)

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewPlayList>
+@{ 
+    string Name = "";
+}
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        if (Name != item.PlayListName)
+        {
+            <li class="list-group-item ItemCountry">
+                <span>@item.PlayListName</span>
+                <span>@item.SingerName</span>
+            </li>
+        }
+        Name = item.PlayListName;
+    }
+</ul>

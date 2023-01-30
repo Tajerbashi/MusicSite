@@ -28,6 +28,8 @@ navListItem.forEach(item => {
                 AlbumOpen();
             } else if (modalHeaderTitle.innerHTML === "پادکست ها") {
                 PadcastOpen();
+            } else if (modalHeaderTitle.innerHTML === "کشور ها") {
+                CountryOpen();
             }
         }
     });
@@ -66,6 +68,12 @@ function AlbumOpen() {
 function PadcastOpen() {
     console.log("Section Padcast Open Clicked");
     $.get("/Section/Padcasts", (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function CountryOpen() {
+    console.log("Section Country Open Clicked");
+    $.get("/Section/Countries", (res) => {
         $("#modal-body").html(res);
     });
 }

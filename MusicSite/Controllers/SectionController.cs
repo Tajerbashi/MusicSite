@@ -18,6 +18,8 @@ namespace MusicSite.Controllers
         IPlayListRepository playListRepository;
         IAlbumRepository albumRepository;
         IPadcastRepository padcastRepository;
+        ICountryRepository countryRepository;
+        ISingerRepository singerRepository;
         // GET: Section
         public SectionController()
         {
@@ -26,6 +28,8 @@ namespace MusicSite.Controllers
             playListRepository = new PlayListRepository(DB);
             albumRepository= new AlbumRepository(DB);
             padcastRepository= new PadcastRepository(DB);
+            countryRepository= new CountryRepository(DB);
+            singerRepository= new SingerRepository(DB);
         }
         public ActionResult Group()
         {
@@ -83,6 +87,22 @@ namespace MusicSite.Controllers
             padcast.Visit += 1;
             padcastRepository.Save();
             return View(padcastRepository.GetAllToShow().Where(c => c.PadcastId == id).Single());
+        }
+        public ActionResult Countries()
+        {
+            return PartialView(countryRepository.GetAllToShow().Where(c => c.PlayLists.Count>0 || c.Singers.Count>0 || c.Padcasts.Count>0).ToList());
+        }
+        public ActionResult CountriesPlayLists(int id)
+        {
+            return PartialView(playListRepository.GetAllToShow().Where(c => c.CountryId == id).ToList());
+        }
+        public ActionResult CountriesSingers(int id)
+        {
+            return PartialView(singerRepository.GetAllToShow().Where(c => c.CountryId == id).ToList());
+        }
+        public ActionResult CountriesPadcasts(int id)
+        {
+            return PartialView(padcastRepository.GetAllToShow().Where(c => c.CountryId == id).ToList());
         }
     }
 }

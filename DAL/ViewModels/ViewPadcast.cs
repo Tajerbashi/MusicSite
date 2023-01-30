@@ -9,6 +9,7 @@ namespace DAL.ViewModels
     public class ViewPadcast
     {
         public int PadcastId { get; set; }
+        public int CountryId { get; set; }
         public string PadcastName { get; set; }
         public string AddressFile { get; set; }
         public string Picture { get; set; }

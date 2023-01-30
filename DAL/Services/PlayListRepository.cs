@@ -125,8 +125,9 @@ namespace DAL.Services
                     Visit = c.PlayList.Visit,
                     Score = c.PlayList.Score,
                     Type = c.PlayList.Type,
-                    PlayListId=c.PlayList.playListId,
-                    SongId=c.Song.SongId,
+                    PlayListId = c.PlayList.playListId,
+                    SongId = c.Song.SongId,
+                    CountryId = c.PlayList.CountryId
                 });
         }
 

@@ -71,6 +71,7 @@ namespace DAL.Services
             return DB.Padcasts.OrderByDescending(c => c.CreateDate).Select(c => new ViewPadcast
             {
                 PadcastId = c.PadcastId,
+                CountryId = c.CountryId,
                 PadcastName = c.PadcastName,
                 AddressFile = c.AddressFile,
                 Picture = c.Picture,

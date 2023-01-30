@@ -1,7 +1,9 @@
 ﻿using DAL.Context;
 using DAL.Repository;
+using DAL.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +56,22 @@ namespace DAL.Services
         public IEnumerable<Country> GetAll()
         {
             return DB.Countries.ToList();
+        }
+
+        public IEnumerable<ViewCountry> GetAllToShow()
+        {
+            return DB.Countries
+                .Include(c => c.PlayLists)
+                .Include(c => c.Padcasts)
+                .Include(c => c.Singers)
+                .Select(country => new ViewCountry
+                {
+                    CountryId = country.CountryId,
+                    CountryName = country.CountryName,
+                    PlayLists = country.PlayLists,
+                    Singers = country.Singers,
+                    Padcasts = country.Padcasts
+                });
         }
 
         public Country GetById(int id)

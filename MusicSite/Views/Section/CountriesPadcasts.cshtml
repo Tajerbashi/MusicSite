@@ -1,0 +1,19 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewPadcast>
+@{
+    string Name = "";
+}
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        if (Name != item.PadcastName)
+        {
+            <li class="list-group-item ItemCountry d-flex flex-column">
+                <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2 shadow" style="height: 150px;"/>
+                <span class="w-100 bg-primary text-light mt-2 rounded-3">@item.PadcastName</span>
+            </li>
+        }
+        Name = item.PadcastName;
+    }
+</ul>
+
+

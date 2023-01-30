@@ -15,6 +15,7 @@ namespace DAL.ViewModels
         public String CountryName { get; set; }
         public String Picture { get; set; }
         public int PlayListId { get; set; }
+        public int CountryId { get; set; }
         public int SongId { get; set; }
         public int Visit { get; set; }
         public int Score { get; set; }

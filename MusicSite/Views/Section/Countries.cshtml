@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DAL.ViewModels.ViewCountry>
+
+<div class="container-fluid">
+    <div class="row d-flex flex-row justify-content-between p-2 flex-wrap">
+        @foreach (var item in Model)
+        {
+            <div class="container-fluid CountryItem mt-3">
+                <h6 class="w-100 rounded-5 bg-warning text-dark p-2 text-center">@item.CountryName</h6>
+                <div class="row">
+                    <div class="col-4">
+                        <h6 class="bg-dark text-warning w-100 px-2 rounded-2 p-2">پلی لیست ها</h6>
+                        @Html.Action("CountriesPlayLists", "Section",new {id=item.CountryId})
+                    </div>
+                    <div class="col-4">
+                        <h6 class="bg-dark text-warning w-100 px-2 rounded-2 p-2">خواننده ها</h6>
+                        @Html.Action("CountriesSingers", "Section", new { id = item.CountryId })
+                    </div>
+                    <div class="col-4">
+                        <h6 class="bg-dark text-warning w-100 px-2 rounded-2 p-2">پادکست ها</h6>
+                        @Html.Action("CountriesPadcasts", "Section", new { id = item.CountryId })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

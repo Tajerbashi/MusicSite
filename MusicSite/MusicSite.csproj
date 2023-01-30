@@ -293,6 +293,10 @@
     <Content Include="Views\Section\AlbumPlay.cshtml" />
     <Content Include="Views\Section\Padcasts.cshtml" />
     <Content Include="Views\Section\PadcastPlay.cshtml" />
+    <Content Include="Views\Section\Countries.cshtml" />
+    <Content Include="Views\Section\CountriesPlayLists.cshtml" />
+    <Content Include="Views\Section\CountriesSingers.cshtml" />
+    <Content Include="Views\Section\CountriesPadcasts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
