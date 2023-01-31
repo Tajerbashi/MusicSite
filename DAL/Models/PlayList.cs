@@ -35,7 +35,6 @@ namespace DAL
 
         public virtual List<PlayListSongPKFK> PlayListSongPKFK { get; set; }
         public virtual Country Country { get; set; }
-        public virtual List<Comment> Comments { get; set; }
 
 
     }

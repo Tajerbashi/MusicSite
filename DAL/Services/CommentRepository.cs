@@ -61,26 +61,10 @@ namespace DAL.Services
         {
             DB.Dispose();
         }
-        public IEnumerable<Comment> GetAllCommentForGroup(int id)
-        {
-            return DB.Comments.Where(c => c.Group.GroupId==id).ToList();
-        }
-
         public IEnumerable<Comment> GetAllCommentForPadcast(int id)
         {
             return DB.Comments.Where(c => c.Padcast.PadcastId == id).ToList();
         }
-
-        public IEnumerable<Comment> GetAllCommentForAlbum(int id)
-        {
-            return DB.Comments.Where(c => c.Album.AlbumId == id).ToList();
-        }
-
-        public IEnumerable<Comment> GetAllCommentForPlayList(int id)
-        {
-            return DB.Comments.Where(c => c.PlayList.playListId == id).ToList();
-        }
-
         public IEnumerable<Comment> GetAllCommentForSong(int id)
         {
             return DB.Comments.Where(c => c.Song.SongId == id).ToList();

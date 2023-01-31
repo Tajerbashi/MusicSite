@@ -1,13 +1,13 @@
 ﻿@model DAL.ViewModels.ViewSong
 
-<div class="col-sm-12 col-md-4 h-100">
+<div class="col-sm-12 col-md-4 h-100 ">
     <div class=" d-flex flex-column justify-content-start align-items-center">
         <img src="~/Files/Photos/@Model.Picture" class="shadow" id="header-img" />
-        <div class="mt-5 text-dark">
+        <div class="my-5 text-dark">
             <h6>@Model.SingerName</h6>
             <h5>@Model.SongName</h5>
         </div>
-        <div class="d-flex flex-row justify-content-between align-items-center w-100">
+        <div class="d-flex flex-row justify-content-between align-items-center w-100 mt-3">
             <span id="endTime" class="text-light" style="font-size: 14px;">00:00</span>
             <span id="durTime" class="text-light" style="font-size: 14px;">00:00</span>
         </div>
@@ -23,15 +23,22 @@
             <i class="fa fa-step-backward header-music-controller"></i>
             <i class="fa fa-backward header-music-controller"></i>
         </div>
-        <div id="SetInfo" class="d-flex flex-row justify-content-between align-items-start w-100">
-            <a href="#" class="d-flex flex-row justify-content-start">
-                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
-                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
-                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
-                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
-                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
-            </a>
-            <a href="#"><i class="fa fa-comment" style="font-size: 1.5rem;"></i></a>
+        @{
+            int score = (Model.Score * 100) / (Model.Visit * 5);
+        }
+        <div id="SetInfo" class="d-flex flex-row justify-content-between align-items-center w-100">
+            <div>
+                <div data-score="@Model.Score" class="" style="width: @(score)% !important; overflow-x: hidden;">
+                    <div class="d-flex flex-row justify-content-start align-items-center my-3">
+                        <i class="fa fa-star" style="font-size: 1.3rem;"></i>
+                        <i class="fa fa-star" style="font-size: 1.5rem;"></i>
+                        <i class="fa fa-star" style="font-size: 1.6rem;"></i>
+                        <i class="fa fa-star" style="font-size: 1.8rem;"></i>
+                        <i class="fa fa-star" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-warning text-dark" data-id="@Model.SongId" id="OpenComment"><i class="fa fa-comment" style="font-size: 2rem;"></i></button>
         </div>
     </div>
 </div>

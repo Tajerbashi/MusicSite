@@ -260,6 +260,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\myScript\Admin_Script.js" />
+    <Content Include="Scripts\myScript\Comments.js" />
+    <Content Include="Scripts\myScript\PlayAjax.js" />
     <Content Include="Scripts\myScript\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -300,6 +302,7 @@
     <Content Include="Views\Section\Singers.cshtml" />
     <Content Include="Views\Section\PlaySingerSongs.cshtml" />
     <Content Include="Views\Section\Remix.cshtml" />
+    <Content Include="Views\Section\PlayTopSongs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

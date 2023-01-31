@@ -45,6 +45,11 @@ namespace MusicSite.Controllers
             ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId==id).ToList();
             return PartialView();
         }
+        public ActionResult PlayTopSongs(int id)
+        {
+            ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Visit).ToList();
+            return PartialView();
+        }
         public ActionResult PlayLists()
         {
             return PartialView(playListRepository.GetAllToShow());

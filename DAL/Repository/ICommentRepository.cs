@@ -13,11 +13,8 @@ namespace DAL.Repository
         bool Delete(Comment comment);
         bool Delete(int id);
         void Save();
-        IEnumerable<Comment> GetAllCommentForPlayList(int id);
-        IEnumerable<Comment> GetAllCommentForGroup(int id);
         IEnumerable<Comment> GetAllCommentForPadcast(int id);
         IEnumerable<Comment> GetAllCommentForSong(int id);
-        IEnumerable<Comment> GetAllCommentForAlbum(int id);
         Comment GetById(int id);
     }
 }

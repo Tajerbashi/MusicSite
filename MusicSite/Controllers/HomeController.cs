@@ -77,7 +77,9 @@ namespace MusicSite.Controllers
                     SingerName = "",
                     SongName = "",
                     Picture = "../../Photos/11.jpg",
-                    AddressFile = ""
+                    AddressFile = "",
+                    Score = 5,
+                    Visit = 1,
                 };
             }
             else

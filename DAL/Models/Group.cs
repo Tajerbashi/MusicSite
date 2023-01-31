@@ -24,7 +24,6 @@ namespace DAL
         public DateTime CreateDate { get; set; } = DateTime.Now;
         
         public virtual List<Song> Songs { get; set; }
-        public virtual List<Comment> Comments { get; set; }
 
     }
 }

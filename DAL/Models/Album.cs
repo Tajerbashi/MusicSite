@@ -34,7 +34,6 @@ namespace DAL
 
 
         public virtual List<Song> Songs { get; set; }
-        public virtual List<Comment> Comments { get; set; }
         public virtual Singer Singer { get; set; }
 
     }

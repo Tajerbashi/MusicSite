@@ -140,9 +140,9 @@ Search Aside Panel
     width: 90%;
 }
 
-    #search-word::placeholder {
-        color: rgb(53, 32, 0);
-    }
+#search-word::placeholder {
+    color: rgb(53, 32, 0);
+}
 
 #search-icon-pk {
     cursor: pointer;
@@ -151,10 +151,10 @@ Search Aside Panel
     margin-top: 5px;
 }
 
-    #search-icon-pk:hover {
-        color: rgb(8, 8, 8);
-        transform: scale(2);
-    }
+#search-icon-pk:hover {
+    color: rgb(8, 8, 8);
+    transform: scale(2);
+}
 /* End Search */
 #nav-list {
     background: linear-gradient(0deg,rgb(255, 255, 255, 0.00),rgb(255, 255, 255, 0.4));
@@ -393,16 +393,18 @@ Search Aside Panel
     animation: ChangeColorProgress 5s infinite linear;
 }
 
-    #Progress:hover {
-        background: rgb(255, 255, 255) !important;
-    }
+#Progress:hover {
+    background: rgb(255, 255, 255) !important;
+}
 
 .list-group-item-list {
     background: linear-gradient(90deg,rgb(255, 207, 136),rgb(255, 242, 208));
     border-radius: 5px;
     padding: 0.2rem 0.5rem;
     margin-top: 1px;
-    color: red;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: rgb(35, 35, 35);
 }
 
 .list-group-item-list:hover {
@@ -659,7 +661,14 @@ Search Aside Panel
 /* End Remix Style */
 
 /* Start Player Styles*/
-#SetInfo{
-    margin-top: 8rem;
+.fa-star {
+    color: rgb(255, 166, 0);
+}
+.fa-star:hover {
+    color: rgb(0, 177, 255);
+    transform: scale(1.5);
+}
+#SetInfo {
+    margin-top: 1rem;
 }
 /* End Player Styles*/
