@@ -650,6 +650,7 @@ Search Aside Panel
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    margin: 0.5rem;
 }
 .RemixItems:hover {
     background: linear-gradient(180deg,rgb(255, 255, 255, 0.70),rgb(255, 117, 0, 0.75));

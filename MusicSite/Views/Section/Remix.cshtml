@@ -4,7 +4,7 @@
     <div class="d-flex flex-row justify-content-between flex-wrap">
         @foreach (var item in Model)
         {
-            <a href="#" class="RemixItems p-2 rounded-2 shadow ">
+            <a href="@Url.Action("PlaySong","Section",new {id=item.SongId})" class="RemixItems p-2 rounded-2 shadow ">
                 <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2 shadow" style="height: 150px; width: 150px;" />
                 <span class="w-100 bg-dark bg-gradient text-warning p-1 rounded-2 mt-2">@item.SingerName</span>
                 <span class="w-100 bg-warning bg-gradient text-dark p-1 rounded-2 mt-2">@item.SongName</span>
