@@ -5,7 +5,7 @@
             @foreach (var item in ViewBag.List)
             {
                 <li class="list-group-item-list">
-                    <a class="d-flex flex-row justify-content-between" href="#">
+                    <a class="d-flex flex-row justify-content-between" href="@Url.Action("AlbumPlay","Section",new {id=item.AlbumId})">
                         <span class="singer-list-play">@item.SingerName</span>
                         <span class="Album-list-play">@item.AlbumName</span>
                     </a>

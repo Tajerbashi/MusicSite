@@ -1,7 +1,7 @@
 ﻿@model DAL.ViewModels.ViewSong
 
-<div class="col-sm-12 col-md-4">
-    <div class=" d-flex flex-column justify-content-between align-items-center">
+<div class="col-sm-12 col-md-4 h-100">
+    <div class=" d-flex flex-column justify-content-start align-items-center">
         <img src="~/Files/Photos/@Model.Picture" class="shadow" id="header-img" />
         <div class="mt-5 text-dark">
             <h6>@Model.SingerName</h6>
@@ -22,6 +22,16 @@
             <i id="playBtn" class="fa fa-play header-music-controller"></i>
             <i class="fa fa-step-backward header-music-controller"></i>
             <i class="fa fa-backward header-music-controller"></i>
+        </div>
+        <div id="SetInfo" class="d-flex flex-row justify-content-between align-items-start w-100">
+            <a href="#" class="d-flex flex-row justify-content-start">
+                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
+                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
+                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
+                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
+                <i class="fa fa-star" style="font-size: 1.5rem;"></i>
+            </a>
+            <a href="#"><i class="fa fa-comment" style="font-size: 1.5rem;"></i></a>
         </div>
     </div>
 </div>
