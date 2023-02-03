@@ -8,13 +8,12 @@ namespace DAL.Repository
 {
     public interface ICommentRepository:IDisposable
     {
-        bool Add(Comment comment);
-        bool Update(Comment comment);
-        bool Delete(Comment comment);
-        bool Delete(int id);
+        bool Add(Comment comment,string type);
+        bool Update(Comment comment, string type);
+        bool Delete(Comment comment, string type);
+        bool Delete(int id, string type);
         void Save();
-        IEnumerable<Comment> GetAllCommentForPadcast(int id);
-        IEnumerable<Comment> GetAllCommentForSong(int id);
-        Comment GetById(int id);
+        IEnumerable<Comment> GetAllComments(int id, string type);
+        Comment GetById(int id, string type);
     }
 }

@@ -4,6 +4,8 @@ let modalHeaderSite = document.getElementById("modal-header-site");
 let modalHeaderTitle = document.getElementById("modal-header-title");
 let userPanel = document.getElementById("userPanel");
 let modalBody = document.getElementById("modal-body");
+let BtnComment = document.getElementById("OpenComment");
+
 
 modal_container.addEventListener("click", (event) => {
     // console.log(event.target);
@@ -92,4 +94,21 @@ function RemixOpen() {
     $.get("/Section/Remix", (res) => {
         $("#modal-body").html(res);
     });
+}
+
+BtnComment.addEventListener("click", () => {
+    let Id = BtnComment.getAttribute("data-id");
+    OpenComment(Id);
+});
+function OpenComment(id) {
+    modal_container.classList.remove("d-none");
+    modalHeaderSite.innerHTML = "موزیک سایت";
+    modalHeaderTitle.innerHTML = "نظریات کاربران";
+    if (id == 0 || id == null) {
+        modalBody.style.color = "#efedea";
+        modalBody.style.fontSize = "4rem";
+        modalBody.style.paddingTop = "10rem";
+        modalBody.innerHTML = "هنوز آهنگی انتخاب نشده است!!!";
+    }
+    console.log("Open Comment On Song Id" + id);
 }

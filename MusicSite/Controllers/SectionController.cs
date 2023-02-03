@@ -123,5 +123,9 @@ namespace MusicSite.Controllers
         {
             return PartialView(songRepository.GetAllSongView().OrderBy(c => c.SingerName).Where(c => c.Remix).ToList());
         }
+        public ActionResult Comments(int Id)
+        {
+            return PartialView(songRepository.GetAllSongView().OrderBy(c => c.SingerName).Where(c => c.Remix).ToList());
+        }
     }
 }
