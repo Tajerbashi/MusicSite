@@ -11,7 +11,6 @@ namespace DAL.ViewModels
         public int CountryId { get; set; }
         public String CountryName { get; set; }
         public List<PlayList> PlayLists { get; set; }
-        public List<Padcast> Padcasts { get; set; }
         public List<Singer> Singers { get; set; }
     }
 }

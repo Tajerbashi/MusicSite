@@ -288,8 +288,6 @@
     <Content Include="Views\Section\Albums.cshtml" />
     <Content Include="Views\Section\ShowAlbumSongs.cshtml" />
     <Content Include="Views\Section\AlbumPlay.cshtml" />
-    <Content Include="Views\Section\Padcasts.cshtml" />
-    <Content Include="Views\Section\PadcastPlay.cshtml" />
     <Content Include="Views\Section\Countries.cshtml" />
     <Content Include="Views\Section\CountriesPlayLists.cshtml" />
     <Content Include="Views\Section\CountriesSingers.cshtml" />
@@ -300,7 +298,6 @@
     <Content Include="Views\Section\PlayTopSongs.cshtml" />
     <Content Include="Views\Comments\ShowSongComments.cshtml" />
     <Content Include="Views\Comments\AddComment.cshtml" />
-    <Content Include="Views\Section\PlayPadcast.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

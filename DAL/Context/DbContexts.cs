@@ -21,7 +21,6 @@ namespace DAL.Context
         public DbSet<Album> Albums { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Padcast> Padcasts { get; set; }
 
 
         public System.Data.Entity.DbSet<DAL.PlayListSongPKFK> PlayListSongPKFKs { get; set; }
@@ -35,7 +34,6 @@ namespace DAL.Context
             modelBuilder.Configurations.Add(new CommentConfig());
             modelBuilder.Configurations.Add(new CountryConfig());
             modelBuilder.Configurations.Add(new GroupConfig());
-            modelBuilder.Configurations.Add(new PadcastConfig());
             modelBuilder.Configurations.Add(new PlayListConfig());
             modelBuilder.Configurations.Add(new SongConfig());
             modelBuilder.Configurations.Add(new SingerConfig());

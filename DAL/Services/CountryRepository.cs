@@ -62,7 +62,6 @@ namespace DAL.Services
         {
             return DB.Countries
                 .Include(c => c.PlayLists)
-                .Include(c => c.Padcasts)
                 .Include(c => c.Singers)
                 .Select(country => new ViewCountry
                 {
@@ -70,7 +69,6 @@ namespace DAL.Services
                     CountryName = country.CountryName,
                     PlayLists = country.PlayLists,
                     Singers = country.Singers,
-                    Padcasts = country.Padcasts
                 });
         }
 

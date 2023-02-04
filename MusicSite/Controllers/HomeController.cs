@@ -16,7 +16,6 @@ namespace MusicSite.Controllers
         DbContexts DB = new DbContexts();
 
         ISongRepository songRepository;
-        IPadcastRepository padcastRepository;
         IAlbumRepository albumRepository;
         IGroupRepository groupRepository;
 
@@ -25,7 +24,6 @@ namespace MusicSite.Controllers
             songRepository =new SongRepository(DB);
             albumRepository =new AlbumRepository(DB);
             groupRepository =new GroupRepository(DB);
-            padcastRepository =new PadcastRepository(DB);
         }
 
         public ActionResult Index(int id=0)
@@ -105,41 +103,6 @@ namespace MusicSite.Controllers
             }
             return PartialView(song);
         }
-        public ActionResult PadcastPlayer(int id = 0)
-        {
-            ViewPadcast padcast;
-            if (id == 0)
-            {
-                padcast = new ViewPadcast
-                {
-                    PadcastName = "",
-                    Picture = "../../Photos/11.jpg",
-                    AddressFile = "",
-                    Score = 5,
-                    Visit = 1,
-                };
-            }
-            else
-            {
-                padcast = padcastRepository.GetAllToShow().FirstOrDefault(c => c.PadcastId == id);
-                if (padcast != null)
-                {
-                    padcast.Visit += 1;
-                    songRepository.Save();
-                }
-                else
-                {
-                    padcast = new ViewPadcast
-                    {
-                        PadcastName = "",
-                        Picture = "../../Photos/11.jpg",
-                        AddressFile = ""
-                    };
-                }
-            }
-            return PartialView(padcast);
-        }
-
         public ActionResult PlayLastSingleSong()
         {
             ViewBag.List = songRepository.GetAllSongView().Where(c=> !c.Remix).Take(30);

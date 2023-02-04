@@ -56,7 +56,6 @@
     <Compile Include="ModelConfig\CommentConfig.cs" />
     <Compile Include="ModelConfig\CountryConfig.cs" />
     <Compile Include="ModelConfig\GroupConfig.cs" />
-    <Compile Include="ModelConfig\PadcastConfig.cs" />
     <Compile Include="ModelConfig\PlayListConfig.cs" />
     <Compile Include="ModelConfig\SingerConfig.cs" />
     <Compile Include="ModelConfig\SongConfig.cs" />

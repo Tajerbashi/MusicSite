@@ -17,7 +17,6 @@ namespace MusicSite.Controllers
         ISongRepository songRepository;
         IPlayListRepository playListRepository;
         IAlbumRepository albumRepository;
-        IPadcastRepository padcastRepository;
         ICountryRepository countryRepository;
         ISingerRepository singerRepository;
         // GET: Section
@@ -27,7 +26,6 @@ namespace MusicSite.Controllers
             songRepository = new SongRepository(DB);
             playListRepository = new PlayListRepository(DB);
             albumRepository= new AlbumRepository(DB);
-            padcastRepository= new PadcastRepository(DB);
             countryRepository= new CountryRepository(DB);
             singerRepository= new SingerRepository(DB);
         }
@@ -43,11 +41,6 @@ namespace MusicSite.Controllers
         public ActionResult PlaySong(int id)
         {
             ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId==id).ToList();
-            return PartialView();
-        }
-        public ActionResult PlayPadcast(int id)
-        {
-            ViewBag.List = padcastRepository.GetAllToShow().Where(c => c.PadcastId == id).ToList();
             return PartialView();
         }
         public ActionResult PlayTopSongs(int id)
@@ -87,20 +80,9 @@ namespace MusicSite.Controllers
             ViewBag.Name = album.AlbumName;
             return View(songRepository.GetAllSongView().Where(c => c.Album.AlbumId == id).ToList());
         }
-        public ActionResult Padcasts()
-        {
-            return PartialView(padcastRepository.GetAllToShow());
-        }
-        public ActionResult PadcastPlay(int id)
-        {
-            Padcast padcast = padcastRepository.GetById(id);
-            padcast.Visit += 1;
-            padcastRepository.Save();
-            return View(padcastRepository.GetAllToShow().Where(c => c.PadcastId == id).Single());
-        }
         public ActionResult Countries()
         {
-            return PartialView(countryRepository.GetAllToShow().Where(c => c.PlayLists.Count>0 || c.Singers.Count>0 || c.Padcasts.Count>0).ToList());
+            return PartialView(countryRepository.GetAllToShow().Where(c => c.PlayLists.Count>0 || c.Singers.Count>0).ToList());
         }
         public ActionResult CountriesPlayLists(int id)
         {
@@ -109,10 +91,6 @@ namespace MusicSite.Controllers
         public ActionResult CountriesSingers(int id)
         {
             return PartialView(singerRepository.GetAllToShow().Where(c => c.CountryId == id).ToList());
-        }
-        public ActionResult CountriesPadcasts(int id)
-        {
-            return PartialView(padcastRepository.GetAllToShow().Where(c => c.CountryId == id).ToList());
         }
         public ActionResult Singers()
         {

@@ -14,7 +14,6 @@ namespace DAL
         [Display(Name = "نام کشور")]
         public string CountryName { get; set; }
 
-        public List<Padcast> Padcasts { get; set; }
         public List<PlayList> PlayLists { get; set; }
         public List<Singer> Singers { get; set; }
     }

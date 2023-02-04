@@ -25,7 +25,6 @@ namespace DAL
 
         public DateTime CreateDate { get; set; }
 
-        public virtual Padcast Padcast { get; set; }
         public virtual Song Song { get; set; }
     }
 }

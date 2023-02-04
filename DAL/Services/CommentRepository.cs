@@ -64,7 +64,7 @@ namespace DAL.Services
         
         public IEnumerable<Comment> GetAllComments()
         {
-            return DB.Comments.Include(c => c.Song).Include(c => c.Padcast).ToList();
+            return DB.Comments.Include(c => c.Song).ToList();
         }
 
         public Comment GetById(int id)
