@@ -26,15 +26,10 @@
             @Html.DisplayNameFor(model => model.CreateDate) :
             @Html.DisplayFor(model => model.CreateDate)
         </dt>
-        <dt>
-            تعداد کامنت ها :
-            @Html.DisplayFor(model => model.Comments.Count)
-        </dt>
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-
         <div class="form-actions no-color">
             <input type="submit" value="حذف" class="btn btn-danger w-100" />
         </div>

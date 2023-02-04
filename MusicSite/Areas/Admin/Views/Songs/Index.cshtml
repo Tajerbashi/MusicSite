@@ -35,6 +35,9 @@
                 @Html.DisplayNameFor(model => model.Type)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.TypeSong)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Remix)
             </th>
             <th>
@@ -51,7 +54,7 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="fw-bold">
                 <td>
                     <img src="~/Files/Photos/@item.Picture" class="img-fluid shadow" style="max-width:100px;" />
                 </td>
@@ -74,10 +77,34 @@
                     @Html.DisplayFor(modelItem => item.CreateDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Type)
+                    @if (item.Type)
+                    {
+                        @("ویژه")
+                    }
+                    else
+                    {
+                        @("عادی")
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Remix)
+                    @if (item.TypeSong)
+                    {
+                        @("آهنگ")
+                    }
+                    else
+                    {
+                        @("پادکست")
+                    }
+                </td>
+                <td>
+                    @if (item.Remix)
+                    {
+                        @("ریمیکس")
+                    }
+                    else
+                    {
+                        @("ساده")
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Visit)

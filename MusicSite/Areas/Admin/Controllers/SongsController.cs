@@ -64,7 +64,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SongId,SongName,GroupId,AlbumId,Title,CreateDate,Type,AddressFile,Picture,Score,Remix,Visit")] Song song,HttpPostedFileBase photoUp,HttpPostedFileBase fileUp)
+        public ActionResult Create([Bind(Include = "SongId,SongName,TypeSong,GroupId,AlbumId,Title,CreateDate,Type,AddressFile,Picture,Score,Remix,Visit")] Song song,HttpPostedFileBase photoUp,HttpPostedFileBase fileUp)
         {
             if (ModelState.IsValid)
             {
@@ -77,6 +77,8 @@ namespace MusicSite.Areas.Admin.Controllers
                     fileUp.SaveAs(Server.MapPath("/Files/Musics/" + song.AddressFile));
                 }
                 songRep.Add(song);
+                song.Score= 5;
+                song.Visit= 1;
                 songRep.Save();
                 return RedirectToAction("Index");
             }
@@ -110,7 +112,7 @@ namespace MusicSite.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SongId,SongName,GroupId,AlbumId,Title,CreateDate,Type,AddressFile,Picture,Score,Remix,Visit")] Song song, HttpPostedFileBase photoUp, HttpPostedFileBase fileUp)
+        public ActionResult Edit([Bind(Include = "SongId,SongName,GroupId,AlbumId,Title,CreateDate,Type,TypeSong,AddressFile,Picture,Score,Remix,Visit")] Song song, HttpPostedFileBase photoUp, HttpPostedFileBase fileUp)
         {
             if (ModelState.IsValid)
             {
