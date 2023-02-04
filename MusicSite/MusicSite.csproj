@@ -129,11 +129,11 @@
     <Compile Include="Areas\Admin\Controllers\AlbumsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupController.cs" />
-    <Compile Include="Areas\Admin\Controllers\PadcastsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PlayListsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SingersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SongsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,11 +238,6 @@
     <Content Include="Areas\Admin\Views\Albums\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Albums\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Albums\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Padcasts\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Padcasts\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Padcasts\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Padcasts\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Padcasts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\CreatePlayListSongs.cshtml" />
     <Content Include="Areas\Admin\Views\PlayLists\ShowPlayListSongs.cshtml" />
     <Content Include="fonts\IRANSansWeb Bold.ttf" />
@@ -303,6 +298,9 @@
     <Content Include="Views\Section\PlaySingerSongs.cshtml" />
     <Content Include="Views\Section\Remix.cshtml" />
     <Content Include="Views\Section\PlayTopSongs.cshtml" />
+    <Content Include="Views\Comments\ShowSongComments.cshtml" />
+    <Content Include="Views\Comments\AddComment.cshtml" />
+    <Content Include="Views\Section\PlayPadcast.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

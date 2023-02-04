@@ -4,7 +4,7 @@ let modalHeaderSite = document.getElementById("modal-header-site");
 let modalHeaderTitle = document.getElementById("modal-header-title");
 let userPanel = document.getElementById("userPanel");
 let modalBody = document.getElementById("modal-body");
-let BtnComment = document.getElementById("OpenComment");
+let BtnComment = document.getElementById("OpenComment"); 
 
 
 modal_container.addEventListener("click", (event) => {
@@ -109,6 +109,13 @@ function OpenComment(id) {
         modalBody.style.fontSize = "4rem";
         modalBody.style.paddingTop = "10rem";
         modalBody.innerHTML = "هنوز آهنگی انتخاب نشده است!!!";
+    } else {
+        console.log("Section Comment Open Clicked" + id);
+        $.get("/Comments/ShowSongComments/"+ id, (res) => {
+            $("#modal-body").html(res);
+        });
     }
-    console.log("Open Comment On Song Id" + id);
+}
+function AddSongComment() {
+    console.log("Song Add Comment Clicked ... !");
 }

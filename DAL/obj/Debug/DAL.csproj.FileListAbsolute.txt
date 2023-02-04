@@ -13,3 +13,4 @@ C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.pdb
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.Migrations.InitialCreate.resources
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.Migrations.Version1.resources
+C:\Users\Tajer\Desktop\Visual Studio\ASP.NET MVC\MusicSite\DAL\obj\Debug\DAL.Migrations.Ver2.resources

@@ -34,6 +34,9 @@ namespace DAL
         [Display(Name = "ریمیکس")]
         public bool Remix { get; set; }
 
+        [Display(Name = "نوع آهنگ")]
+        public bool TypeSong { get; set; }
+
         [Display(Name = "فایل")]
         public string AddressFile { get; set; }
 

@@ -17,7 +17,7 @@ namespace DAL.Services
             this.DB = DB;
 
         }
-        public bool Add(Comment comment, string type)
+        public bool Add(Comment comment)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace DAL.Services
             }
         }
 
-        public bool Delete(Comment comment, string type)
+        public bool Delete(Comment comment)
         {
             try
             {
@@ -43,12 +43,12 @@ namespace DAL.Services
             }
         }
 
-        public bool Delete(int id, string type)
+        public bool Delete(int id)
         {
             try
             {
                 Comment comment = DB.Comments.Find(id);
-                this.Delete(comment,type);
+                this.Delete(comment);
                 return true;
             }
             catch
@@ -62,19 +62,12 @@ namespace DAL.Services
             DB.Dispose();
         }
         
-        public IEnumerable<Comment> GetAllComments(int id, string type)
+        public IEnumerable<Comment> GetAllComments()
         {
-            if (type == "song")
-            {
-                return DB.Comments.Where(c => c.Song.SongId == id).ToList();
-            }
-            else
-            {
-                return DB.Comments.Where(c => c.Padcast.PadcastId == id).ToList();
-            }
+            return DB.Comments.Include(c => c.Song).Include(c => c.Padcast).ToList();
         }
 
-        public Comment GetById(int id, string type)
+        public Comment GetById(int id)
         {
             return DB.Comments.Find(id);
         }
@@ -83,7 +76,7 @@ namespace DAL.Services
             DB.SaveChanges();
         }
 
-        public bool Update(Comment comment, string type)
+        public bool Update(Comment comment)
         {
             try
             {

@@ -51,15 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202301261655582_InitialCreate.cs" />
-    <Compile Include="Migrations\202301261655582_InitialCreate.designer.cs">
-      <DependentUpon>202301261655582_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301312121225_Version-1.cs" />
-    <Compile Include="Migrations\202301312121225_Version-1.designer.cs">
-      <DependentUpon>202301312121225_Version-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelConfig\AdminConfig.cs" />
     <Compile Include="ModelConfig\AlbumConfig.cs" />
     <Compile Include="ModelConfig\CommentConfig.cs" />
@@ -76,7 +67,6 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Group.cs" />
-    <Compile Include="Models\Padcast.cs" />
     <Compile Include="Models\PlayList.cs" />
     <Compile Include="Models\PlayListSongPKFK.cs" />
     <Compile Include="Models\Singer.cs" />
@@ -88,7 +78,6 @@
     <Compile Include="Repository\ICommentRepository.cs" />
     <Compile Include="Repository\ICountryRepository.cs" />
     <Compile Include="Repository\IGroupRepository.cs" />
-    <Compile Include="Repository\IPadcastRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Repository\IPlayListRepository.cs" />
     <Compile Include="Repository\ISingerRepository.cs" />
@@ -98,7 +87,6 @@
     <Compile Include="Services\CommentRepository.cs" />
     <Compile Include="Services\CountryRepository.cs" />
     <Compile Include="Services\GroupRepository.cs" />
-    <Compile Include="Services\PadcastRepository.cs" />
     <Compile Include="Services\PlayListRepository.cs" />
     <Compile Include="Services\SingerRepository.cs" />
     <Compile Include="Services\SongRepository.cs" />
@@ -114,14 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202301261655582_InitialCreate.resx">
-      <DependentUpon>202301261655582_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301312121225_Version-1.resx">
-      <DependentUpon>202301312121225_Version-1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

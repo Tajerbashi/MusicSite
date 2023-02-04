@@ -45,6 +45,11 @@ namespace MusicSite.Controllers
             ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId==id).ToList();
             return PartialView();
         }
+        public ActionResult PlayPadcast(int id)
+        {
+            ViewBag.List = padcastRepository.GetAllToShow().Where(c => c.PadcastId == id).ToList();
+            return PartialView();
+        }
         public ActionResult PlayTopSongs(int id)
         {
             ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Visit).ToList();
@@ -120,10 +125,6 @@ namespace MusicSite.Controllers
             return View(songRepository.GetAllSongView().Where(c => c.SingerName==singer.SingerName).ToList());
         }
         public ActionResult Remix()
-        {
-            return PartialView(songRepository.GetAllSongView().OrderBy(c => c.SingerName).Where(c => c.Remix).ToList());
-        }
-        public ActionResult Comments(int Id)
         {
             return PartialView(songRepository.GetAllSongView().OrderBy(c => c.SingerName).Where(c => c.Remix).ToList());
         }

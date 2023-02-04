@@ -20,6 +20,11 @@ namespace DAL
         [Display(Name = "ایمیل")]
         public string CommentText { get; set; }
 
+        [Display(Name = "تصویر")]
+        public string Picture { get; set; }
+
+        public DateTime CreateDate { get; set; }
+
         public virtual Padcast Padcast { get; set; }
         public virtual Song Song { get; set; }
     }

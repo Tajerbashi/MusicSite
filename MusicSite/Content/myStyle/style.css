@@ -672,3 +672,8 @@ Search Aside Panel
     margin-top: 1rem;
 }
 /* End Player Styles*/
+/*   Start Comment Style   */
+.CommentContainer{
+    font-size: 0.8rem !important;
+}
+/*   End Comment Style   */
