@@ -6,16 +6,14 @@
 
 <div class="col-sm-12 col-md-2 p-3">
     <div class="p-2 rounded-2 overflow-auto" style="height: 550px; background: linear-gradient(180deg, rgb(255, 255, 255, 0.30), rgb(255, 255, 255, 0.50)); border:1px solid #ffffffd6; backdrop-filter: blur(10px);">
-        <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">لیست در حال پخش: @Model.GroupName</h6>
+        <h6 class="bg-warning text-dark bg-gradient p-1 rounded-5 sticky-top">دسته بندی: @Model.GroupName</h6>
         <ul class="list-group">
             @foreach (var item in Model.Songs)
             {
-                <li class="list-group-item-list">
-                    <a class="d-flex flex-row justify-content-between" href="#">
-                        <span class="song-list-play">@item.SongName</span>
-                        <span class="singer-list-play">@item.Album.Singer.SingerName</span>
-                        <span class="Album-list-play">@item.Album.AlbumName</span>
-                    </a>
+                <li class="list-group-item-list d-flex flex-row justify-content-between" onclick="PlayMusicAjax(@item.SongId)">
+                    <span class="song-list-play">@item.SongName</span>
+                    <span class="singer-list-play">@item.Album.Singer.SingerName</span>
+                    <span class="Album-list-play">@item.Album.AlbumName</span>
                 </li>
             }
         </ul>

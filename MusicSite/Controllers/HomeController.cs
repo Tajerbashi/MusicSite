@@ -76,7 +76,7 @@ namespace MusicSite.Controllers
                 {
                     SingerName = "",
                     SongName = "",
-                    Picture = "../../Photos/11.jpg",
+                    Picture = "../../Photos/FirstLoad.jpg",
                     AddressFile = "",
                     Score = 5,
                     Visit = 1,
@@ -97,7 +97,9 @@ namespace MusicSite.Controllers
                         SingerName = "",
                         SongName = "",
                         Picture = "../../Photos/11.jpg",
-                        AddressFile = ""
+                        AddressFile = "",
+                        Score = 5,
+                        Visit = 1,
                     };
                 }
             }

@@ -591,6 +591,8 @@ Search Aside Panel
     width: 200px;
     cursor: pointer;
     box-shadow: 0 0 20px 0 #000000 !important;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 .Padcast-Items > img{
     height: 150px;
@@ -603,7 +605,6 @@ Search Aside Panel
     box-shadow: 0 0 20px 0 #ffffff !important;
     animation-name: ShowItem;
     animation-duration: 1s;
-    transform: scale(1.1);
     z-index: 99999;
 }
 /*   End Padcast Style   */

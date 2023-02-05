@@ -72,7 +72,8 @@ namespace DAL.Services
                 Visit = song.Visit,
                 Picture = song.Picture,
                 AddressFile = song.AddressFile,
-                Remix = song.Remix
+                Remix = song.Remix,
+                SongType = song.TypeSong
             });
         }
 

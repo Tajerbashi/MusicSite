@@ -18,5 +18,6 @@ namespace DAL.ViewModels
         public String Picture { get; set; }
         public String AddressFile { get; set; }
         public bool Remix { get; set; }
+        public bool SongType { get; set; }
     }
 }

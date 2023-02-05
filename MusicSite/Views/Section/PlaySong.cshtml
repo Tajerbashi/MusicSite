@@ -10,12 +10,10 @@
         <ul class="list-group">
             @foreach (var item in ViewBag.List)
             {
-                <li class="list-group-item-list">
-                    <a class="d-flex flex-row justify-content-between" href="#">
-                        <span class="song-list-play">@item.SongName</span>
-                        <span class="singer-list-play">@item.SingerName</span>
-                        <span class="Album-list-play">@item.Album.AlbumName</span>
-                    </a>
+                <li class="list-group-item-list d-flex flex-row justify-content-between" onclick="PlayMusicAjax(@item.SongId)">
+                    <span class="song-list-play">@item.SongName</span>
+                    <span class="singer-list-play">@item.SingerName</span>
+                    <span class="Album-list-play">@item.Album.AlbumName</span>
                 </li>
             }
         </ul>

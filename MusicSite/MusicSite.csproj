@@ -298,6 +298,7 @@
     <Content Include="Views\Section\PlayTopSongs.cshtml" />
     <Content Include="Views\Comments\ShowSongComments.cshtml" />
     <Content Include="Views\Comments\AddComment.cshtml" />
+    <Content Include="Views\Section\Padcasts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

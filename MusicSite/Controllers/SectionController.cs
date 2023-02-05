@@ -35,15 +35,14 @@ namespace MusicSite.Controllers
         }
         public ActionResult Songs()
         {
-            ViewBag.List=songRepository.GetAllSongView();
-            return PartialView();
+            return PartialView(songRepository.GetAllSongView().Where(c => c.SongType).ToList());
         }
         public ActionResult PlaySong(int id)
         {
             ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId==id).ToList();
             return PartialView();
         }
-        public ActionResult PlayTopSongs(int id)
+        public ActionResult PlayTopSongs()
         {
             ViewBag.List = songRepository.GetAllSongView().OrderByDescending(c => c.Visit).ToList();
             return PartialView();
@@ -55,6 +54,10 @@ namespace MusicSite.Controllers
         public ActionResult PlayListsShowSongs(int id)
         {
             return PartialView(playListRepository.GetAllToShow().Where(c => c.PlayListId==id).ToList());
+        }
+        public ActionResult Padcasts()
+        {
+            return PartialView(songRepository.GetAllSongView().Where(c => !c.SongType).ToList());
         }
         public ActionResult PlayListsPlay(int id)
         {
