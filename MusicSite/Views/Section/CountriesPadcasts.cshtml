@@ -1,20 +1,20 @@
-﻿@model IEnumerable<DAL.ViewModels.ViewPadcast>
+﻿@model IEnumerable<DAL.ViewModels.ViewSong>
 @{
     string Name = "";
 }
 <ul class="list-group">
     @foreach (var item in Model)
     {
-        if (Name != item.PadcastName)
+        if (Name != item.SongName)
         {
             <li class="list-group-item ItemCountry">
-                <a href="@Url.Action("PadcastPlay","Section",new {id=item.PadcastId})" class="d-flex flex-column">
+                <a href="@Url.Action("PlaySong","Section",new {id=item.SongId})" class="d-flex flex-column">
                     <img src="~/Files/Photos/@item.Picture" class="img-fluid rounded-2 shadow" style="height: 150px;" />
-                    <span class="bg-primary text-light mt-2 rounded-3 w-100 mt-2 py-2">@item.PadcastName</span>
+                    <span class="bg-primary text-light mt-2 rounded-3 w-100 mt-2 py-2">@item.SongName</span>
                 </a>
             </li>
         }
-        Name = item.PadcastName;
+        Name = item.SongName;
     }
 </ul>
 

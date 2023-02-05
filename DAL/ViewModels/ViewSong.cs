@@ -12,6 +12,7 @@ namespace DAL.ViewModels
         public int GroupId { get; set; }
         public int Score { get; set; }
         public int Visit { get; set; }
+        public int CountryId { get; set; }
         public String SongName { get; set; }
         public String SingerName { get; set; }
         public Album Album { get; set; }

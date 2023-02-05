@@ -73,7 +73,8 @@ namespace DAL.Services
                 Picture = song.Picture,
                 AddressFile = song.AddressFile,
                 Remix = song.Remix,
-                SongType = song.TypeSong
+                SongType = song.TypeSong,
+                CountryId = song.Album.Singer.CountryId
             });
         }
 

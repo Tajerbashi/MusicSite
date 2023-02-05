@@ -95,6 +95,10 @@ namespace MusicSite.Controllers
         {
             return PartialView(singerRepository.GetAllToShow().Where(c => c.CountryId == id).ToList());
         }
+        public ActionResult CountriesPadcasts(int id)
+        {
+            return PartialView(songRepository.GetAllSongView().Where(c => c.CountryId == id && !c.SongType).ToList());
+        }
         public ActionResult Singers()
         {
             return PartialView(singerRepository.GetAllToShow().Where(c => c.SongCount > 0).ToList());
