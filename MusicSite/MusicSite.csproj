@@ -296,9 +296,9 @@
     <Content Include="Views\Section\PlaySingerSongs.cshtml" />
     <Content Include="Views\Section\Remix.cshtml" />
     <Content Include="Views\Section\PlayTopSongs.cshtml" />
-    <Content Include="Views\Comments\ShowSongComments.cshtml" />
-    <Content Include="Views\Comments\AddComment.cshtml" />
     <Content Include="Views\Section\Padcasts.cshtml" />
+    <Content Include="Views\Comments\ShowComment.cshtml" />
+    <Content Include="Views\Comments\AllComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

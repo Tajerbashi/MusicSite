@@ -9,11 +9,7 @@ namespace DAL.Repository
     public interface ICommentRepository:IDisposable
     {
         bool Add(Comment comment);
-        bool Update(Comment comment);
-        bool Delete(Comment comment);
-        bool Delete(int id);
         void Save();
-        IEnumerable<Comment> GetAllComments();
-        Comment GetById(int id);
+        IEnumerable<Comment> GetAllComments(int id);
     }
 }

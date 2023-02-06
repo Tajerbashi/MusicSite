@@ -111,11 +111,8 @@ function OpenComment(id) {
         modalBody.innerHTML = "هنوز آهنگی انتخاب نشده است!!!";
     } else {
         console.log("Section Comment Open Clicked" + id);
-        $.get("/Comments/ShowSongComments/"+ id, (res) => {
+        $.get("/Comments/AllComment/"+ id, (res) => {
             $("#modal-body").html(res);
         });
     }
-}
-function AddSongComment() {
-    console.log("Song Add Comment Clicked ... !");
 }

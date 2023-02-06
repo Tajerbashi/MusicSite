@@ -1,0 +1,18 @@
+﻿@model IEnumerable<DAL.Comment>
+
+@foreach (var item in Model)
+{
+    <div class="CommentContainer mt-1 bg-light bg-gradient text-dark shadow w-100 rounded-5 p-2">
+        <div class="d-flex flex-row justify-content-start align-items-center me-5">
+            <img src="~/Photos/2.jpg" class="img-fluid rounded-3 shadow" style="height: 70px; width: 70px;" />
+            <div class="d-flex flex-column px-3">
+                <span class="p-1 w-100 bg-dark bg-gradient text-light rounded-5">@item.FullName</span>
+                <span class="p-1 mt-1 bg-primary bg-gradient text-light rounded-5">@item.Email</span>
+                <span class="p-1 mt-1 bg-primary bg-gradient text-light rounded-5">@item.CreateDate.ToString("f")</span>
+            </div>
+        </div>
+        <div class="px-5 bg-gradient mt-1">
+            @item.CommentText
+        </div>
+    </div>
+}

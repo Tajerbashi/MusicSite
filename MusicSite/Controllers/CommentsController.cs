@@ -27,28 +27,27 @@ namespace MusicSite.Controllers
             songRepository = new SongRepository(db);
         }
         // GET: Comments
-
-        public ActionResult AddComment()
+        public ActionResult AllComment(int id)
         {
-            return View();
+            ViewBag.Id = id;
+            ViewBag.CommentCount = commentRepository.GetAllComments(id).Count();
+            return PartialView();
         }
-        
-        [Route("Comments/ShowSongComments/{id}")]
-        public ActionResult ShowSongComments(int id)
+        public ActionResult ShowComment(int id)
         {
-            return PartialView(commentRepository.GetAllComments().Where(c => c.Song.SongId==id).ToList());
+            return PartialView(commentRepository.GetAllComments(id));
         }
-        
-        public ActionResult AddComment(string username,string email,string commentT,int Id,string type)
+        public ActionResult AddComment(int id,string name,string email,string comment)
         {
-            Comment comment = new Comment();
-            comment.Song = songRepository.GetById(Id);
-            comment.FullName = username;
-            comment.Email = email;
-            comment.CommentText = commentT;
-            comment.CreateDate = DateTime.Now;
-            commentRepository.Add(comment);
-            return PartialView("ShowSongComments", commentRepository.GetAllComments().Where(c => c.Song.SongId == Id));
+            Comment commentT = new Comment();
+            commentT.Song = songRepository.GetById(id);
+            commentT.FullName = name;
+            commentT.Email = email;
+            commentT.CommentText = comment;
+            commentT.CreateDate = DateTime.Now;
+            commentRepository.Add(commentT);
+            commentRepository.Save();
+            return PartialView("ShowComment", commentRepository.GetAllComments(id));
         }
     }
 }

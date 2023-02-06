@@ -1,0 +1,25 @@
+﻿<div class="container">
+    <div class="d-flex flex-column justify-content-between align-items-center">
+        <div class="d-flex flex-row justify-content-between w-100 bg-dark bg-gradient px-3 p-2 text-light rounded-4">
+            <span>نظریات کاربران</span>
+            <span>@ViewBag.CommentCount</span>
+        </div>
+        <div id="CommentList">
+            @Html.Action("ShowComment", "Comments", new { id = ViewBag.Id })
+        </div>
+
+
+        <div class="row p-4">
+            <div class="d-flex flex-row justify-content-between bg-warning bg-gradient text-dark rounded-5 py-1 w-100">
+                <span>نظر خود را ثبت کنید ...!</span>
+                <i class="fa fa-comment fa-2x"></i>
+            </div>
+            <form class="form align-items-center">
+                <input id="name" type="text" class="form-control mt-2" placeholder="نام کاربری" name="name" />
+                <input id="email" type="email" class="form-control mt-2 text-start" placeholder="ایمیل کاربر" name="email" />
+                <textarea id="comment" placeholder="نظریه ..." class="form-control mt-2" name="comment" rows="5"></textarea>
+                <input onclick="AddSongComment()" type="button" class="btn btn-success w-100 text-center mt-2" value="ثبت نظر" />
+            </form>
+        </div>
+    </div>
+</div>
