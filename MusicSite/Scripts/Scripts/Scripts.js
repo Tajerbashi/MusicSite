@@ -5,6 +5,8 @@ let modalHeaderTitle = document.getElementById("modal-header-title");
 let userPanel = document.getElementById("userPanel");
 let modalBody = document.getElementById("modal-body");
 let BtnComment = document.getElementById("OpenComment"); 
+let SearchHomeTxt = document.getElementById("SearchHomeTxt");
+let SearchHomeIco = document.getElementById("SearchHomeIco");
 
 function ModalInfo(Title) {
     modalHeaderSite.innerHTML = "موزیک سایت";
@@ -84,7 +86,15 @@ function RemixOpen() {
         $("#modal-body").html(res);
     });
 }
+function SearchHome() {
+    let word = SearchHomeTxt.value;
+    ModalInfo("نتایج جستجو");
 
+    console.log("Home Search Open Clicked");
+    $.get("/SearchHome/"+word, (res) => {
+        $("#modal-body").html(res);
+    });
+}
 function OpenComment(id) {
     ModalInfo("موزیک سایت");
     modalHeaderTitle.innerHTML = "نظریات کاربران";
@@ -101,3 +111,12 @@ function OpenComment(id) {
     }
 }
 
+SearchHomeIco.addEventListener("click", () => {
+    SearchHome();
+});
+SearchHomeTxt.addEventListener("keypress", (event) => {
+    if (event.charCode === 13) {
+        console.log(event.target.value);
+        SearchHome();
+    }
+});

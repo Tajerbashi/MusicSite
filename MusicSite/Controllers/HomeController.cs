@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using DAL.Context;
 using DAL.Repository;
 using DAL.ViewModels;
+using System.Web.Routing;
 
 namespace MusicSite.Controllers
 {
@@ -118,6 +119,11 @@ namespace MusicSite.Controllers
             song.Visit += 1;
             songRepository.Save();
             return PartialView("Player",id);
+        }
+        [Route("SearchHome/{word}")]
+        public ActionResult SearchHome(string word)
+        {
+            return PartialView(songRepository.GetAllSearchView().Where(c => c.SongName.Contains(word) || c.AlbumName.Contains(word) || c.SingerName.Contains(word)).ToList());
         }
     }
 }

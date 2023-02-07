@@ -1,0 +1,20 @@
+﻿@model IEnumerable<DAL.ViewModels.SongSearch>
+    <div class="container-fluid">
+        <ul class="list-group">
+            <li class="d-flex flex-row justify-content-between bg-black bg-gradient text-warning p-1 sticky-top">
+                <span>نام خواننده</span>
+                <span>نام آلبوم</span>
+                <span>نام آهنگ</span>
+            </li>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a class="list-group-item-list d-flex flex-row justify-content-between" href="@Url.Action("PlaySong","Section",new {id=item.SongId})">
+                        <span>@item.SingerName</span>
+                        <span>@item.AlbumName</span>
+                        <span>@item.SongName</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>

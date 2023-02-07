@@ -16,6 +16,7 @@ namespace DAL.Repository
         void Save();
         IEnumerable<Song> GetAll();
         IEnumerable<ViewSong> GetAllSongView();
+        IEnumerable<SongSearch> GetAllSearchView();
         Song GetById(int id);
         Song GetByName(string Name);
     }

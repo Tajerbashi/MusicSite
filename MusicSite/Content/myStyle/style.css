@@ -113,13 +113,13 @@ ul {
 /* 
 Search Aside Panel
 */
-#search-panel {
+.search-panel {
     direction: rtl;
     display: flex;
     flex-direction: row;
 }
 
-#search-panel-control {
+.search-panel-control {
     background: linear-gradient(0deg,rgba(255, 255, 255, 0.671),rgba(255, 255, 255, 0.671));
     margin: 1rem auto;
     padding: 0.3rem 1rem;
@@ -130,7 +130,7 @@ Search Aside Panel
     justify-content: space-between;
 }
 
-#search-word {
+.search-word {
     background: rgba(255, 255, 255, 0);
     padding: 0.2rem;
     border-radius: 1rem;
@@ -140,18 +140,18 @@ Search Aside Panel
     width: 90%;
 }
 
-#search-word::placeholder {
+.search-word::placeholder {
     color: rgb(53, 32, 0);
 }
 
-#search-icon-pk {
+.search-icon-pk {
     cursor: pointer;
     color: rgb(94, 19, 0);
     transform: scale(1.5);
     margin-top: 5px;
 }
 
-#search-icon-pk:hover {
+.search-icon-pk:hover {
     color: rgb(8, 8, 8);
     transform: scale(2);
 }

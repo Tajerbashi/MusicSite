@@ -90,6 +90,7 @@
     <Compile Include="Services\SingerRepository.cs" />
     <Compile Include="Services\SongRepository.cs" />
     <Compile Include="Services\UserRepository.cs" />
+    <Compile Include="ViewModels\SongSearch.cs" />
     <Compile Include="ViewModels\ViewAlbum.cs" />
     <Compile Include="ViewModels\ViewCountry.cs" />
     <Compile Include="ViewModels\ViewGroup.cs" />

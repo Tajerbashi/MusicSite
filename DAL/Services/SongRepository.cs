@@ -59,6 +59,19 @@ namespace DAL.Services
             return DB.Songs.Include(c => c.Album).Include(c => c.Album.Singer).OrderByDescending(c => c.CreateDate).ToList();
         }
 
+        public IEnumerable<SongSearch> GetAllSearchView()
+        {
+            return DB.Songs.OrderByDescending(c => c.CreateDate).Select(song => new SongSearch
+            {
+                SongId = song.SongId,
+                GroupId = song.GroupId,
+                SongName = song.SongName,
+                SingerName = song.Album.Singer.SingerName,
+                AlbumName = song.Album.AlbumName,
+                CountryId = song.Album.Singer.CountryId
+            });
+        }
+
         public IEnumerable<ViewSong> GetAllSongView()
         {
             return DB.Songs.OrderByDescending(c => c.CreateDate).Select(song => new ViewSong
