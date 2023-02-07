@@ -26,20 +26,9 @@ namespace MusicSite.Controllers
             groupRepository =new GroupRepository(DB);
         }
 
-        public ActionResult Index(int id=0)
+        public ActionResult Index()
         {
-            if (id==0)
-            {
-                ViewBag.List = songRepository
-                .GetAllSongView()
-                .OrderByDescending(c => c.Visit)
-                .Take(30);
-            }
-            else
-            {
-                ViewBag.List = songRepository.GetAllSongView().Where(c => c.SongId == id).ToList();
-            }
-            return View();
+            return View(songRepository.GetAllSongView().OrderByDescending(c => c.Album.CreateDate));
         }
 
         public ActionResult UserPanel()

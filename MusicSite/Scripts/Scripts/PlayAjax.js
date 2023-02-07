@@ -7,6 +7,7 @@ function PlayMusicAjax(id) {
         type: "GET",
     }).done(function (res) {
         $("#Player").html(res);
+        console.log(res);
     });
 }
 function AddScore(id, score) {
@@ -31,7 +32,7 @@ let Progress = document.getElementById("Progress");
 let audioIndex = document.getElementById("audioIndex");
 
 function Play() {
-    
+
     if (IsPlay) {
         $("#PlayBtn").removeClass("fa-pause");
         $("#PlayBtn").addClass("fa-play");
