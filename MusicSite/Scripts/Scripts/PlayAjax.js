@@ -22,22 +22,7 @@ function AddScore(id, score) {
         });
     }
 }
-$(document).ready(function () {
-    $("#playBtn").click(function () {
-        if (IsPlay) {
-            play.classList.remove("fa-pause");
-            play.classList.add("fa-play");
-            IsPlay = false;
-            Pause();
-        } else {
-            play.classList.remove("fa-play");
-            play.classList.add("fa-pause");
-            IsPlay = true;
-            loadSong();
-        }
-    });
-});
-let play = document.getElementById("playBtn");
+
 let durTime = document.getElementById("durTime");
 let endTime = document.getElementById("endTime");
 let IsPlay = false;
@@ -45,10 +30,23 @@ let ProgressContainer = document.getElementById("Progress-Container");
 let Progress = document.getElementById("Progress");
 let audioIndex = document.getElementById("audioIndex");
 
-
+function Play() {
+    
+    if (IsPlay) {
+        $("#PlayBtn").removeClass("fa-pause");
+        $("#PlayBtn").addClass("fa-play");
+        IsPlay = false;
+        Pause();
+    } else {
+        $("#PlayBtn").removeClass("fa-play");
+        $("#PlayBtn").addClass("fa-pause");
+        IsPlay = true;
+        loadSong();
+    }
+}
 function Stop() {
-    play.classList.remove("fa-pause");
-    play.classList.add("fa-play");
+    $("#PlayBtn").removeClass("fa-pause");
+    $("#PlayBtn").addClass("fa-play");
     IsPlay = false;
     audioIndex.pause();
     audioIndex.currentTime = 0;

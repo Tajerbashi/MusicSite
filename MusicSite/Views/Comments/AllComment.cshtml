@@ -18,7 +18,7 @@
                 <input id="name" type="text" class="form-control mt-2" placeholder="نام کاربری" name="name" />
                 <input id="email" type="email" class="form-control mt-2 text-start" placeholder="ایمیل کاربر" name="email" />
                 <textarea id="comment" placeholder="نظریه ..." class="form-control mt-2" name="comment" rows="5"></textarea>
-                <input onclick="AddSongComment()" type="button" class="btn btn-success w-100 text-center mt-2" value="ثبت نظر" />
+                <input onclick="AddSongComment(@ViewBag.Id)" type="button" class="btn btn-success w-100 text-center mt-2" value="ثبت نظر" />
             </form>
         </div>
     </div>

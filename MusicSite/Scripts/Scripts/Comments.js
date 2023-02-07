@@ -1,16 +1,6 @@
 ﻿//Comment
-let ID = document.getElementById("OpenComment");
-$("#OpenComment").click(() => {
-    console.log("Clicked by JQuery");
-});
-function AddSongComment() {
-    console.log("Add Song : " + ID.getAttribute("data-id"));
-    console.log($("#name").val());
-    console.log($("#email").val());
-    console.log($("#comment").val());
-    addComment(ID.getAttribute("data-id"));
-}
-function addComment(id) {
+
+function AddSongComment(id) {
     $.ajax({
         url: "/Comments/AddComment/" + id,
         type: "GET",

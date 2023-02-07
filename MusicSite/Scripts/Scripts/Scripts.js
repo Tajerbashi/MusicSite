@@ -86,8 +86,7 @@ function RemixOpen() {
 }
 
 function OpenComment(id) {
-    modal_container.classList.remove("d-none");
-    modalHeaderSite.innerHTML = "موزیک سایت";
+    ModalInfo("موزیک سایت");
     modalHeaderTitle.innerHTML = "نظریات کاربران";
     if (id == 0 || id == null) {
         modalBody.style.color = "#efedea";
