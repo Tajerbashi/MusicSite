@@ -1,4 +1,11 @@
 ﻿
+let durTime = document.getElementById("durTime");
+let endTime = document.getElementById("endTime");
+let IsPlay = false;
+let ProgressContainer = document.getElementById("Progress-Container");
+let Progress = document.getElementById("Progress");
+let audioIndex = document.getElementById("audioIndex");
+
 //PlayAjax
 function PlayMusicAjax(id) {
     console.log("Music Clicked Id : " + id);
@@ -7,7 +14,13 @@ function PlayMusicAjax(id) {
         type: "GET",
     }).done(function (res) {
         $("#Player").html(res);
-        console.log(res);
+        //console.log(res);
+        durTime = document.getElementById("durTime");
+        endTime = document.getElementById("endTime");
+        IsPlay = false;
+        ProgressContainer = document.getElementById("Progress-Container");
+        Progress = document.getElementById("Progress");
+        audioIndex = document.getElementById("audioIndex");
     });
 }
 function AddScore(id, score) {
@@ -24,15 +37,9 @@ function AddScore(id, score) {
     }
 }
 
-let durTime = document.getElementById("durTime");
-let endTime = document.getElementById("endTime");
-let IsPlay = false;
-let ProgressContainer = document.getElementById("Progress-Container");
-let Progress = document.getElementById("Progress");
-let audioIndex = document.getElementById("audioIndex");
+
 
 function Play() {
-
     if (IsPlay) {
         $("#PlayBtn").removeClass("fa-pause");
         $("#PlayBtn").addClass("fa-play");
@@ -49,10 +56,12 @@ function Stop() {
     $("#PlayBtn").removeClass("fa-pause");
     $("#PlayBtn").addClass("fa-play");
     IsPlay = false;
+    audioIndex = document.getElementById("audioIndex");
     audioIndex.pause();
     audioIndex.currentTime = 0;
 }
 function Pause() {
+    audioIndex = document.getElementById("audioIndex");
     audioIndex.pause();
 }
 function GetTime(sec) {
@@ -87,6 +96,7 @@ function setProgress(e) {
     audioIndex.currentTime = (clickX / width) * duration;
 }
 function loadSong() {
+    audioIndex = document.getElementById("audioIndex");
     audioIndex.play();
     Progress.style.width = 0 + "%";
     endTime.innerHTML = GetTime(audioIndex.duration);
