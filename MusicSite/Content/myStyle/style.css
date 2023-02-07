@@ -669,6 +669,14 @@ Search Aside Panel
     color: rgb(0, 177, 255);
     transform: scale(1.5);
 }
+.fa-heart {
+    color: rgb(255, 166, 0);
+    cursor: pointer;
+}
+.fa-heart:hover {
+    color: rgb(0, 177, 255);
+    transform: scale(1.5);
+}
 #SetInfo {
     margin-top: 1rem;
 }

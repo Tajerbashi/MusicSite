@@ -103,6 +103,7 @@ namespace MusicSite.Controllers
                     };
                 }
             }
+            songRepository.Save();
             return PartialView(song);
         }
         public ActionResult PlayLastSingleSong()
@@ -120,6 +121,14 @@ namespace MusicSite.Controllers
         public ActionResult Footer()
         {
             return PartialView();
+        }
+        public ActionResult AddScore(int id,int score)
+        {
+            Song song=songRepository.GetById(id);
+            song.Score += score;
+            song.Visit += 1;
+            songRepository.Save();
+            return PartialView("Player",id);
         }
     }
 }
