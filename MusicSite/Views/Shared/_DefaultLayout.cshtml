@@ -38,13 +38,13 @@
             @RenderBody()
 
             <div class="col-sm-12 col-md-4 h-100 ">
-            @Html.Action("Player", "Home")
+                @Html.Action("Player", "Home")
             </div>
             @Html.Action("PlayLastSingleSong", "Home")
             @Html.Action("MostTopAlbums", "Home")
 
         </div>
-        </div>
+    </div>
     <!-- End Index Page -->
 
     @Html.Action("Footer", "Home")
@@ -53,9 +53,10 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/myScript/script.js" ></script>
-    <script src="~/Scripts/myScript/Comments.js"></script>
-    <script src="~/Scripts/myScript/PlayAjax.js"></script>
+    <script src="~/Scripts/Scripts/Scripts.js" defer></script>
+    <script src="~/Scripts/Scripts/Comments.js" defer></script>
+    <script src="~/Scripts/Scripts/PlayAjax.js" defer></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -6,100 +6,85 @@ let userPanel = document.getElementById("userPanel");
 let modalBody = document.getElementById("modal-body");
 let BtnComment = document.getElementById("OpenComment"); 
 
-
+function ModalInfo(Title) {
+    modalHeaderSite.innerHTML = "موزیک سایت";
+    modalHeaderTitle.innerHTML = Title;
+    modal_container.classList.remove("d-none");
+}
 modal_container.addEventListener("click", (event) => {
     // console.log(event.target);
     if (event.target.getAttribute("id") === "modal-container" || event.target.classList.contains("fa-close")) {
         modal_container.classList.add("d-none");
     }
 });
-navListItem.forEach(item => {
-    item.addEventListener("click", () => {
-        if (item.getAttribute("id") != "HomePage") {
-            console.log(item);
-            modal_container.classList.remove("d-none");
-            modalHeaderSite.innerHTML = "موزیک سایت";
-            modalHeaderTitle.innerHTML = item.innerHTML;
-            if (modalHeaderTitle.innerHTML === "دسته بندی ها") {
-                GroupOpen();
-            } else if (modalHeaderTitle.innerHTML === "آهنگها") {
-                SongsOpen();
-            } else if (modalHeaderTitle.innerHTML === "پلی لیست ها") {
-                PlayListOpen();
-            } else if (modalHeaderTitle.innerHTML === "آلبوم ها") {
-                AlbumOpen();
-            } else if (modalHeaderTitle.innerHTML === "پادکست ها") {
-                PadcastOpen();
-            } else if (modalHeaderTitle.innerHTML === "کشور ها") {
-                CountryOpen();
-            } else if (modalHeaderTitle.innerHTML === "خوانندگان") {
-                SingerOpen();
-            } else if (modalHeaderTitle.innerHTML === "ریمیکس") {
-                RemixOpen();
-            }
-        }
-    });
-});
 userPanel.addEventListener("click", () => {
-    modalHeaderSite.innerHTML = "موزیک سایت";
-    modalHeaderTitle.innerHTML = "صفحه ورود کاربر";
-
-    modal_container.classList.remove("d-none");
-
+    ModalInfo("صفحه ورود کاربر");
 });
+
 function GroupOpen() {
+    ModalInfo("دسته بندی");
     console.log("Section Groups Open Clicked");
     $.get("/Section/Group", (res) => {
         $("#modal-body").html(res);
     });
 }
 function SongsOpen() {
+    ModalInfo("آهنگ ها");
+
     console.log("Section Songs Open Clicked");
     $.get("/Section/Songs", (res) => {
         $("#modal-body").html(res);
     });
 }
 function PlayListOpen() {
+    ModalInfo("پلی لیست ها");
+
     console.log("Section PlayList Open Clicked");
     $.get("/Section/PlayLists", (res) => {
         $("#modal-body").html(res);
     });
 }
 function AlbumOpen() {
+    ModalInfo("آلبوم ها");
+
     console.log("Section Album Open Clicked");
     $.get("/Section/Albums", (res) => {
         $("#modal-body").html(res);
     });
 }
 function PadcastOpen() {
+    ModalInfo("پادکست ها");
+
     console.log("Section Padcast Open Clicked");
     $.get("/Section/Padcasts", (res) => {
         $("#modal-body").html(res);
     });
 }
 function CountryOpen() {
+    ModalInfo("کشوری");
+
     console.log("Section Country Open Clicked");
     $.get("/Section/Countries", (res) => {
         $("#modal-body").html(res);
     });
 }
 function SingerOpen() {
+    ModalInfo("خواننده گان");
+
     console.log("Section Country Open Clicked");
     $.get("/Section/Singers", (res) => {
         $("#modal-body").html(res);
     });
 }
 function RemixOpen() {
+    ModalInfo("ریمیکس ها");
+
     console.log("Section Remix Open Clicked");
     $.get("/Section/Remix", (res) => {
         $("#modal-body").html(res);
     });
 }
 
-BtnComment.addEventListener("click", () => {
-    let Id = BtnComment.getAttribute("data-id");
-    OpenComment(Id);
-});
 function OpenComment(id) {
     modal_container.classList.remove("d-none");
     modalHeaderSite.innerHTML = "موزیک سایت";
@@ -116,3 +101,4 @@ function OpenComment(id) {
         });
     }
 }
+

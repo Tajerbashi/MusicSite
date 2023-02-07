@@ -254,10 +254,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\myScript\Admin_Script.js" />
-    <Content Include="Scripts\myScript\Comments.js" />
-    <Content Include="Scripts\myScript\PlayAjax.js" />
-    <Content Include="Scripts\myScript\script.js" />
+    <Content Include="Scripts\Scripts\Admin_Script.js" />
+    <Content Include="Scripts\Scripts\Comments.js" />
+    <Content Include="Scripts\Scripts\PlayAjax.js" />
+    <Content Include="Scripts\Scripts\Scripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

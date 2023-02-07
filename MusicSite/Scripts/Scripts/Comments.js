@@ -1,5 +1,8 @@
-﻿let ID = document.getElementById("OpenComment");
-
+﻿//Comment
+let ID = document.getElementById("OpenComment");
+$("#OpenComment").click(() => {
+    console.log("Clicked by JQuery");
+});
 function AddSongComment() {
     console.log("Add Song : " + ID.getAttribute("data-id"));
     console.log($("#name").val());

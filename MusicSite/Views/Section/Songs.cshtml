@@ -8,14 +8,14 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row d-flex flex-row flex-wrap justify-content-between">
         @foreach (var item in Model)
         {
             <div class="col-2 mt-2">
                 <a class="song-item-modal" href="@Url.Action("PlaySong","Section",new {id=item.SongId})">
                     <img src="~/Files/Photos/@item.Picture" class="img-fluid" style="width:100px;height:100px;" />
-                    <span class="bg-dark text-warning bg-gradient w-75 rounded-5 py-1 my-2">@item.SongName</span>
-                    <span class="bg-dark text-warning bg-gradient w-75 rounded-5 py-1">@item.SingerName</span>
+                    <span class="bg-dark text-warning bg-gradient w-100 rounded-5 py-1 my-2">@item.SongName</span>
+                    <span class="bg-dark text-warning bg-gradient w-100 rounded-5 py-1">@item.SingerName</span>
                 </a>
             </div>
         }
