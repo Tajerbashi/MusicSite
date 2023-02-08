@@ -695,18 +695,110 @@ Search Aside Panel
 /*  End Search Style   */
 
 /*  Start Login User Style   */
-.input-form{
-    background: linear-gradient(90deg,#eeeeeeb2,#5e5e5e8b);
+#UserForm {
+    margin-top: 5rem;
+    backdrop-filter: blur(10px) !important;
+}
+.input-form {
+    background: linear-gradient(60deg,rgb(128, 128, 128, 0.10),#bbbbbb29);
+    border: 1px solid rgb(255, 255, 255, 0.25);
+    color: rgb(255, 255, 255) !important;
+    border-radius: 5rem;
     margin-top: 5px;
     outline: none;
 }
+.input-form::placeholder {
+    color: rgb(255, 255, 255, 0.8);
+}
 .input-form:focus {
+    background: linear-gradient(60deg,rgb(128, 128, 128, 0.10),#bbbbbb29);
     border: 1px solid #00000000;
     outline: none;
 }
-#LoginForm {
+#LoginForm, #RegForm {
+    padding: 1.5rem;
+    width: 45%;
+    height: 550px;
+    background: linear-gradient(160deg,rgb(0, 0, 0, 0.40),rgb(0, 0, 0, 0.35));
+    border: 1px solid rgb(0, 0, 0, 0.56);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 0 black;
+    backdrop-filter: blur(10px);
 }
-#RegForm{
+#LoginForm > span, #RegForm > span {
+    background: #212020;
+    color: rgb(255, 166, 0);
+    padding: 0.2rem 5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 #ff7d00b2 !important;
 
 }
+.LogImg {
+    animation-name: ChangeScaleImg;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    box-shadow: 0 0 25px 0 #000000ff !important;
+}
+@keyframes ChangeScaleImg{
+    0% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.5);
+    }
+}
+@keyframes ChangeShadowColor {
+    10% {
+        box-shadow: 0 0 15px 0 #ff0000a6 !important;
+    }
+
+    20% {
+        box-shadow: 0 0 15px 0 #ff9c00a6 !important;
+    }
+
+    30% {
+        box-shadow: 0 0 15px 0 #ddff00a6 !important;
+    }
+
+    40% {
+        box-shadow: 0 0 15px 0 #31ff00a6 !important;
+    }
+
+    50% {
+        box-shadow: 0 0 15px 0 #00ff9aa6 !important;
+    }
+
+    60% {
+        box-shadow: 0 0 15px 0 #008affa6 !important;
+    }
+
+    70% {
+        box-shadow: 0 0 15px 0 #000dffa6 !important;
+    }
+
+    80% {
+        box-shadow: 0 0 15px 0 #6000ffa6 !important;
+    }
+
+    90% {
+        box-shadow: 0 0 15px 0 #be00ffa6 !important;
+    }
+
+    100% {
+        box-shadow: 0 0 15px 0 #ff00a4a6 !important;
+    }
+}
+
+#LoginForm {
+}
+#RegForm {
+}
+#loginSubmit, #RegSubmit {
+    width: 10rem;
+}
+
 /*  End Login User Style   */

@@ -7,22 +7,16 @@ let modalBody = document.getElementById("modal-body");
 let BtnComment = document.getElementById("OpenComment"); 
 let SearchHomeTxt = document.getElementById("SearchHomeTxt");
 let SearchHomeIco = document.getElementById("SearchHomeIco");
+let RegSubmit;
+let loginSubmit;
+
+
 
 function ModalInfo(Title) {
     modalHeaderSite.innerHTML = "موزیک سایت";
     modalHeaderTitle.innerHTML = Title;
     modal_container.classList.remove("d-none");
 }
-modal_container.addEventListener("click", (event) => {
-    // console.log(event.target);
-    if (event.target.getAttribute("id") === "modal-container" || event.target.classList.contains("fa-close")) {
-        modal_container.classList.add("d-none");
-    }
-});
-userPanel.addEventListener("click", () => {
-    UserPanel();
-});
-
 function GroupOpen() {
     ModalInfo("دسته بندی");
     console.log("Section Groups Open Clicked");
@@ -116,8 +110,44 @@ function UserPanel() {
     console.log("Section Remix Open Clicked");
     $.get("/Comments/UserLogin", (res) => {
         $("#modal-body").html(res);
+        RegSubmit = document.getElementById("RegSubmit"); 
+        loginSubmit = document.getElementById("loginSubmit");
+        RegSubmit.addEventListener("click", () => {
+            let user = {
+                Name: $("#RegName").val(),
+                Family: $("#RegFamily").val(),
+                Phone: $("#RegPhone").val(),
+                Email: $("#RegEmail").val(),
+                Username: $("#RegUsername").val(),
+                Password: $("#RegPass").val()
+            };
+            console.log(user);
+            $.ajax({
+                url: "/Home/RegUser",
+                type: "GET",
+                data: {
+                    nUser: user
+                }
+            }).done(function () {
+                window.location.reload();
+            });
+        });
+        loginSubmit.addEventListener("click", () => {
+            console.log(loginSubmit);
+        });
     });
 }
+
+
+modal_container.addEventListener("click", (event) => {
+    // console.log(event.target);
+    if (event.target.getAttribute("id") === "modal-container" || event.target.classList.contains("fa-close")) {
+        modal_container.classList.add("d-none");
+    }
+});
+userPanel.addEventListener("click", () => {
+    UserPanel();
+});
 SearchHomeIco.addEventListener("click", () => {
     SearchHome();
 });

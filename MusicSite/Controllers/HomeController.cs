@@ -1,14 +1,14 @@
-﻿using DAL.Services;
-using DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using DAL;
 using DAL.Context;
 using DAL.Repository;
 using DAL.ViewModels;
-using System.Web.Routing;
+using DAL.Services;
 
 namespace MusicSite.Controllers
 {
@@ -19,12 +19,14 @@ namespace MusicSite.Controllers
         ISongRepository songRepository;
         IAlbumRepository albumRepository;
         IGroupRepository groupRepository;
+        IUserRepository userRepository;
 
         public HomeController()
         {
             songRepository =new SongRepository(DB);
             albumRepository =new AlbumRepository(DB);
             groupRepository =new GroupRepository(DB);
+            userRepository =new UserRepository(DB);
         }
 
         public ActionResult Index()
@@ -124,6 +126,22 @@ namespace MusicSite.Controllers
         public ActionResult SearchHome(string word)
         {
             return PartialView(songRepository.GetAllSearchView().Where(c => c.SongName.Contains(word) || c.AlbumName.Contains(word) || c.SingerName.Contains(word)).ToList());
+        }
+        public ActionResult RegUser(User nUser)
+        {
+            User user = new User();
+            user.Name = nUser.Name;
+            user.Family= nUser.Family;
+            user.Phone= nUser.Phone;
+            user.Email = nUser.Email;
+            user.Username= nUser.Username;
+            user.Password = nUser.Password;
+            user.Total= 0;
+            user.Type = false;
+            user.CreateDate = DateTime.Now;
+            userRepository.Add(user);
+            //userRepository.Save();
+            return View(songRepository.GetAllSongView().OrderByDescending(c => c.Album.CreateDate));
         }
     }
 }
