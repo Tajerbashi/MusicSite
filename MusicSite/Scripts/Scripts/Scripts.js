@@ -20,7 +20,7 @@ modal_container.addEventListener("click", (event) => {
     }
 });
 userPanel.addEventListener("click", () => {
-    ModalInfo("صفحه ورود کاربر");
+    UserPanel();
 });
 
 function GroupOpen() {
@@ -110,7 +110,14 @@ function OpenComment(id) {
         });
     }
 }
+function UserPanel() {
+    ModalInfo("ورود به حساب کاربری");
 
+    console.log("Section Remix Open Clicked");
+    $.get("/Comments/UserLogin", (res) => {
+        $("#modal-body").html(res);
+    });
+}
 SearchHomeIco.addEventListener("click", () => {
     SearchHome();
 });

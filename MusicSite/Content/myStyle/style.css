@@ -693,3 +693,20 @@ Search Aside Panel
     
 }
 /*  End Search Style   */
+
+/*  Start Login User Style   */
+.input-form{
+    background: linear-gradient(90deg,#eeeeeeb2,#5e5e5e8b);
+    margin-top: 5px;
+    outline: none;
+}
+.input-form:focus {
+    border: 1px solid #00000000;
+    outline: none;
+}
+#LoginForm {
+}
+#RegForm{
+
+}
+/*  End Login User Style   */

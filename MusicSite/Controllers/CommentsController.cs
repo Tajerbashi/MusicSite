@@ -49,5 +49,9 @@ namespace MusicSite.Controllers
             commentRepository.Save();
             return PartialView("ShowComment", commentRepository.GetAllComments(id));
         }
+        public ActionResult UserLogin()
+        {
+            return PartialView();
+        }
     }
 }

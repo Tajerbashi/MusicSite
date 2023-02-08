@@ -1,14 +1,6 @@
 ﻿@model IEnumerable<DAL.ViewModels.ViewSinger>
 
 <div class="container-fluid">
-    <div class="row d-flex flex-column align-items-center">
-        <div class="w-50" id="search-panel">
-            <div id="search-panel-control" class="rounded-5">
-                <input id="search-word" placeholder="جستجو کنید ...">
-                <span><i id="search-icon-pk" class="fa fa-search"></i></span>
-            </div>
-        </div>
-    </div>
     <div class="d-flex flex-row justify-content-between flex-wrap">
         @foreach (var item in Model)
         {
