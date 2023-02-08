@@ -14,5 +14,6 @@ namespace DAL.ViewModels
         public String SongName { get; set; }
         public String SingerName { get; set; }
         public String AlbumName { get; set; }
+        public String Picture { get; set; }
     }
 }

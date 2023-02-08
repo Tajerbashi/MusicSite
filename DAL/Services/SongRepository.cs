@@ -68,7 +68,8 @@ namespace DAL.Services
                 SongName = song.SongName,
                 SingerName = song.Album.Singer.SingerName,
                 AlbumName = song.Album.AlbumName,
-                CountryId = song.Album.Singer.CountryId
+                CountryId = song.Album.Singer.CountryId,
+                Picture= song.Picture
             });
         }
 

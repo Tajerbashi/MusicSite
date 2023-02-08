@@ -686,3 +686,10 @@ Search Aside Panel
     font-size: 0.8rem !important;
 }
 /*   End Comment Style   */
+/*  Start Search Style   */
+.search-Item{
+    margin: 5px ;
+    width: 150px;
+    
+}
+/*  End Search Style   */
