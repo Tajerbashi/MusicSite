@@ -1,20 +1,43 @@
-﻿
-@model DAL.User
-<div class="container-fluid d-flex flex-row justify-content-between">
-    <div class="row w-25">
-        <div class="col-12">
-            <ul class="list-group">
-                <li class="list-group-item mt-1">پنل کاربر</li>
-                <li class="list-group-item mt-1">دسترسی</li>
-            </ul>
+﻿@model DAL.User
+<div class="container-fluid d-flex flex-column justify-content-between">
+    <div class="row">
+        <div class="col-12 d-flex flex-row justify-content-between">
+            <a class="user-panel-item mt-1">اطلاعات شخصی</a>
+            <a class="user-panel-item mt-1">@Model.Name @Model.Family</a>
+            <a class="user-panel-item mt-1">سبد سفارش</a>
         </div>
     </div>
-    <div class="row w-75">
-        <div id="userPanelLogin" class="col-12">
-            This is the User Login Name: @User.Identity.Name
-            @Model.Username
-            <hr />
-            @Model.Password
+    <div class="row">
+        <div id="user-panel-body" class="col-12 rounded-2">
+            <img src="~/Files/User/@Model.Photo" class="img-fluid shadow rounded-2 mt-2" style="width: 250px;" />
+            <div id="panel-body" class="container d-flex flex-row justify-content-end mt-5">
+                <div class="row w-25">
+                    <ul class="text-end">
+                        <li>نام : </li>
+                        <li>فامیل : </li>
+                        <li>تلفن : </li>
+                        <li>ایمیل : </li>
+                        <li>نام کاربری : </li>
+                        <li>رمز کاربری : </li>
+                        <li>وضعیت : </li>
+                        <li>مجموعه خرید : </li>
+                        <li>تاریخ عضویت : </li>
+                    </ul>
+                </div>
+                <div class="row w-75">
+                    <ul class="text-start">
+                        <li>@Model.Name</li>
+                        <li>@Model.Family</li>
+                        <li>@Model.Phone</li>
+                        <li>@Model.Email</li>
+                        <li>@Model.Username</li>
+                        <li>@Model.Password</li>
+                        <li>@(Model.Type ? "فعال" : "غیرفعال")</li>
+                        <li>@Model.Total.ToString("N")</li>
+                        <li>@Model.CreateDate.ToString("yyyy/MM/dddd   hh:mm:ss")</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

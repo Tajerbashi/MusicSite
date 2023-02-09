@@ -72,6 +72,7 @@ namespace MusicSite.Controllers
             FormsAuthentication.SignOut();
             return Redirect("/");
         }
+        [Route("LoginUser/LoginUserPanel/{username}")]
         public ActionResult LoginUserPanel(string username)
         {
             return PartialView(userRepository.GetByUsername(username));

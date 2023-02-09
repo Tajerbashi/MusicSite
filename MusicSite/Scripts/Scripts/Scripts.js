@@ -8,8 +8,6 @@ let BtnComment = document.getElementById("OpenComment");
 let SearchHomeTxt = document.getElementById("SearchHomeTxt");
 let SearchHomeIco = document.getElementById("SearchHomeIco"); 
 let UserPanelLogin = document.getElementById("userPanelLogin"); 
-let RegSubmit;
-let loginSubmit;
 
 
 function ModalInfo(Title) {
@@ -107,84 +105,96 @@ function OpenComment(id) {
 function UserPanel() {
     ModalInfo("ورود به حساب کاربری");
 
-    console.log("Section Remix Open Clicked");
+    console.log("Section User Panel Open Clicked");
     $.get("/LoginUser/LoginPanel", (res) => {
-
         $("#modal-body").html(res);
-
-        RegSubmit = document.getElementById("RegSubmit"); 
-        loginSubmit = document.getElementById("loginSubmit");
-
-        // Register Form
-        RegSubmit.addEventListener("click", () => {
-            if (
-                (
-                    $("#RegName").val() != "" &&
-                    $("#RegFamily").val() != "" &&
-                    $("#RegPhone").val() != "" &&
-                    $("#RegEmail").val() != "" &&
-                    $("#RegUsername").val() != "" &&
-                    $("#RegrPass").val() != "" &&
-                    $("#RegPass").val() != ""
-                )
-                &&
-                ($("#RegPass").val() === $("#RegrPass").val())) {
-                $.ajax({
-                    url: "/LoginUser/RegUser",
-                    type: "GET",
-                    data: {
-                        Name: $("#RegName").val(),
-                        Family: $("#RegFamily").val(),
-                        Phone: $("#RegPhone").val(),
-                        Email: $("#RegEmail").val(),
-                        Username: $("#RegUsername").val(),
-                        Password: $("#RegPass").val()
-                    },
-                    success: function (res) {
-                        $("#modal-body").html(res);
-                        RegSubmit = document.getElementById("RegSubmit");
-                        loginSubmit = document.getElementById("loginSubmit");
-                    },
-                    error: function () {
-                        alert("اطلاعات تکراری است");
-                    }
-                });
-            } else {
-                alert("رمز همخوانی ندارد دوباره تلاش کنید");
-            }
-        });
-
-        //  Login Form
-        loginSubmit.addEventListener("click", () => {
-            let Rem = document.getElementById("loginRem");
-            console.log($("#loginUser").val());
-            console.log($("#loginPass").val());
-            console.log(typeof Rem.checked);           
-
-            if ($("#loginUser").val() != "" && $("#loginPass").val() != "") {
-                $.ajax({
-                    url: "/LoginUser/UserIsLogin",
-                    type: "GET",
-                    data: {
-                        Username: $("#loginUser").val(),
-                        Password: $("#loginPass").val(),
-                        Remember: Rem.checked
-                    },
-                    success: function (res) {
-                        $("#modal-body").html(res);
-                        RegSubmit = document.getElementById("RegSubmit");
-                        loginSubmit = document.getElementById("loginSubmit");
-                    },
-                    error: function () {
-                        alert("اطلاعات تکراری است");
-                    }
-                });
-            } else {
-                 alert("نام کاربری یا رمز کاربری خالی است");
-            }
-            
-        });
+        ChangeCapchapNumber();
     });
+}
+function LoginUser() {
+    let Rem = document.getElementById("loginRem");
+    let capchapS = document.getElementById("capchapS");
+    let capchap = document.getElementById("capchap");
+    if (capchapS.getAttribute("placeholder") === capchap.value) {
+        if ($("#loginUser").val() != "" && $("#loginPass").val() != "") {
+            $.ajax({
+                url: "/LoginUser/UserIsLogin",
+                type: "GET",
+                data: {
+                    Username: $("#loginUser").val(),
+                    Password: $("#loginPass").val(),
+                    Remember: Rem.checked
+                },
+                success: function (res) {
+                    $("#modal-body").html(res);
+                },
+                error: function () {
+                    alert("اطلاعات تکراری است");
+                }
+            });
+        } else {
+            alert("نام کاربری یا رمز کاربری خالی است");
+        }
+    } else {
+        alert("اعداد همخوانی ندارند دوباره تلاش کنید");
+    }
+
+    
+}
+function RegisterUser() {
+    if (
+        (
+            $("#RegName").val() != "" &&
+            $("#RegFamily").val() != "" &&
+            $("#RegPhone").val() != "" &&
+            $("#RegEmail").val() != "" &&
+            $("#RegUsername").val() != "" &&
+            $("#RegrPass").val() != "" &&
+            $("#RegPass").val() != ""
+        )
+        &&
+        ($("#RegPass").val() === $("#RegrPass").val())) {
+        $.ajax({
+            url: "/LoginUser/RegUser",
+            type: "GET",
+            data: {
+                Name: $("#RegName").val(),
+                Family: $("#RegFamily").val(),
+                Phone: $("#RegPhone").val(),
+                Email: $("#RegEmail").val(),
+                Username: $("#RegUsername").val(),
+                Password: $("#RegPass").val()
+            },
+            success: function (res) {
+                $("#modal-body").html(res);
+                RegSubmit = document.getElementById("RegSubmit");
+                loginSubmit = document.getElementById("loginSubmit");
+            },
+            error: function () {
+                alert("اطلاعات تکراری است");
+            }
+        });
+    } else {
+        alert("رمز همخوانی ندارد دوباره تلاش کنید");
+    }
+}
+function OpenUserPanel(event) {
+    console.log(event.target.getAttribute("data-user"));
+    let username = event.target.getAttribute("data-user");
+    ModalInfo(`حساب کاریری ${username}`);
+    $.get("/LoginUser/LoginUserPanel/"+ username, (res) => {
+        $("#modal-body").html(res);
+    });
+}
+function ChangeCapchapNumber() {
+    let capchapS = document.getElementById("capchapS");
+    let number = 0;
+    number = Math.round(Math.random() * 100000);
+    capchapS.setAttribute("placeholder", number);
+    setInterval(() => {
+        number = Math.round(Math.random() * 100000);
+        capchapS.setAttribute("placeholder", number);
+    },120000);
 }
 
 modal_container.addEventListener("click", (event) => {
@@ -207,8 +217,4 @@ SearchHomeTxt.addEventListener("keypress", (event) => {
         console.log(event.target.value);
         SearchHome();
     }
-});
-
-UserPanelLogin.addEventListener("click", () => {
-    console.log("Clicked");
 });

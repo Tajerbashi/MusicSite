@@ -816,11 +816,29 @@ Search Aside Panel
     width: 20px;
     margin-top: 10px !important;
 }
-#userPanelLogin{
+.userPanelLogin{
     cursor: pointer;
     background: linear-gradient(65deg,#ffcb00,#ffa400);
     padding: 0.2rem 1rem;
-    width: 150px;
     margin: 5px 0;
+}
+.user-panel-item {
+    background: linear-gradient(65deg,#ffcb00,#ffa400);
+    padding: 0.5rem 1rem;
+    width: 250px !important;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #393939;
+    border-radius: 10px;
+}
+.user-panel-item:hover {
+    background: linear-gradient(65deg,#642c03,#725725);
+    color: white;
+
+}
+#panel-body {
+    background: linear-gradient(65deg,#cbcbcbcc,#dedede99);
+    padding: 2rem;
+    box-shadow: 0 0 50px 0 #393939;
+    border-radius: 1.5rem;
 }
 /*  End Login User Style   */
