@@ -113,27 +113,44 @@ function UserPanel() {
         RegSubmit = document.getElementById("RegSubmit"); 
         loginSubmit = document.getElementById("loginSubmit");
         RegSubmit.addEventListener("click", () => {
-            let user = {
-                Name: $("#RegName").val(),
-                Family: $("#RegFamily").val(),
-                Phone: $("#RegPhone").val(),
-                Email: $("#RegEmail").val(),
-                Username: $("#RegUsername").val(),
-                Password: $("#RegPass").val()
-            };
-            console.log(user);
-            $.ajax({
-                url: "/Home/RegUser",
-                type: "GET",
-                data: {
-                    nUser: user
-                }
-            }).done(function () {
-                window.location.reload();
-            });
+            if ($("#RegPass").val() == $("#RegrPass").val()) {
+                $.ajax({
+                    url: "/Home/RegUser",
+                    type: "GET",
+                    data: {
+                        Name: $("#RegName").val(),
+                        Family: $("#RegFamily").val(),
+                        Phone: $("#RegPhone").val(),
+                        Email: $("#RegEmail").val(),
+                        Username: $("#RegUsername").val(),
+                        Password: $("#RegPass").val()
+                    }
+                }).done(function (res) {
+                    $("#modal-body").html(res);
+                });
+            } else {
+                alert("رمز همخوانی ندارد دوباره تلاش کنید");
+            }
         });
         loginSubmit.addEventListener("click", () => {
-            console.log(loginSubmit);
+            if ($("#RegPass").val() == $("#RegrPass").val()) {
+                $.ajax({
+                    url: "/Home/RegUser",
+                    type: "GET",
+                    data: {
+                        Name: $("#RegName").val(),
+                        Family: $("#RegFamily").val(),
+                        Phone: $("#RegPhone").val(),
+                        Email: $("#RegEmail").val(),
+                        Username: $("#RegUsername").val(),
+                        Password: $("#RegPass").val()
+                    }
+                }).done(function (res) {
+                    $("#modal-body").html(res);
+                });
+            } else {
+                alert("رمز همخوانی ندارد دوباره تلاش کنید");
+            }
         });
     });
 }

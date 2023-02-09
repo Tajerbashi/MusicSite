@@ -302,6 +302,7 @@
     <Content Include="Views\Comments\AllComment.cshtml" />
     <Content Include="Views\Home\SearchHome.cshtml" />
     <Content Include="Views\Comments\UserLogin.cshtml" />
+    <Content Include="Views\Home\RegUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

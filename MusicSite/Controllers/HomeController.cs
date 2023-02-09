@@ -127,21 +127,34 @@ namespace MusicSite.Controllers
         {
             return PartialView(songRepository.GetAllSearchView().Where(c => c.SongName.Contains(word) || c.AlbumName.Contains(word) || c.SingerName.Contains(word)).ToList());
         }
-        public ActionResult RegUser(User nUser)
+        public ActionResult RegUser(string Name, string Family, string Email, string Phone, string Username, string Password,string type)
         {
             User user = new User();
-            user.Name = nUser.Name;
-            user.Family= nUser.Family;
-            user.Phone= nUser.Phone;
-            user.Email = nUser.Email;
-            user.Username= nUser.Username;
-            user.Password = nUser.Password;
-            user.Total= 0;
-            user.Type = false;
-            user.CreateDate = DateTime.Now;
-            userRepository.Add(user);
-            //userRepository.Save();
-            return View(songRepository.GetAllSongView().OrderByDescending(c => c.Album.CreateDate));
+            if (type == "new")
+            {
+                user.Name = Name;
+                user.Family = Family;
+                user.Phone = Phone;
+                user.Email = Email;
+                user.Username = Username;
+                user.Password = Password;
+                user.Total = 0;
+                user.Type = false;
+                user.CreateDate = DateTime.Now;
+                userRepository.Add(user);
+                userRepository.Save();
+                return PartialView(user);
+            }
+            else
+            {
+                user = userRepository.GetAll().Where(c => c.Username==Username && c.Password==Password).First();
+                if (user != null)
+                {
+                    return PartialView(user);
+                }
+                return false;
+            }
+            
         }
     }
 }
