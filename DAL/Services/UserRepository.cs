@@ -1,5 +1,4 @@
 ﻿using DAL.Context;
-using DAL.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Services
+namespace DAL
 {
     public class UserRepository : IUserRepository
     {
@@ -16,6 +15,7 @@ namespace DAL.Services
         {
             this.DB = DB;
         }
+
         public bool Add(User user)
         {
             try
@@ -29,31 +29,14 @@ namespace DAL.Services
             }
         }
 
-        public bool Delete(User user)
+        public void Delete(User user)
         {
-            try
-            {
-                DB.Entry(user).State = EntityState.Deleted;
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            DB.Users.Remove(user);
         }
 
-        public bool Delete(int id)
+        public void Delete(int id)
         {
-            try
-            {
-                User usr= this.GetById(id);
-                this.Delete(usr);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            this.Delete(GetById(id));
         }
 
         public void Dispose()
@@ -63,17 +46,32 @@ namespace DAL.Services
 
         public IEnumerable<User> GetAll()
         {
-            return DB.Users.OrderByDescending(c => c.CreateDate).ToList();
+            return DB.Users.ToList();
         }
 
         public User GetById(int id)
         {
-            return this.DB.Users.Find(id);
+            return DB.Users.Find(id);
         }
 
         public User GetByName(string Name)
         {
-            return this.DB.Users.Where(c => c.Name == Name).FirstOrDefault();
+            return DB.Users.Where(c => c.Name==Name).First();
+        }
+
+        public User GetUserById(int id)
+        {
+            return DB.Users.Find(id);
+        }
+
+        public User GetUserByUsernamePassword(string username, string password)
+        {
+            return DB.Users.Where(c => c.Username==username && c.Password==password).First();
+        }
+
+        public bool IsUser(string username, string password)
+        {
+            return DB.Users.Any(c => c.Username==username && c.Password==password);
         }
 
         public void Save()

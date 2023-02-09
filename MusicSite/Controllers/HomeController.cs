@@ -6,10 +6,6 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using DAL;
 using DAL.Context;
-using DAL.Repository;
-using DAL.ViewModels;
-using DAL.Services;
-
 namespace MusicSite.Controllers
 {
     public class HomeController : Controller
@@ -19,14 +15,12 @@ namespace MusicSite.Controllers
         ISongRepository songRepository;
         IAlbumRepository albumRepository;
         IGroupRepository groupRepository;
-        IUserRepository userRepository;
 
         public HomeController()
         {
             songRepository =new SongRepository(DB);
             albumRepository =new AlbumRepository(DB);
             groupRepository =new GroupRepository(DB);
-            userRepository =new UserRepository(DB);
         }
 
         public ActionResult Index()
@@ -127,34 +121,6 @@ namespace MusicSite.Controllers
         {
             return PartialView(songRepository.GetAllSearchView().Where(c => c.SongName.Contains(word) || c.AlbumName.Contains(word) || c.SingerName.Contains(word)).ToList());
         }
-        public ActionResult RegUser(string Name, string Family, string Email, string Phone, string Username, string Password,string type)
-        {
-            User user = new User();
-            if (type == "new")
-            {
-                user.Name = Name;
-                user.Family = Family;
-                user.Phone = Phone;
-                user.Email = Email;
-                user.Username = Username;
-                user.Password = Password;
-                user.Total = 0;
-                user.Type = false;
-                user.CreateDate = DateTime.Now;
-                userRepository.Add(user);
-                userRepository.Save();
-                return PartialView(user);
-            }
-            else
-            {
-                user = userRepository.GetAll().Where(c => c.Username==Username && c.Password==Password).First();
-                if (user != null)
-                {
-                    return PartialView(user);
-                }
-                return false;
-            }
-            
-        }
+        
     }
 }

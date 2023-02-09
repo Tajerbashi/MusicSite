@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginUserController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Extention\Calender.cs" />
     <Compile Include="Global.asax.cs">
@@ -302,7 +303,7 @@
     <Content Include="Views\Comments\AllComment.cshtml" />
     <Content Include="Views\Home\SearchHome.cshtml" />
     <Content Include="Views\Comments\UserLogin.cshtml" />
-    <Content Include="Views\Home\RegUser.cshtml" />
+    <Content Include="Views\LoginUser\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

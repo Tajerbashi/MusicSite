@@ -11,8 +11,6 @@ using System.Web.Routing;
 using System.Xml.Linq;
 using DAL;
 using DAL.Context;
-using DAL.Repository;
-using DAL.Services;
 
 namespace MusicSite.Controllers
 {

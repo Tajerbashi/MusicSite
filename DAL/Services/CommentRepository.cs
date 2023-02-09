@@ -1,5 +1,4 @@
 ﻿using DAL.Context;
-using DAL.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Services
+namespace DAL
 {
     public class CommentRepository:ICommentRepository
     {

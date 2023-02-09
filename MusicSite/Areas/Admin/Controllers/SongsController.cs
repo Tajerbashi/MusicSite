@@ -10,8 +10,6 @@ using System.Web.Mvc;
 using System.Web.UI;
 using DAL;
 using DAL.Context;
-using DAL.Repository;
-using DAL.Services;
 
 namespace MusicSite.Areas.Admin.Controllers
 {

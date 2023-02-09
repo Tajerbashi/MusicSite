@@ -1,6 +1,5 @@
 ﻿using DAL.Context;
-using DAL.Repository;
-using DAL.ViewModels;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace DAL.Services
+namespace DAL
 {
     public class GroupRepository : IGroupRepository
     {

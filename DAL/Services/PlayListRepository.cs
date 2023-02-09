@@ -1,6 +1,5 @@
 ﻿using DAL.Context;
-using DAL.Repository;
-using DAL.ViewModels;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DAL.Services
+namespace DAL
 {
     public class PlayListRepository : IPlayListRepository
     {

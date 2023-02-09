@@ -135,7 +135,7 @@ function UserPanel() {
         loginSubmit.addEventListener("click", () => {
             if ($("#RegPass").val() == $("#RegrPass").val()) {
                 $.ajax({
-                    url: "/Home/RegUser",
+                    url: "/LoginUser/Login",
                     type: "GET",
                     data: {
                         Name: $("#RegName").val(),

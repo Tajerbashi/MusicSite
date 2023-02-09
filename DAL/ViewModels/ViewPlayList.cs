@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.ViewModels
+namespace DAL
 {
     public class ViewPlayList
     {
