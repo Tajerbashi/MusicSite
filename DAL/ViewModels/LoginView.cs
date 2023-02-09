@@ -11,7 +11,9 @@ namespace DAL
     public class LoginView
     {
         [Display(Name ="نام کاربری")]
+        [Required(ErrorMessage ="نام کاربری اشتباه است")]
         public String Username { get; set; }
+        [Required(ErrorMessage = "رمز کاربری اشتباه است")]
         [Display(Name = "رمز کاربری")]
         [DataType(DataType.Password)]
         public String Password { get; set; }

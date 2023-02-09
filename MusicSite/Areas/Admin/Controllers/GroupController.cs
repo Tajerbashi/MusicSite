@@ -11,6 +11,8 @@ using DAL.Context;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
+    [Authorize]
+
     public class GroupController : Controller
     {
         IGroupRepository groupRepository;

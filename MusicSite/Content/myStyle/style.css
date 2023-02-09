@@ -717,20 +717,25 @@ Search Aside Panel
 }
 #LoginForm, #RegForm {
     padding: 1.5rem;
-    width: 45%;
-    height: 550px;
+    width: 30%;
+    height: 600px;
     background: linear-gradient(160deg,rgb(0, 0, 0, 0.40),rgb(0, 0, 0, 0.35));
     border: 1px solid rgb(0, 0, 0, 0.56);
     border-radius: 1rem;
     box-shadow: 0 0 10px 0 black;
     backdrop-filter: blur(10px);
 }
-#LoginForm > span, #RegForm > span {
-    background: #212020;
+@media screen and (max-width: 768px) {
+    #LoginForm, #RegForm {
+        width: 80% !important;
+    }
+}
+#LoginForm > h3, #RegForm > h3 {
+    background: linear-gradient(0deg,rgb(0, 0, 0, 0.8),rgb(55, 55, 55, 0.8));
     color: rgb(255, 166, 0);
-    padding: 0.2rem 5rem;
+    padding: 0.5rem 0;
     border-radius: 10px;
-    box-shadow: 0 0 15px 0 #ff7d00b2 !important;
+    box-shadow: 0 0 15px 0 #000000cc !important;
 
 }
 .LogImg {
@@ -800,5 +805,22 @@ Search Aside Panel
 #loginSubmit, #RegSubmit {
     width: 10rem;
 }
-
+#checkContainer{
+    color: lightblue;
+    width: 100%;
+    text-align: right;
+    margin-top: 5px;
+}
+#loginRem {
+    height: 20px;
+    width: 20px;
+    margin-top: 10px !important;
+}
+#userPanelLogin{
+    cursor: pointer;
+    background: linear-gradient(65deg,#ffcb00,#ffa400);
+    padding: 0.2rem 1rem;
+    width: 150px;
+    margin: 5px 0;
+}
 /*  End Login User Style   */

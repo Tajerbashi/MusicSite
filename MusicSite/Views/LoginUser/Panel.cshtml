@@ -1,0 +1,23 @@
+﻿
+<div class="d-flex flex-column open">
+    <div class="navbar-brand d-flex flex-column align-items-center mt-1">
+        <a class=" text-dark mt-3" href="/Admin/Admins">MusicPlayer.Com</a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h6 id="userPanelLogin" data-username="@User.Identity.Name" class="mt-3 rounded-3">پنل کاربری</h6>
+            <span class="bg-dark bg-gradient text-warning rounded-start px-5 py-2">@User.Identity.Name</span>
+            <a class="bg-danger mt-1 rounded-3 px-3 py-1" href="@Url.Action("Logout","LoginUser")">خروج از حساب</a>
+        }
+        else
+        {
+            <a id="userPanel" class="bg-danger mt-3">ورود به حساب کاربری</a>
+        }
+    </div>
+
+    <div class="search-panel">
+        <div class="search-panel-control rounded-5">
+            <input class="search-word" id="SearchHomeTxt" placeholder="جستجو کنید ..." />
+            <span><i id="SearchHomeIco" class="fa fa-search search-icon-pk"></i></span>
+        </div>
+    </div>
+</div>

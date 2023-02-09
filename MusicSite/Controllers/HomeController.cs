@@ -27,12 +27,7 @@ namespace MusicSite.Controllers
         {
             return View(songRepository.GetAllSongView().OrderByDescending(c => c.Album.CreateDate));
         }
-
-        public ActionResult UserPanel()
-        {
-            return PartialView();
-        }
-
+        
         public ActionResult NavPanel()
         {
             return PartialView();

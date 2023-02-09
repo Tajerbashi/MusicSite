@@ -1,0 +1,21 @@
+﻿@model DAL.LoginView
+<div id="LoginForm" class="col-sm-12 col-md-6 mt-2">
+    <h3>ورود به سایت</h3>
+    <img src="~/Photos/7.jpg" class="rounded-3 img-fluid shadow mt-3 LogImg" style="height: 150px;" />
+    <form class="d-flex flex-column justify-content-center align-items-center mt-3">
+
+        <input id="loginUser" name="loginUser" type="text" class="form-control input-form" placeholder="نام کاربری" maxlength="50" />
+        <input id="loginPass" name="loginPass" type="password" class="form-control input-form" placeholder="رمز کاربری" maxlength="50" />
+
+        <div class="d-flex flex-sm-column flex-md-row justify-content-between">
+            <input id="capchap" name="capchap" type="text" class="form-control input-form w-50" placeholder="عدد را وارد کنید" maxlength="5" />
+            <input id="capchapS" name="capchapS" type="text" class="form-control input-form w-25 text-center" placeholder="#####" disabled style="background: #000 !important;" />
+        </div>
+
+        <div id="checkContainer" class="mx-2">
+            <input id="loginRem" name="loginRem" type="checkbox" class="mx-2" />
+            <label>مرا بخاطر بسپار !</label>
+        </div>
+        <input id="loginSubmit" name="loginSubmit" type="button" class="form-control btn btn-dark text-warning rounded-5 mt-2" value="ورود به حساب" />
+    </form>
+</div>

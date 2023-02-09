@@ -2,14 +2,14 @@
 let navListItem = document.querySelectorAll(".nav-list-item");
 let modalHeaderSite = document.getElementById("modal-header-site");
 let modalHeaderTitle = document.getElementById("modal-header-title");
-let userPanel = document.getElementById("userPanel");
+let userPanel = document.getElementById("userPanel"); 
 let modalBody = document.getElementById("modal-body");
 let BtnComment = document.getElementById("OpenComment"); 
 let SearchHomeTxt = document.getElementById("SearchHomeTxt");
-let SearchHomeIco = document.getElementById("SearchHomeIco");
+let SearchHomeIco = document.getElementById("SearchHomeIco"); 
+let UserPanelLogin = document.getElementById("userPanelLogin"); 
 let RegSubmit;
 let loginSubmit;
-
 
 
 function ModalInfo(Title) {
@@ -108,14 +108,29 @@ function UserPanel() {
     ModalInfo("ورود به حساب کاربری");
 
     console.log("Section Remix Open Clicked");
-    $.get("/Comments/UserLogin", (res) => {
+    $.get("/LoginUser/LoginPanel", (res) => {
+
         $("#modal-body").html(res);
+
         RegSubmit = document.getElementById("RegSubmit"); 
         loginSubmit = document.getElementById("loginSubmit");
+
+        // Register Form
         RegSubmit.addEventListener("click", () => {
-            if ($("#RegPass").val() == $("#RegrPass").val()) {
+            if (
+                (
+                    $("#RegName").val() != "" &&
+                    $("#RegFamily").val() != "" &&
+                    $("#RegPhone").val() != "" &&
+                    $("#RegEmail").val() != "" &&
+                    $("#RegUsername").val() != "" &&
+                    $("#RegrPass").val() != "" &&
+                    $("#RegPass").val() != ""
+                )
+                &&
+                ($("#RegPass").val() === $("#RegrPass").val())) {
                 $.ajax({
-                    url: "/Home/RegUser",
+                    url: "/LoginUser/RegUser",
                     type: "GET",
                     data: {
                         Name: $("#RegName").val(),
@@ -124,37 +139,53 @@ function UserPanel() {
                         Email: $("#RegEmail").val(),
                         Username: $("#RegUsername").val(),
                         Password: $("#RegPass").val()
+                    },
+                    success: function (res) {
+                        $("#modal-body").html(res);
+                        RegSubmit = document.getElementById("RegSubmit");
+                        loginSubmit = document.getElementById("loginSubmit");
+                    },
+                    error: function () {
+                        alert("اطلاعات تکراری است");
                     }
-                }).done(function (res) {
-                    $("#modal-body").html(res);
                 });
             } else {
                 alert("رمز همخوانی ندارد دوباره تلاش کنید");
             }
         });
+
+        //  Login Form
         loginSubmit.addEventListener("click", () => {
-            if ($("#RegPass").val() == $("#RegrPass").val()) {
+            let Rem = document.getElementById("loginRem");
+            console.log($("#loginUser").val());
+            console.log($("#loginPass").val());
+            console.log(typeof Rem.checked);           
+
+            if ($("#loginUser").val() != "" && $("#loginPass").val() != "") {
                 $.ajax({
-                    url: "/LoginUser/Login",
+                    url: "/LoginUser/UserIsLogin",
                     type: "GET",
                     data: {
-                        Name: $("#RegName").val(),
-                        Family: $("#RegFamily").val(),
-                        Phone: $("#RegPhone").val(),
-                        Email: $("#RegEmail").val(),
-                        Username: $("#RegUsername").val(),
-                        Password: $("#RegPass").val()
+                        Username: $("#loginUser").val(),
+                        Password: $("#loginPass").val(),
+                        Remember: Rem.checked
+                    },
+                    success: function (res) {
+                        $("#modal-body").html(res);
+                        RegSubmit = document.getElementById("RegSubmit");
+                        loginSubmit = document.getElementById("loginSubmit");
+                    },
+                    error: function () {
+                        alert("اطلاعات تکراری است");
                     }
-                }).done(function (res) {
-                    $("#modal-body").html(res);
                 });
             } else {
-                alert("رمز همخوانی ندارد دوباره تلاش کنید");
+                 alert("نام کاربری یا رمز کاربری خالی است");
             }
+            
         });
     });
 }
-
 
 modal_container.addEventListener("click", (event) => {
     // console.log(event.target);
@@ -162,15 +193,22 @@ modal_container.addEventListener("click", (event) => {
         modal_container.classList.add("d-none");
     }
 });
+
 userPanel.addEventListener("click", () => {
     UserPanel();
 });
+
 SearchHomeIco.addEventListener("click", () => {
     SearchHome();
 });
+
 SearchHomeTxt.addEventListener("keypress", (event) => {
     if (event.charCode === 13) {
         console.log(event.target.value);
         SearchHome();
     }
+});
+
+UserPanelLogin.addEventListener("click", () => {
+    console.log("Clicked");
 });

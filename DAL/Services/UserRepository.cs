@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,9 +55,9 @@ namespace DAL
             return DB.Users.Find(id);
         }
 
-        public User GetByName(string Name)
+        public User GetByUsername(string Name)
         {
-            return DB.Users.Where(c => c.Name==Name).First();
+            return DB.Users.Where(c => c.Username==Name).FirstOrDefault();
         }
 
         public User GetUserById(int id)
@@ -64,14 +65,21 @@ namespace DAL
             return DB.Users.Find(id);
         }
 
-        public User GetUserByUsernamePassword(string username, string password)
+        public bool GetUserByUsernamePassword(string username, string password)
         {
-            return DB.Users.Where(c => c.Username==username && c.Password==password).First();
+            return DB.Users.Any(c => c.Username == username && c.Password == password);
         }
 
-        public bool IsUser(string username, string password)
+        public bool IsUser(User user)
         {
-            return DB.Users.Any(c => c.Username==username && c.Password==password);
+            return DB.Users.Any(
+                c => 
+                (c.Username == user.Username && c.Password == user.Password)
+                  ||
+                c.Email== user.Email
+                  ||
+                c.Phone== user.Phone
+                  );
         }
 
         public void Save()

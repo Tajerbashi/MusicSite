@@ -11,14 +11,14 @@ namespace DAL
     {
         bool Add(User user);
         bool Update(User user);
-        bool IsUser(string username, string password);
+        bool IsUser(User user);
         void Save();
         User GetUserById(int id);
-        User GetUserByUsernamePassword(string username, string password);
+        bool GetUserByUsernamePassword(string username, string password);
         void Delete(User user);
         void Delete(int id);
         IEnumerable<User> GetAll();
         User GetById(int id);
-        User GetByName(string Name);
+        User GetByUsername(string Name);
     }
 }

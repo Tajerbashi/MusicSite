@@ -12,6 +12,8 @@ using DAL.Context;
 
 namespace MusicSite.Areas.Admin.Controllers
 {
+    [Authorize]
+
     public class AlbumsController : Controller
     {
         private DbContexts db = new DbContexts();

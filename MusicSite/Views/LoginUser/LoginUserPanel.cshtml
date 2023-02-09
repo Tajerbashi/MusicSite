@@ -1,4 +1,5 @@
-﻿@model DAL.LoginView
+﻿
+@model DAL.User
 <div class="container-fluid d-flex flex-row justify-content-between">
     <div class="row w-25">
         <div class="col-12">
@@ -10,7 +11,10 @@
     </div>
     <div class="row w-75">
         <div id="userPanelLogin" class="col-12">
-
+            This is the User Login Name: @User.Identity.Name
+            @Model.Username
+            <hr />
+            @Model.Password
         </div>
     </div>
 </div>
