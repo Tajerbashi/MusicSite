@@ -101,6 +101,7 @@ namespace MusicSite.Controllers
                     user.Password = Pass;
                 }
                 userRepository.Update(user);
+                FormsAuthentication.SetAuthCookie(user.Username, true);
                 userRepository.Save();
             }
             return Redirect("/");

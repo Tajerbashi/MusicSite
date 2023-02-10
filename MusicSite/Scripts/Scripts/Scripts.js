@@ -198,7 +198,25 @@ function ChangeCapchapNumber() {
         capchapS.setAttribute("placeholder", number);
     },120000);
 }
-
+function ShowInfomation(id) {
+    $.ajax({
+        url: "/LoginUser/UserPanelBodyShowInfo",
+        type: "GET",
+        data: { id: id }
+    }).done(function (res) {
+        $("#bodyPanelSwitch").html(res);
+    });
+}
+function ShowCard(id) {
+    $.ajax({
+        url: "/LoginUser/UserPanelBodyShowCard",
+        type: "GET",
+        data: { id: id }
+    }).done(function (res) {
+        $("#bodyPanelSwitch").html(res);
+    });
+    
+}
 modal_container.addEventListener("click", (event) => {
     // console.log(event.target);
     if (event.target.getAttribute("id") === "modal-container" || event.target.classList.contains("fa-close")) {

@@ -1,12 +1,12 @@
 ﻿
 <div class="d-flex flex-column open">
     <div class="navbar-brand d-flex flex-column align-items-center mt-1">
-        <a class=" text-dark mt-3" href="/Admin/Admins">MusicPlayer.Com</a>
+        <a class="bg-gradient bg-warning text-dark rounded-2 shadow text-center mt-3 p-2" href="/Admin/Admins">MusicPlayer.Com</a>
         @if (User.Identity.IsAuthenticated)
         {
             <div class="d-flex flex-row justify-content-between w-100 px-4">
                 <span id="userPanelLogin" onclick="OpenUserPanel(event)" data-user="@User.Identity.Name" class="userPanelLogin rounded-2 shadow ">پنل کاربری</span>
-                <span class="userPanelLogin w-50 bg-gradient rounded-2 shadow">@User.Identity.Name</span>
+                <span class="userPanelLogin w-25 bg-gradient bg-dark text-warning rounded-2 shadow">@User.Identity.Name</span>
                 <a class="userPanelLogin bg-danger bg-gradient text-light rounded-5" href="@Url.Action("Logout","LoginUser")">خروج از حساب</a>
             </div>
         }
