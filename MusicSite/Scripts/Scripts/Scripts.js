@@ -127,6 +127,7 @@ function LoginUser() {
                 },
                 success: function (res) {
                     $("#modal-body").html(res);
+                    ChangeCapchapNumber();
                 },
                 error: function () {
                     alert("اطلاعات تکراری است");
@@ -184,6 +185,7 @@ function OpenUserPanel(event) {
     ModalInfo(`حساب کاریری ${username}`);
     $.get("/LoginUser/LoginUserPanel/"+ username, (res) => {
         $("#modal-body").html(res);
+        ChangeCapchapNumber();
     });
 }
 function ChangeCapchapNumber() {

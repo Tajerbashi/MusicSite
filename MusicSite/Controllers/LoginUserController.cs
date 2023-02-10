@@ -8,6 +8,7 @@ using System.Data.Entity;
 using DAL.Context;
 using System.Web.Security;
 using Microsoft.Ajax.Utilities;
+using System.IO;
 
 namespace MusicSite.Controllers
 {
@@ -77,5 +78,48 @@ namespace MusicSite.Controllers
         {
             return PartialView(userRepository.GetByUsername(username));
         } 
+        // POST: Admin/Songs/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateUser([Bind(Include = "userId,Name,Family,Phone,Email,Username,Password,Photo,Type,Total")] User user,String Pass, HttpPostedFileBase photoUp)
+        {
+            if (ModelState.IsValid)
+            {
+                if (photoUp != null)
+                {
+                    if (user.Photo != null)
+                    {
+                        System.IO.File.Delete(Server.MapPath("/Files/User/" + user.Photo));
+                    }
+                    user.Photo = Guid.NewGuid() + Path.GetExtension(photoUp.FileName);
+                    photoUp.SaveAs(Server.MapPath("/Files/User/" + user.Photo));
+                }
+                if (Pass != user.Password && Pass.Count()>5)
+                {
+                    user.Password = Pass;
+                }
+                userRepository.Update(user);
+                userRepository.Save();
+            }
+            return Redirect("/");
+        }
+        public ActionResult UserPanelAside(int id)
+        {            
+            return PartialView(userRepository.GetById(id));
+        }
+        public ActionResult UserPanelBodyShowInfo(int id)
+        {
+            return PartialView(userRepository.GetById(id));
+        }
+        public ActionResult UserPanelBodyShowCard(int id)
+        {
+            return PartialView(userRepository.GetById(id));
+        }
+        public ActionResult UserPanelSlider(int id)
+        {
+            return PartialView(userRepository.GetById(id));
+        }
     }
 }

@@ -306,6 +306,10 @@
     <Content Include="Views\LoginUser\RegisterForm.cshtml" />
     <Content Include="Views\LoginUser\Panel.cshtml" />
     <Content Include="Views\LoginUser\LoginUserPanel.cshtml" />
+    <Content Include="Views\LoginUser\UserPanelAside.cshtml" />
+    <Content Include="Views\LoginUser\UserPanelSlider.cshtml" />
+    <Content Include="Views\LoginUser\UserPanelBodyShowInfo.cshtml" />
+    <Content Include="Views\LoginUser\UserPanelBodyShowCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

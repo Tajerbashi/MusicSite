@@ -1,0 +1,14 @@
+﻿@model DAL.User
+
+<div id="user-panel-aside" class="col-4">
+    <img src="~/Files/User/@Model.Photo" class="img-fluid shadow rounded-5 my-3" style="height: 300px;" />
+    <span class="bg-dark bg-gradient text-warning w-100 mx-1 py-2 rounded-3">@Model.Name @Model.Family</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2" style="font-size: 0.8rem;">@Model.Email</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">@Model.Username</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">@Model.Phone</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">وضعیت : @(Model.Type ? "فعال" : "غیر فعال")</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">خرید : @Model.Total.ToString("N")</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2"> ورود : @Model.CreateDate.PersionCalender()</span>
+    <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">@Model.Phone</span>
+
+</div>
