@@ -7,36 +7,88 @@
             <a class="user-panel-item mt-1">سبد سفارش</a>
         </div>
     </div>
-    <div class="row">
-        <div id="user-panel-body" class="col-12 rounded-2">
-            <img src="~/Files/User/@Model.Photo" class="img-fluid shadow rounded-2 mt-2" style="width: 250px;" />
-            <div id="panel-body" class="container d-flex flex-row justify-content-end mt-5">
-                <div class="row w-25">
-                    <ul class="text-end">
-                        <li>نام : </li>
-                        <li>فامیل : </li>
-                        <li>تلفن : </li>
-                        <li>ایمیل : </li>
-                        <li>نام کاربری : </li>
-                        <li>رمز کاربری : </li>
-                        <li>وضعیت : </li>
-                        <li>مجموعه خرید : </li>
-                        <li>تاریخ عضویت : </li>
-                    </ul>
-                </div>
-                <div class="row w-75">
-                    <ul class="text-start">
-                        <li>@Model.Name</li>
-                        <li>@Model.Family</li>
-                        <li>@Model.Phone</li>
-                        <li>@Model.Email</li>
-                        <li>@Model.Username</li>
-                        <li>@Model.Password</li>
-                        <li>@(Model.Type ? "فعال" : "غیرفعال")</li>
-                        <li>@Model.Total.ToString("N")</li>
-                        <li>@Model.CreateDate.ToString("yyyy/MM/dddd   hh:mm:ss")</li>
-                    </ul>
-                </div>
+    <div class="row mt-3" id="panel-body">
+        <div id="user-panel-aside" class="col-4">
+            <img src="~/Files/User/@Model.Photo" class="img-fluid shadow rounded-5 my-3" style="height: 300px;"/>
+            <span class="bg-dark bg-gradient text-warning w-100 mx-1 py-2 rounded-3">@Model.Name @Model.Family</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2" style="font-size: 0.8rem;">@Model.Email</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">@Model.Username</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">@Model.Phone</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">وضعیت : @(Model.Type ? "فعال" : "غیر فعال")</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">خرید : @Model.Total.ToString("N")</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2"> ورود : @Model.CreateDate.PersionCalender()</span>
+            <span class="bg-dark bg-gradient text-light w-100 mx-1 py-1 rounded-1 mt-2">@Model.Phone</span>
+
+        </div>
+        <div id="user-panel-body" class="col-8">
+            <div id="infoBody" class="">
+                
+            </div>
+            <div class="mt-5 p-2">
+                @using (Html.BeginForm("Create", "Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal text-center">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control FT" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Family, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                @Html.EditorFor(model => model.Family, new { htmlAttributes = new { @class = "form-control FT" } })
+                                @Html.ValidationMessageFor(model => model.Family, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control FT" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control FT" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control FT" } })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control FT" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group d-flex flex-row mt-1">
+                            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-2 lbl" })
+                            <div class="col-10">
+                                <input type="file" class="form-control FT" name="photoUp" />
+                                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group d-flex flex-row mt-3 align-items-center justify-content-center">
+                            <input type="submit" value="ذخیره" class="btn btn-warning text-dark w-100" />
+                        </div>
+
+                    </div>
+                }
+
             </div>
         </div>
     </div>
