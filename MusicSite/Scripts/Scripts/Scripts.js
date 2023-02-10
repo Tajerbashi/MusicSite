@@ -224,9 +224,7 @@ modal_container.addEventListener("click", (event) => {
     }
 });
 
-userPanel.addEventListener("click", () => {
-    UserPanel();
-});
+
 
 SearchHomeIco.addEventListener("click", () => {
     SearchHome();
@@ -234,7 +232,10 @@ SearchHomeIco.addEventListener("click", () => {
 
 SearchHomeTxt.addEventListener("keypress", (event) => {
     if (event.charCode === 13) {
-        console.log(event.target.value);
+        //console.log(event.target.value);
         SearchHome();
     }
+});
+userPanel.addEventListener("click", () => {
+    UserPanel();
 });
