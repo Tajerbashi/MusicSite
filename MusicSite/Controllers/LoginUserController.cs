@@ -65,8 +65,9 @@ namespace MusicSite.Controllers
                 userRepository.Add(user);
                 userRepository.Save();
                 FormsAuthentication.SetAuthCookie(user.Username, false);
+                return RedirectToAction("LoginUserPanel",new { username = user.Username });
             }
-            return RedirectToAction("LoginUserPanel",new { username = user.Username });
+            return HttpNotFound();
         }
         public ActionResult Logout()
         {
